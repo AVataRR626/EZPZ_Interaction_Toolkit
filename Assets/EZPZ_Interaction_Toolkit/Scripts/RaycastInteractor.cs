@@ -19,7 +19,7 @@ public class RaycastInteractor : MonoBehaviour
 
     [Header("System Stuff (do not touch, usually)")]
     public InteractableGeneral subject;
-    public InteractableGeneral prevSubject;
+    public InteractableGeneral prevHitSubject;
     public InteractableGeneral hitSubject;
     public bool interactState = false;
     public bool prevInteractState = false;
@@ -37,8 +37,7 @@ public class RaycastInteractor : MonoBehaviour
 
         HandleRaycastInteractions();
 
-
-        prevSubject = subject;
+        prevHitSubject = hitSubject;
         prevInteractState = interactState;
         interactState = false;
     }
@@ -60,8 +59,8 @@ public class RaycastInteractor : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
-            //Debug.DrawRay(rayPointer.position, rayPointer.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            //Debug.Log("Did Hit " + hit.collider.name);
+            Debug.DrawRay(rayPointer.position, rayPointer.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            Debug.Log("Did Hit " + hit.collider.name);
 
             hitSubject = hit.collider.gameObject.GetComponent<InteractableGeneral>();
 
@@ -70,7 +69,7 @@ public class RaycastInteractor : MonoBehaviour
                 subject = hitSubject;
                 OnClickableHover();
 
-                if(subject != prevSubject)
+                if(subject != prevHitSubject)
                 {
                     subject.onHoverEnter.Invoke();
                 }
@@ -89,6 +88,15 @@ public class RaycastInteractor : MonoBehaviour
             }
             else
             {
+
+                if (subject != null)
+                {
+                    if (prevHitSubject == subject)
+                    {
+                        subject.onHoverExit.Invoke();
+                    }
+                }
+
                 OnNoClickable();
             }
 
