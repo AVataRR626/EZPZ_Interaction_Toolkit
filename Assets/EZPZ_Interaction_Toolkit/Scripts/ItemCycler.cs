@@ -25,13 +25,12 @@ public class ItemCycler : MonoBehaviour
     public void ActivateCurrentItem()
     {
         itemIndex = Mathf.Clamp(itemIndex, 0, items.Length - 1);
-
-        DisableAllItems();
         ActivateItem(itemIndex);
     }
 
     public void ActivateItem(int i)
     {
+        DisableAllItems();
         items[i].SetActive(true);
     }
 
