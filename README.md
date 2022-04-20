@@ -1,12 +1,10 @@
 # Overview
 Quick prototyping interaction toolkit intended for non coders
 
-Quick, 23 minute video guide below:
-https://youtu.be/mIoewQ2zQBI
+Quick, 23 minute video guide below: https://youtu.be/mIoewQ2zQBI
 
 # Licensing Info
-by Matt Cabanag
-https://www.linkedin.com/in/mattavc/
+by Matt Cabanag https://www.linkedin.com/in/mattavc/
 
 MIT License:
 Copyright 2022, Matt Cabanag
