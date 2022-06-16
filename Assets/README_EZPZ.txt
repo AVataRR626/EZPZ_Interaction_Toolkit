@@ -17,3 +17,5 @@ Above copyright notice does not include the dependencies used below:
 3rd Party Assets Used:
 https://assetstore.unity.com/packages/essentials/starter-assets-first-person-character-controller-196525
 https://www.clipartmax.com/download/m2i8H7G6d3K9N4N4_the-mouse-cursor-click-icon-shown-click-icon/
+https://www.pexels.com/photo/brown-brick-wall-1227515/
+https://www.pexels.com/photo/person-holding-white-and-black-frame-4065183/
