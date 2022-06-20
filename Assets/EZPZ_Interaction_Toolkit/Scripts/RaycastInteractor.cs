@@ -44,7 +44,7 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnFire()
     {
-        Debug.Log("OnFir");
+        Debug.Log("OnFire");
         ForceInteract();
     }
 
