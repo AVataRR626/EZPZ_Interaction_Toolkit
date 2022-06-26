@@ -9,22 +9,76 @@ using UnityEngine.Events;
 
 public class InteractableTrigger : MonoBehaviour
 {
+    [Header("Events")]
     public UnityEvent onTriggerEnter;
     public UnityEvent onTriggerExit;
     public UnityEvent onTriggerStay;
 
+    [Header("Cooldown Management")]
+    public bool triggerActive = true;
+    public float cooldown = 0.25f;
+    public float cooldownClock;    
+
+    private void OnEnable()
+    {
+        triggerActive = false;
+        Invoke("TriggerActive", 0.1f);
+    }
+
+    private void FixedUpdate()
+    {
+        if (cooldownClock > 0)
+        {
+            cooldownClock -= Time.fixedDeltaTime;
+            triggerActive = false;
+        }
+        else
+        {   
+            TriggerActive();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        onTriggerEnter.Invoke();
+        if (triggerActive)
+        {
+            onTriggerEnter.Invoke();
+            SetCooldown();
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        onTriggerExit.Invoke();
+        if (triggerActive)
+        {
+            onTriggerExit.Invoke();
+            SetCooldown();
+        }
+
+        
     }
 
+    
     private void OnTriggerStay(Collider other)
     {
-        onTriggerStay.Invoke();
+        if (triggerActive)
+        {
+            onTriggerStay.Invoke();
+            SetCooldown();
+        }
+    }
+    
+
+    public void TriggerActive()
+    {
+        cooldownClock = 0;
+        triggerActive = true;
+    }
+
+    public void SetCooldown()
+    {
+        cooldownClock = cooldown;
+        triggerActive = false;
     }
 }

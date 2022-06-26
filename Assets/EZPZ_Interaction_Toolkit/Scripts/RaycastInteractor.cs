@@ -44,7 +44,7 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnFire()
     {
-        Debug.Log("OnFire");
+        //Debug.Log("OnFire");
         ForceInteract();
     }
 
@@ -60,7 +60,7 @@ public class RaycastInteractor : MonoBehaviour
         if (Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(rayPointer.position, rayPointer.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit " + hit.collider.name);
+            //Debug.Log("Did Hit " + hit.collider.name);
 
             hitSubject = hit.collider.gameObject.GetComponent<InteractableGeneral>();
 
