@@ -161,6 +161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subject: {fileID: 997725072}
   destination: {fileID: 134307545}
+  activaitonDelay: 0.25
+  cooldown: 0.25
+  cooldownClock: 0
 --- !u!23 &134307543
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1964,6 +1967,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6953476617054683852, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772526916590547685, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
+      propertyPath: cooldown
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7772526916590547685, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}

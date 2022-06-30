@@ -20,3 +20,5 @@ Above copyright notice does not include the dependencies used below:
 *https://www.pexels.com/photo/brown-brick-wall-1227515/
 *https://www.pexels.com/photo/person-holding-white-and-black-frame-4065183/
 *https://unsplash.com/photos/2JONUbTfN38
+*https://freesound.org/people/sandyrb/sounds/105348/
+*https://freesound.org/people/kwahmah_02/sounds/275072/

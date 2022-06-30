@@ -16,7 +16,7 @@ public class InteractableTrigger : MonoBehaviour
 
     [Header("Cooldown Management")]
     public bool triggerActive = true;
-    public float cooldown = 0.25f;
+    public float cooldown = 0f;
     public float cooldownClock;    
 
     private void OnEnable()
