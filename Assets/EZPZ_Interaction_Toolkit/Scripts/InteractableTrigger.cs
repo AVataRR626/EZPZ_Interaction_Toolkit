@@ -1,6 +1,6 @@
 //EZPZ Interaction Toolkit
 //by Matt Cabanag
-//created 21 Jul 2022
+//created 21 Jun 2022
 
 using System.Collections;
 using System.Collections.Generic;
@@ -15,70 +15,44 @@ public class InteractableTrigger : MonoBehaviour
     public UnityEvent onTriggerStay;
 
     [Header("Cooldown Management")]
-    public bool triggerActive = true;
-    public float cooldown = 0f;
-    public float cooldownClock;    
+    public bool triggerActive = true;    
 
     private void OnEnable()
     {
         triggerActive = false;
         Invoke("TriggerActive", 0.1f);
     }
-
-    private void FixedUpdate()
-    {
-        if (cooldownClock > 0)
-        {
-            cooldownClock -= Time.fixedDeltaTime;
-            triggerActive = false;
-        }
-        else
-        {   
-            TriggerActive();
-        }
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
         if (triggerActive)
         {
-            onTriggerEnter.Invoke();
-            SetCooldown();
+            onTriggerEnter.Invoke();            
         }
         
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (triggerActive)
-        {
-            onTriggerExit.Invoke();
-            SetCooldown();
-        }
-
-        
+        onTriggerExit.Invoke();        
     }
 
     
     private void OnTriggerStay(Collider other)
     {
-        if (triggerActive)
-        {
-            onTriggerStay.Invoke();
-            SetCooldown();
-        }
+        onTriggerStay.Invoke();
     }
     
 
     public void TriggerActive()
     {
-        cooldownClock = 0;
         triggerActive = true;
     }
 
     public void SetCooldown()
     {
-        cooldownClock = cooldown;
+     
         triggerActive = false;
     }
 }
