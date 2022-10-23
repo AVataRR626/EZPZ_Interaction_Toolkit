@@ -12,17 +12,20 @@ public class RaycastInteractor : MonoBehaviour
     [Header("Primary Settings")]
     public Transform rayPointer;
     public LayerMask layerMask;
+    public LayerMask environmentLayer;
 
     [Header("User Feedback")]
     public GameObject clickableIndicator;
     public GameObject aimingCrosshair;
+    public Transform environmentHit;
 
     [Header("System Stuff (do not touch, usually)")]
     public InteractableGeneral subject;
     public InteractableGeneral prevHitSubject;
     public InteractableGeneral hitSubject;
+    public Movable moveSubject;
     public bool interactState = false;
-    public bool prevInteractState = false;
+    public bool prevInteractState = false;        
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,7 @@ public class RaycastInteractor : MonoBehaviour
     {
         //interactState = Key
 
+        HandleEnvironmentRaycast();
         HandleRaycastInteractions();
 
         prevHitSubject = hitSubject;
@@ -54,6 +58,20 @@ public class RaycastInteractor : MonoBehaviour
         interactState = true;
     }
 
+    public void HandleEnvironmentRaycast()
+    {
+        if(environmentHit != null)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, environmentLayer))
+            {
+                if (environmentHit != null)
+                    environmentHit.position = hit.point;
+
+            }
+        }
+    }
+
     public void HandleRaycastInteractions()
     {
         RaycastHit hit;
@@ -62,48 +80,75 @@ public class RaycastInteractor : MonoBehaviour
             Debug.DrawRay(rayPointer.position, rayPointer.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             //Debug.Log("Did Hit " + hit.collider.name);
 
-            hitSubject = hit.collider.gameObject.GetComponent<InteractableGeneral>();
-
-            if (hitSubject != null)
-            {
-                subject = hitSubject;
-                OnClickableHover();
-
-                if(subject != prevHitSubject)
-                {
-                    subject.onHoverEnter.Invoke();
-                }
-
-                if (interactState && !prevInteractState)
-                {
-                    subject.onFirstInteract.Invoke();
-                }
-
-                /*
-                if(interactState && interactState == prevInteractState)
-                {
-                    //subject.onHoldInteract.Invoke();
-                }
-                */
-            }
-            else
-            {
-
-                if (subject != null)
-                {
-                    if (prevHitSubject == subject)
-                    {
-                        subject.onHoverExit.Invoke();
-                    }
-                }
-
-                OnNoClickable();
-            }
+            HandleInteractables(ref hit);
 
         }
         else
         {
             OnNoClickable();
+        }
+    }
+
+    void HandleInteractables(ref RaycastHit hit)
+    {
+        hitSubject = hit.collider.gameObject.GetComponent<InteractableGeneral>();
+
+        if (hitSubject != null)
+        {
+            subject = hitSubject;
+            OnClickableHover();
+
+            if (subject != prevHitSubject)
+            {
+                subject.onHoverEnter.Invoke();
+            }
+
+            if (interactState && !prevInteractState)
+            {
+                subject.onFirstInteract.Invoke();
+                HandleMovables(subject);
+            }
+
+            /*
+            if(interactState && interactState == prevInteractState)
+            {
+                //subject.onHoldInteract.Invoke();
+            }
+            */
+        }
+        else
+        {
+
+            if (subject != null)
+            {
+                if (prevHitSubject == subject)
+                {
+                    subject.onHoverExit.Invoke();
+                }
+            }
+
+            OnNoClickable();
+        }
+    }
+
+    void HandleMovables(InteractableGeneral hitSubject)
+    {
+        moveSubject = hitSubject.GetComponent<Movable>();
+
+        if (moveSubject != null)
+        {
+            if (!moveSubject.moving)
+            {
+                moveSubject.moving = true;
+                moveSubject.transform.position = environmentHit.position;
+                moveSubject.transform.parent = environmentHit;
+            }
+            else
+            {
+                moveSubject.moving = false;
+                moveSubject.transform.position = environmentHit.position;
+                moveSubject.transform.parent = null;
+            }
         }
     }
 
