@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1176190396630199828}
   - component: {fileID: 4886718194101304893}
   - component: {fileID: 8779880291899443578}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Backrest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,13 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4184017629981856160}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.32, y: 0.59, z: 0}
-  m_LocalScale: {x: 0.34962, y: 1, z: 1}
+  m_LocalRotation: {x: 0.000000020489091, y: 0.000000029802315, z: 0.0481484, w: 0.9988402}
+  m_LocalPosition: {x: -0.42, y: 0.95, z: -0}
+  m_LocalScale: {x: 0.21807124, y: 1.0866693, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6928956202979242018}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.52}
 --- !u!33 &1176190396630199828
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -52,6 +53,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -60,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 4ee24d144a3b0b040bc47ed8e6e68e64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,7 +109,7 @@ GameObject:
   - component: {fileID: 6928956202979242017}
   - component: {fileID: 6928956202979242016}
   - component: {fileID: 6928956202979242023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Couch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +125,8 @@ Transform:
   m_GameObject: {fileID: 6928956202979242022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.19, y: 3.02, z: 1.655714}
-  m_LocalScale: {x: 1.8897, y: 1, z: 3.9467}
+  m_LocalScale: {x: 1.8897, y: 0.69877, z: 3.9467}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4621571279429973141}
   m_Father: {fileID: 0}
@@ -148,6 +151,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -156,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 4ee24d144a3b0b040bc47ed8e6e68e64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
