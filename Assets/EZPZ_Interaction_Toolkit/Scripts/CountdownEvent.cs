@@ -13,6 +13,7 @@ public class CountdownEvent : MonoBehaviour
     [Header("Clock Parameters")]
     public float startingTime;
     public float clock;
+    public bool looping = false;
     public UnityEvent onClockZero;
 
     [Header("Display Parameters")]
@@ -49,6 +50,11 @@ public class CountdownEvent : MonoBehaviour
                 }
 
                 clock = 0;
+
+                if(looping)
+                {
+                    Reset();
+                }
             }
         }
         
