@@ -13,4 +13,9 @@ public class InteractableGeneral : MonoBehaviour
     public UnityEvent onHoverEnter;
     public UnityEvent onHoverExit;
     //public UnityEvent onHoldInteract;
+
+    public void LoadScene(string newScene)
+    {
+        GenUtils.LoadScene(newScene);
+    }
 }

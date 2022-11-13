@@ -25,12 +25,23 @@ public class RaycastInteractor : MonoBehaviour
     public InteractableGeneral hitSubject;
     public Movable moveSubject;
     public bool interactState = false;
-    public bool prevInteractState = false;        
+    public bool prevInteractState = false;
+    public Renderer hitIndicatorRenderer;
     // Start is called before the first frame update
     void Start()
     {
         if (rayPointer == null)
             rayPointer = transform;
+
+        if (environmentHit != null)
+        {
+            hitIndicatorRenderer = environmentHit.GetComponent<Renderer>();
+
+            if (hitIndicatorRenderer != null)
+            {
+                hitIndicatorRenderer.enabled = true;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -156,12 +167,28 @@ public class RaycastInteractor : MonoBehaviour
     {
         clickableIndicator.SetActive(false);
         aimingCrosshair.SetActive(true);
+
+        if(environmentHit != null)
+        {
+            if (hitIndicatorRenderer != null)
+            {
+                hitIndicatorRenderer.enabled = true;
+            }
+        }
     }
 
     public void OnClickableHover()
     {
         clickableIndicator.SetActive(true);
         aimingCrosshair.SetActive(false);
+
+        if (environmentHit != null)
+        {
+            if (hitIndicatorRenderer != null)
+            {
+                hitIndicatorRenderer.enabled = false;
+            }
+        }
 
     }
 }
