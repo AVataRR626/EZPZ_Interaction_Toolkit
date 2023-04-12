@@ -16,6 +16,8 @@ public class ItemCycler : MonoBehaviour
 
     [Header("Event Management")]
     public bool loopCycle = true;
+    public bool exclusiveMode = true;
+    public bool cascadeMode = false;
     public UnityEvent onNextItem;
     public UnityEvent onPrevItem;
     public UnityEvent onChangeItem;
@@ -44,10 +46,29 @@ public class ItemCycler : MonoBehaviour
         ActivateItem(itemIndex);
     }
 
-    public void ActivateItem(int i)
+    public void ActivateItem(int index)
     {
-        DisableAllItems();
-        items[i].SetActive(true);
+        itemIndex = index;
+
+        if(exclusiveMode)
+            DisableAllItems();
+
+        if (cascadeMode)
+        {
+            
+            DisableAllItems();
+
+            Debug.Log("cascadeMode");
+
+            for (int i = 0; i < index; i++)
+            {
+                if (items[i] != null)
+                    items[i].SetActive(true);
+            }
+        }
+    
+
+        items[index].SetActive(true);
     }
 
     public void NextItem()
@@ -98,6 +119,12 @@ public class ItemCycler : MonoBehaviour
         onPrevItem.Invoke();
         onChangeItem.Invoke();
 
+        ActivateCurrentItem();
+    }
+
+    public void SetExclusiveMode(bool newMode)
+    {
+        exclusiveMode = newMode;
         ActivateCurrentItem();
     }
 }
