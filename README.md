@@ -3,6 +3,10 @@ Quick prototyping interaction toolkit intended for non coders
 
 Quick, 23 minute video guide below: https://youtu.be/mIoewQ2zQBI
 
+If you have downloaded this prior to 14 Apr 2023, you can update your project to the latest version by installing the following UnityPackage:
+
+https://squarestorm.com/lab/ezpz_interaction_toolkit/EZPZ_package_update_2023_04_14.unitypackage
+
 # Licensing Info
 by Matt Cabanag https://www.linkedin.com/in/mattavc/
 
@@ -25,4 +29,7 @@ Above copyright notice does not include the dependencies used below:
 *https://www.pexels.com/photo/person-holding-white-and-black-frame-4065183/
 *https://unsplash.com/photos/2JONUbTfN38
 *https://freesound.org/people/sandyrb/sounds/105348/
+
+Google images for:
+Peppa Pig, Gundam, Elmo, Doraemon, Poo plush toy
 *https://freesound.org/people/kwahmah_02/sounds/275072/
