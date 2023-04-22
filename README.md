@@ -3,9 +3,9 @@ Quick prototyping interaction toolkit intended for non coders
 
 Quick, 23 minute video guide below: https://youtu.be/mIoewQ2zQBI
 
-If you have downloaded this prior to 14 Apr 2023, you can update your project to the latest version by installing the following UnityPackage:
+If you have downloaded this prior to 22 Apr 2023, you can update your project to the latest version by installing the following UnityPackage:
 
-https://squarestorm.com/lab/ezpz_interaction_toolkit/EZPZ_package_update_2023_04_14.unitypackage
+https://squarestorm.com/lab/ezpz_interaction_toolkit/EZPZ_package_update_2023_04_22.unitypackage
 
 # Licensing Info
 by Matt Cabanag https://www.linkedin.com/in/mattavc/
@@ -23,13 +23,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Above copyright notice does not include the dependencies used below:
 
 3rd Party Assets Used:
-*https://assetstore.unity.com/packages/essentials/starter-assets-first-person-character-controller-196525
-*https://www.clipartmax.com/download/m2i8H7G6d3K9N4N4_the-mouse-cursor-click-icon-shown-click-icon/
-*https://www.pexels.com/photo/brown-brick-wall-1227515/
-*https://www.pexels.com/photo/person-holding-white-and-black-frame-4065183/
-*https://unsplash.com/photos/2JONUbTfN38
-*https://freesound.org/people/sandyrb/sounds/105348/
+* https://assetstore.unity.com/packages/essentials/starter-assets-first-person-character-controller-196525
+* https://www.clipartmax.com/download/m2i8H7G6d3K9N4N4_the-mouse-cursor-click-icon-shown-click-icon/
+* https://www.pexels.com/photo/brown-brick-wall-1227515/
+* https://www.pexels.com/photo/person-holding-white-and-black-frame-4065183/
+* https://unsplash.com/photos/2JONUbTfN38
+* https://freesound.org/people/sandyrb/sounds/105348/
 
 Google images for:
 Peppa Pig, Gundam, Elmo, Doraemon, Poo plush toy
-*https://freesound.org/people/kwahmah_02/sounds/275072/
+* https://freesound.org/people/kwahmah_02/sounds/275072/
