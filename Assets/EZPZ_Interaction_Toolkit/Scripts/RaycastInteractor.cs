@@ -112,6 +112,9 @@ public class RaycastInteractor : MonoBehaviour
             if (subject != prevHitSubject)
             {
                 subject.onHoverEnter.Invoke();
+
+                if(prevHitSubject != null)
+                    prevHitSubject.onHoverExit.Invoke();
             }
 
             if (interactState && !prevInteractState)
@@ -129,15 +132,6 @@ public class RaycastInteractor : MonoBehaviour
         }
         else
         {
-
-            if (subject != null)
-            {
-                if (prevHitSubject == subject)
-                {
-                    subject.onHoverExit.Invoke();
-                }
-            }
-
             OnNoClickable();
         }
     }
@@ -175,6 +169,12 @@ public class RaycastInteractor : MonoBehaviour
                 hitIndicatorRenderer.enabled = true;
             }
         }
+
+        if(prevHitSubject != null)
+            prevHitSubject.onHoverExit.Invoke();
+
+        if (hitSubject != null)
+            hitSubject.onHoverExit.Invoke();
     }
 
     public void OnClickableHover()
