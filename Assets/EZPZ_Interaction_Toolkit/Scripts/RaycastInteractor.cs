@@ -27,6 +27,7 @@ public class RaycastInteractor : MonoBehaviour
     public bool interactState = false;
     public bool prevInteractState = false;
     public Renderer hitIndicatorRenderer;
+    Rigidbody subjectRbody;
     // Start is called before the first frame update
     void Start()
     {
@@ -145,13 +146,31 @@ public class RaycastInteractor : MonoBehaviour
             if (!moveSubject.moving)
             {
                 moveSubject.moving = true;
-                moveSubject.transform.position = environmentHit.position;
-                moveSubject.transform.parent = environmentHit;
+
+                if (moveSubject.groundPlace)
+                {
+                    moveSubject.transform.position = environmentHit.position;
+                    moveSubject.transform.parent = environmentHit;
+                }
+                else
+                {                    
+                    //moveSubject.transform.position = rayPointer.forward * 0.5f;
+                    moveSubject.transform.parent = rayPointer;
+
+                    subjectRbody = moveSubject.GetComponent<Rigidbody>();
+                    if(subjectRbody != null)
+                    {
+                        subjectRbody.useGravity = false;
+                    }
+                }
             }
             else
             {
                 moveSubject.moving = false;
-                moveSubject.transform.position = environmentHit.position;
+
+                if (subjectRbody != null)
+                    subjectRbody.useGravity = true;
+
                 moveSubject.transform.parent = null;
             }
         }
