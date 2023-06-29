@@ -3,9 +3,9 @@ Quick prototyping interaction toolkit intended for non coders
 
 Quick, 23 minute video guide below: https://youtu.be/mIoewQ2zQBI
 
-If you have downloaded this prior to 17 Jun 2023, you can update your project to the latest version by installing the following UnityPackage:
+If you have downloaded this prior to 29 Jun 2023, you can update your project to the latest version by installing the following UnityPackage:
 
-https://squarestorm.com/lab/ezpz_interaction_toolkit/EZPZ_package_update_2023_06_17.unitypackage
+https://squarestorm.com/lab/ezpz_interaction_toolkit/EZPZ_package_update_2023_06_29.unitypackage
 
 # Licensing Info
 by Matt Cabanag https://www.linkedin.com/in/mattavc/
