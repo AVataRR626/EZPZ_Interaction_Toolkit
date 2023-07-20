@@ -4,6 +4,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -161,6 +162,7 @@ public class RaycastInteractor : MonoBehaviour
                     if(subjectRbody != null)
                     {
                         subjectRbody.useGravity = false;
+                        subjectRbody.isKinematic = true;
                     }
                 }
             }
@@ -169,7 +171,10 @@ public class RaycastInteractor : MonoBehaviour
                 moveSubject.moving = false;
 
                 if (subjectRbody != null)
+                {
                     subjectRbody.useGravity = true;
+                    subjectRbody.isKinematic = false;
+                }
 
                 moveSubject.transform.parent = null;
             }
