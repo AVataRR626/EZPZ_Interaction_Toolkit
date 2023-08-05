@@ -25,6 +25,8 @@ public class NMAWalkTowards : MonoBehaviour
         {
             if(destination.gameObject.activeSelf)
                 myNma.SetDestination(destination.position);
+            else                
+                myNma.SetDestination(transform.position);
         }
     }
 

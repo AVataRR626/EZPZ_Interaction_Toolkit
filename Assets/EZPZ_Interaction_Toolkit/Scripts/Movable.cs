@@ -6,6 +6,7 @@ public class Movable : InteractableGeneral
 {
     public bool groundPlace = true;
     public bool moving = false;
+    public float throwForce = 0;
 
     public void RotateY(float angle)
     {
