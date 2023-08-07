@@ -10,6 +10,7 @@ public class ItemSpawner : MonoBehaviour
 {
     public GameObject prefab;
     public Transform spawnPoint;
+    public GameObject lastObject;
 
     private void Start()
     {
@@ -19,6 +20,6 @@ public class ItemSpawner : MonoBehaviour
 
     public void Spawn()
     {
-        Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+        lastObject = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
