@@ -2,6 +2,7 @@
 //by Matt Cabanag
 //created 8 Apr 2022
 
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
@@ -25,9 +26,12 @@ public class RaycastInteractor : MonoBehaviour
     public InteractableGeneral prevHitSubject;
     public InteractableGeneral hitSubject;
     public Movable moveSubject;
+    public Typable typeSubject;
     public bool interactState = false;
     public bool prevInteractState = false;
     public Renderer hitIndicatorRenderer;
+    public FirstPersonController myFPSController;
+    public float originalFPSMoveSpeed;
     Rigidbody subjectRbody;
     // Start is called before the first frame update
     void Start()
@@ -44,6 +48,11 @@ public class RaycastInteractor : MonoBehaviour
                 hitIndicatorRenderer.enabled = true;
             }
         }
+
+        if (myFPSController == null)
+            myFPSController = GetComponent<FirstPersonController>();
+
+        originalFPSMoveSpeed = myFPSController.MoveSpeed;
     }
 
     // Update is called once per frame
@@ -123,6 +132,7 @@ public class RaycastInteractor : MonoBehaviour
             {
                 subject.onFirstInteract.Invoke();
                 HandleMovables(subject);
+                HandleTypables(subject);
             }
 
             /*
@@ -186,6 +196,40 @@ public class RaycastInteractor : MonoBehaviour
                 moveSubject.transform.parent = null;
             }
         }
+    }
+
+    public void HandleTypables(InteractableGeneral hitSubject)
+    {
+        typeSubject = hitSubject.GetComponent<Typable>();
+
+        if(typeSubject != null)
+        {
+            if(typeSubject.typeCapture)
+            {
+                ReleaseFromTyping();               
+            }
+            else
+            {
+                FreezeForTyping();
+            }
+        }
+    }
+
+    public void ReleaseFromTyping()
+    {
+        //revert to moving
+        typeSubject.typeCapture = false;
+        typeSubject.raycastInteractor = null;
+        myFPSController.MoveSpeed = originalFPSMoveSpeed;
+    }
+
+    public void FreezeForTyping()
+    {
+        //move to typing
+        typeSubject.typeCapture = true;
+        typeSubject.raycastInteractor = this;
+        typeSubject.SyncText();
+        myFPSController.MoveSpeed = 0;
     }
 
     public void OnNoClickable()
