@@ -121,8 +121,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "text matching\n (type 'close' to close)"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b32fec7e289f94e4bae6bdd134cea156, type: 2}
+  m_sharedMaterial: {fileID: 4778217488762808365, guid: b32fec7e289f94e4bae6bdd134cea156, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -426,8 +426,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onEnterKey:
+    m_PersistentCalls:
+      m_Calls: []
   matchText: close
   cursorText: _
+  releaseOnEnterKey: 1
   typeTextBuffer: 
   typeCapture: 0
   textDisplay: {fileID: 8405525173687084112}
@@ -499,8 +503,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: type on me
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b32fec7e289f94e4bae6bdd134cea156, type: 2}
+  m_sharedMaterial: {fileID: 4778217488762808365, guid: b32fec7e289f94e4bae6bdd134cea156, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
