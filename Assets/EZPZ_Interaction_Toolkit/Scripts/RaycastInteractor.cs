@@ -6,6 +6,7 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using UnityEditor.Build.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,10 +16,12 @@ public class RaycastInteractor : MonoBehaviour
     public Transform rayPointer;
     public LayerMask layerMask;
     public LayerMask environmentLayer;
+    public float rayLength = 4;
 
     [Header("User Feedback")]
     public GameObject clickableIndicator;
     public GameObject aimingCrosshair;
+    public GameObject keyboardFreezeIcon;
     public Transform environmentHit;
 
     [Header("System Stuff (do not touch, usually)")]
@@ -30,9 +33,9 @@ public class RaycastInteractor : MonoBehaviour
     public bool interactState = false;
     public bool prevInteractState = false;
     public Renderer hitIndicatorRenderer;
-    public FirstPersonController myFPSController;
-    public float originalFPSMoveSpeed;
+    public PlayerInput myPlayerInput;
     Rigidbody subjectRbody;
+    public float originalRayLength;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +52,10 @@ public class RaycastInteractor : MonoBehaviour
             }
         }
 
-        if (myFPSController == null)
-            myFPSController = GetComponent<FirstPersonController>();
+        if (myPlayerInput == null)
+            myPlayerInput = GetComponent<PlayerInput>();
 
-        originalFPSMoveSpeed = myFPSController.MoveSpeed;
+        originalRayLength = rayLength;
     }
 
     // Update is called once per frame
@@ -85,11 +88,19 @@ public class RaycastInteractor : MonoBehaviour
         if(environmentHit != null)
         {
             RaycastHit hit;
-            if (Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, environmentLayer))
+            if (Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, rayLength, environmentLayer))
             {
                 if (environmentHit != null)
+                {
+                    environmentHit.gameObject.SetActive(true);
                     environmentHit.position = hit.point;
+                }
 
+            }
+            else
+            {
+                if(environmentHit != null)
+                    environmentHit.gameObject.SetActive(false);
             }
         }
     }
@@ -97,7 +108,7 @@ public class RaycastInteractor : MonoBehaviour
     public void HandleRaycastInteractions()
     {
         RaycastHit hit;
-        if (Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, rayLength, layerMask))
         {
             Debug.DrawRay(rayPointer.position, rayPointer.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             //Debug.Log("Did Hit " + hit.collider.name);
@@ -107,6 +118,7 @@ public class RaycastInteractor : MonoBehaviour
         }
         else
         {
+            hitSubject = null;
             OnNoClickable();
         }
     }
@@ -143,7 +155,7 @@ public class RaycastInteractor : MonoBehaviour
             */
         }
         else
-        {
+        {   
             OnNoClickable();
         }
     }
@@ -220,7 +232,12 @@ public class RaycastInteractor : MonoBehaviour
         //revert to moving
         typeSubject.typeCapture = false;
         typeSubject.raycastInteractor = null;
-        myFPSController.MoveSpeed = originalFPSMoveSpeed;
+        myPlayerInput.enabled = true;
+
+        rayLength = originalRayLength;
+        //clickableIndicator.SetActive(true);
+        //aimingCrosshair.SetActive(true);
+        //keyboardFreezeIcon.SetActive(false);
     }
 
     public void FreezeForTyping()
@@ -229,13 +246,28 @@ public class RaycastInteractor : MonoBehaviour
         typeSubject.typeCapture = true;
         typeSubject.raycastInteractor = this;
         typeSubject.SyncText();
-        myFPSController.MoveSpeed = 0;
+        myPlayerInput.enabled = false;
+
+        rayLength = 0;
+        //clickableIndicator.SetActive(false);
+        //aimingCrosshair.SetActive(false);
+        //keyboardFreezeIcon.SetActive(true);
     }
 
     public void OnNoClickable()
     {
         clickableIndicator.SetActive(false);
-        aimingCrosshair.SetActive(true);
+
+        if (rayLength > 0)
+        {
+            aimingCrosshair.SetActive(true);
+            keyboardFreezeIcon.SetActive(false);
+        }
+        else
+        {
+            aimingCrosshair.SetActive(false);
+            keyboardFreezeIcon.SetActive(true);
+        }
 
         if(environmentHit != null)
         {
@@ -256,6 +288,7 @@ public class RaycastInteractor : MonoBehaviour
     {
         clickableIndicator.SetActive(true);
         aimingCrosshair.SetActive(false);
+        keyboardFreezeIcon.SetActive(false);
 
         if (environmentHit != null)
         {

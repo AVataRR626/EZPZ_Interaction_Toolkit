@@ -9,6 +9,10 @@ using UnityEngine.Events;
 
 public class InteractableTrigger : MonoBehaviour
 {
+    [Header("Filter Settings")]
+    public string filterString = "";
+    public bool allowUnfiltered = true;
+
     [Header("Events")]
     public UnityEvent onTriggerEnter;
     public UnityEvent onTriggerExit;
@@ -28,20 +32,23 @@ public class InteractableTrigger : MonoBehaviour
     {
         if (triggerActive)
         {
-            onTriggerEnter.Invoke();            
+            if(CheckFilter(other))
+                onTriggerEnter.Invoke();            
         }
         
     }
 
     private void OnTriggerExit(Collider other)
     {
-        onTriggerExit.Invoke();        
+        if (CheckFilter(other))
+            onTriggerExit.Invoke();        
     }
 
     
     private void OnTriggerStay(Collider other)
     {
-        onTriggerStay.Invoke();
+        if (CheckFilter(other))
+            onTriggerStay.Invoke();
     }
     
 
@@ -54,5 +61,31 @@ public class InteractableTrigger : MonoBehaviour
     {
      
         triggerActive = false;
+    }
+
+    public bool CheckFilter(Collider other)
+    {
+        TriggerFilter tf = other.GetComponent<TriggerFilter>();
+
+        if(tf != null)
+        {
+            if(filterString.Length == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return (filterString.Equals(tf.filterString));                    
+            }
+        }
+        else
+        {
+            //objects without filters can trigger events
+            if (allowUnfiltered)
+                return true;
+        }
+
+        //otherwise - don't trigger events
+        return false;
     }
 }
