@@ -22,3 +22,4 @@ Above copyright notice does not include the dependencies used below:
 *https://unsplash.com/photos/2JONUbTfN38
 *https://freesound.org/people/sandyrb/sounds/105348/
 *https://freesound.org/people/kwahmah_02/sounds/275072/
+*https://www.flaticon.com/free-icon/keyboard-and-hands_84436

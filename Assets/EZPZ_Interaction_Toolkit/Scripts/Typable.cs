@@ -8,9 +8,12 @@ using UnityEngine.UI;
 
 public class Typable : InteractableGeneral
 {
+    [Header("Typing Interaction Settings")]
     public UnityEvent onTextMatch;
+    public UnityEvent onEnterKey;
     public string matchText;
     public string cursorText = "_";
+    public bool releaseOnEnterKey = true;    
 
 
     [Header("System Stuff - Usually Don't Touch")]
@@ -25,6 +28,11 @@ public class Typable : InteractableGeneral
         Keyboard.current.onTextInput += OnTextInput;
     }
 
+    public void OnMouseDown()
+    {
+        raycastInteractor.ReleaseFromTyping();
+    }
+
     private void OnTextInput(char ch)
     {
         if (typeCapture)
@@ -36,8 +44,21 @@ public class Typable : InteractableGeneral
             }
             else if(ch == '\r')
             {
-                //enter
+                if (releaseOnEnterKey)
+                    raycastInteractor.ReleaseFromTyping();
+                else
+                    typeTextBuffer += '\n';
+
+                onEnterKey.Invoke();
+            }
+            else if(ch == '')
+            {
                 raycastInteractor.ReleaseFromTyping();
+                //_
+            }
+            else if(ch == '\t')
+            {
+                raycastInteractor.ReleaseFromTyping();                
             }
             else
             {
