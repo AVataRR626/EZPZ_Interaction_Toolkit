@@ -599,7 +599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
-      value: EZPZ_Player_Type1 Variant
+      value: EZPZ_Player Type 1 Longray Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228376, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Actions
@@ -693,9 +693,10 @@ MonoBehaviour:
   environmentLayer:
     serializedVersion: 2
     m_Bits: 0
-  rayLength: 4
+  rayLength: 100
   clickableIndicator: {fileID: 143390964}
   aimingCrosshair: {fileID: 1944810625}
+  keyboardFreezeIcon: {fileID: 0}
   environmentHit: {fileID: 0}
   subject: {fileID: 0}
   prevHitSubject: {fileID: 0}
@@ -706,6 +707,7 @@ MonoBehaviour:
   prevInteractState: 0
   hitIndicatorRenderer: {fileID: 0}
   myPlayerInput: {fileID: 0}
+  originalRayLength: 0
 --- !u!114 &8807349107562482882
 MonoBehaviour:
   m_ObjectHideFlags: 0
