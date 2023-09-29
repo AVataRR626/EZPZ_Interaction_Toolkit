@@ -9,6 +9,8 @@ using UnityEngine.Events;
 
 public class InteractableTrigger : MonoBehaviour
 {
+    public bool visibleAtRuntime = false;
+
     [Header("Filter Settings")]
     public string filterString = "";
     public bool allowUnfiltered = true;
@@ -18,15 +20,24 @@ public class InteractableTrigger : MonoBehaviour
     public UnityEvent onTriggerExit;
     public UnityEvent onTriggerStay;
 
-    [Header("Cooldown Management")]
-    public bool triggerActive = true;    
+    [Header("System Stuff - Usually Dont Touch")]
+    public bool triggerActive = true;
+    public Renderer myRenderer;
 
     private void OnEnable()
     {
         triggerActive = false;
         Invoke("TriggerActive", 0.1f);
     }
-    
+
+    private void Start()
+    {
+        myRenderer = GetComponent<Renderer>();
+
+        if (myRenderer != null)
+            myRenderer.enabled = visibleAtRuntime;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
