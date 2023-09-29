@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject template;
     public Transform spawnPoint;
     public GameObject lastObject;
 
@@ -20,6 +20,6 @@ public class ItemSpawner : MonoBehaviour
 
     public void Spawn()
     {
-        lastObject = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+        lastObject = Instantiate(template, spawnPoint.position, spawnPoint.rotation);
     }
 }
