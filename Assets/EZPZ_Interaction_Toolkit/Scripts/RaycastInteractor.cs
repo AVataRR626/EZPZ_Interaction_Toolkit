@@ -261,12 +261,16 @@ public class RaycastInteractor : MonoBehaviour
         if (rayLength > 0)
         {
             aimingCrosshair.SetActive(true);
-            keyboardFreezeIcon.SetActive(false);
+
+            if(keyboardFreezeIcon != null)
+                keyboardFreezeIcon.SetActive(false);
         }
         else
         {
             aimingCrosshair.SetActive(false);
-            keyboardFreezeIcon.SetActive(true);
+
+            if (keyboardFreezeIcon != null)
+                keyboardFreezeIcon.SetActive(true);
         }
 
         if(environmentHit != null)
@@ -288,7 +292,9 @@ public class RaycastInteractor : MonoBehaviour
     {
         clickableIndicator.SetActive(true);
         aimingCrosshair.SetActive(false);
-        keyboardFreezeIcon.SetActive(false);
+
+        if (keyboardFreezeIcon != null)
+            keyboardFreezeIcon.SetActive(false);
 
         if (environmentHit != null)
         {
