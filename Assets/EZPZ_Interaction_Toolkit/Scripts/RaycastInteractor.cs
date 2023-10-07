@@ -5,8 +5,6 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using UnityEditor.Build.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
