@@ -18,6 +18,7 @@ public class CountdownEvent : MonoBehaviour
 
     [Header("Display Parameters")]
     public TextMeshPro textDisplay;
+    public TextMeshProUGUI textDisplayUGui;
 
     public bool triggerFlag;
 
@@ -40,6 +41,9 @@ public class CountdownEvent : MonoBehaviour
 
                 if (textDisplay != null)
                     textDisplay.text = clock.ToString("N3");
+
+                if(textDisplayUGui != null)
+                    textDisplayUGui.text = clock.ToString("N3");
             }
             else
             {
