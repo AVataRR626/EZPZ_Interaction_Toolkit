@@ -15,10 +15,11 @@ public class InteractableTrigger : MonoBehaviour
     public string filterString = "";
     public bool allowUnfiltered = true;
 
-    [Header("Events")]
+    [Header("Event Handling")]
     public UnityEvent onTriggerEnter;
     public UnityEvent onTriggerExit;
     public UnityEvent onTriggerStay;
+    public bool deleteOnEnter = false;
 
     [Header("System Stuff - Usually Dont Touch")]
     public bool triggerActive = true;
@@ -44,7 +45,10 @@ public class InteractableTrigger : MonoBehaviour
         if (triggerActive)
         {
             if(CheckFilter(other))
-                onTriggerEnter.Invoke();            
+                onTriggerEnter.Invoke();
+
+            if (deleteOnEnter)
+                Destroy(other.gameObject);
         }
         
     }

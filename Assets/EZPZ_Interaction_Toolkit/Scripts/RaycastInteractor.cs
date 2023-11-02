@@ -75,6 +75,11 @@ public class RaycastInteractor : MonoBehaviour
         ForceInteract();
     }
 
+    public void OnFireLift()
+    {
+        Debug.Log("--FireLift");
+    }
+
 
     public void ForceInteract()
     {
