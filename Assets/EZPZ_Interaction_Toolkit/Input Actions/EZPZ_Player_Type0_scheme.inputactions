@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "FireLift",
+                    "type": "Button",
+                    "id": "8c7eb4ed-c577-4103-a518-b6816632d66b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -236,6 +245,17 @@
                     "processors": "",
                     "groups": "KeyboardMouse;Xbox Controller;PS4 Controller",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0589d576-d137-4f63-b3ff-157046181dd6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "KeyboardMouse;Xbox Controller;PS4 Controller",
+                    "action": "FireLift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
