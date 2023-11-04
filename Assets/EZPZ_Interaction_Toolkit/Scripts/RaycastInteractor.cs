@@ -6,6 +6,7 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class RaycastInteractor : MonoBehaviour
@@ -34,6 +35,7 @@ public class RaycastInteractor : MonoBehaviour
     public PlayerInput myPlayerInput;
     Rigidbody subjectRbody;
     public float originalRayLength;
+    public EventSystem myEventSystem;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,9 @@ public class RaycastInteractor : MonoBehaviour
             myPlayerInput = GetComponent<PlayerInput>();
 
         originalRayLength = rayLength;
+
+        CameraCleanup();
+        EventSystemCleanup();
     }
 
     // Update is called once per frame
@@ -69,6 +74,51 @@ public class RaycastInteractor : MonoBehaviour
         interactState = false;
     }
 
+    public void CameraCleanup()
+    {
+        Debug.Log("Camera Cleanup");
+
+        if (rayPointer != null)
+        {
+            Camera mainCam = rayPointer.GetComponent<Camera>();
+
+            if (mainCam != null)
+            {
+                Camera[] allCams = FindObjectsOfType<Camera>();
+
+                if (allCams.Length > 1)
+                {
+                    foreach (Camera c in allCams)
+                    {
+                        if (c != mainCam)
+                        {
+                            Destroy(c.gameObject);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void EventSystemCleanup()
+    {
+        if(myEventSystem != null)
+        {
+            EventSystem[] allEventSystems = FindObjectsOfType<EventSystem>();
+
+            if (allEventSystems.Length > 1)
+            {
+                foreach (EventSystem e in allEventSystems)
+                {
+                    if (e != myEventSystem)
+                    {
+                        Destroy(e.gameObject);
+                    }
+                }
+            }
+        }
+    }
+
     public void OnFire()
     {
         //Debug.Log("OnFire");
@@ -77,7 +127,7 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnFireLift()
     {
-        Debug.Log("--FireLift");
+        //Debug.Log("--FireLift");
     }
 
 
@@ -88,7 +138,7 @@ public class RaycastInteractor : MonoBehaviour
 
     public void HandleEnvironmentRaycast()
     {
-        if(environmentHit != null)
+        if (environmentHit != null)
         {
             RaycastHit hit;
             if (Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, rayLength, environmentLayer))
@@ -102,7 +152,7 @@ public class RaycastInteractor : MonoBehaviour
             }
             else
             {
-                if(environmentHit != null)
+                if (environmentHit != null)
                     environmentHit.gameObject.SetActive(false);
             }
         }
@@ -139,7 +189,7 @@ public class RaycastInteractor : MonoBehaviour
             {
                 subject.onHoverEnter.Invoke();
 
-                if(prevHitSubject != null)
+                if (prevHitSubject != null)
                     prevHitSubject.onHoverExit.Invoke();
             }
 
@@ -158,7 +208,7 @@ public class RaycastInteractor : MonoBehaviour
             */
         }
         else
-        {   
+        {
             OnNoClickable();
         }
     }
@@ -179,12 +229,12 @@ public class RaycastInteractor : MonoBehaviour
                     moveSubject.transform.parent = environmentHit;
                 }
                 else
-                {                    
+                {
                     //moveSubject.transform.position = rayPointer.forward * 0.5f;
                     moveSubject.transform.parent = rayPointer;
 
                     subjectRbody = moveSubject.GetComponent<Rigidbody>();
-                    if(subjectRbody != null)
+                    if (subjectRbody != null)
                     {
                         subjectRbody.useGravity = false;
                         subjectRbody.isKinematic = true;
@@ -200,12 +250,12 @@ public class RaycastInteractor : MonoBehaviour
                     subjectRbody.useGravity = true;
                     subjectRbody.isKinematic = false;
 
-                    if(moveSubject.throwForce > 0)
+                    if (moveSubject.throwForce > 0)
                     {
                         Vector3 direction = moveSubject.transform.position - rayPointer.position;
                         subjectRbody.AddForce(moveSubject.throwForce * direction * 100);
                     }
-                    
+
                 }
 
                 moveSubject.transform.parent = null;
@@ -217,11 +267,11 @@ public class RaycastInteractor : MonoBehaviour
     {
         typeSubject = hitSubject.GetComponent<Typable>();
 
-        if(typeSubject != null)
+        if (typeSubject != null)
         {
-            if(typeSubject.typeCapture)
+            if (typeSubject.typeCapture)
             {
-                ReleaseFromTyping();               
+                ReleaseFromTyping();
             }
             else
             {
@@ -265,7 +315,7 @@ public class RaycastInteractor : MonoBehaviour
         {
             aimingCrosshair.SetActive(true);
 
-            if(keyboardFreezeIcon != null)
+            if (keyboardFreezeIcon != null)
                 keyboardFreezeIcon.SetActive(false);
         }
         else
@@ -276,7 +326,7 @@ public class RaycastInteractor : MonoBehaviour
                 keyboardFreezeIcon.SetActive(true);
         }
 
-        if(environmentHit != null)
+        if (environmentHit != null)
         {
             if (hitIndicatorRenderer != null)
             {
@@ -284,7 +334,7 @@ public class RaycastInteractor : MonoBehaviour
             }
         }
 
-        if(prevHitSubject != null)
+        if (prevHitSubject != null)
             prevHitSubject.onHoverExit.Invoke();
 
         if (hitSubject != null)
