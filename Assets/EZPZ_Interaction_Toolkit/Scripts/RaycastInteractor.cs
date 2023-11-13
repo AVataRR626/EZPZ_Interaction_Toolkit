@@ -223,6 +223,12 @@ public class RaycastInteractor : MonoBehaviour
             {
                 moveSubject.moving = true;
 
+                if(moveSubject.noCollideOnHold)
+                {
+                    Collider c = moveSubject.GetComponent<Collider>();
+                    c.isTrigger = true;
+                }
+
                 if (moveSubject.groundPlace)
                 {
                     moveSubject.transform.position = environmentHit.position;
@@ -244,6 +250,12 @@ public class RaycastInteractor : MonoBehaviour
             else
             {
                 moveSubject.moving = false;
+
+                if (moveSubject.noCollideOnHold)
+                {
+                    Collider c = moveSubject.GetComponent<Collider>();
+                    c.isTrigger = false;
+                }
 
                 if (subjectRbody != null)
                 {
@@ -356,6 +368,5 @@ public class RaycastInteractor : MonoBehaviour
                 hitIndicatorRenderer.enabled = false;
             }
         }
-
     }
 }
