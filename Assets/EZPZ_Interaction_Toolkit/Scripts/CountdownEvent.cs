@@ -15,6 +15,7 @@ public class CountdownEvent : MonoBehaviour
     public float clock;
     public bool looping = false;
     public UnityEvent onClockZero;
+    public UnityEvent onReset;
 
     [Header("Display Parameters")]
     public TextMeshPro textDisplay;
@@ -22,9 +23,14 @@ public class CountdownEvent : MonoBehaviour
 
     public bool triggerFlag;
 
-    private void Start()
+    public void OnEnable()
     {
         Reset();
+    }
+
+    private void Start()
+    {
+        //Reset();
     }
 
     // Update is called once per frame
@@ -68,5 +74,7 @@ public class CountdownEvent : MonoBehaviour
     {
         clock = startingTime;
         triggerFlag = false;
+
+        onReset.Invoke();
     }
 }
