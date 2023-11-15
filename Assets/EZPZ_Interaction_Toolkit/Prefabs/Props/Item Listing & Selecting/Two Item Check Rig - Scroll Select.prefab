@@ -152,6 +152,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2547702364347108811, guid: 09805b456c63beb439b5d6bb34327bb2, type: 3}
   m_PrefabInstance: {fileID: 452701335479602401}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5160841452329741834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4744168933817508587, guid: 09805b456c63beb439b5d6bb34327bb2, type: 3}
+  m_PrefabInstance: {fileID: 452701335479602401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7971105215441036735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7554608616091363678, guid: 09805b456c63beb439b5d6bb34327bb2, type: 3}
@@ -728,7 +733,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100257808514044958, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_text
-      value: Two Item Test
+      value: Two Item Check
       objectReference: {fileID: 0}
     - target: {fileID: 100257808514044958, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_fontStyle
@@ -752,7 +757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3172445459502377556, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_Name
-      value: Label - Two Item Test
+      value: Label - Two Item Check
       objectReference: {fileID: 0}
     - target: {fileID: 4718144389028087597, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -947,7 +952,7 @@ PrefabInstance:
     - target: {fileID: 7371481743036240220, guid: 09805b456c63beb439b5d6bb34327bb2, type: 3}
       propertyPath: checkItem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5160841452329741834}
     - target: {fileID: 7371481743036240220, guid: 09805b456c63beb439b5d6bb34327bb2, type: 3}
       propertyPath: onCheckTrue.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
