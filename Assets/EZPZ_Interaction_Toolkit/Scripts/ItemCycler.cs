@@ -11,7 +11,8 @@ public class ItemCycler : MonoBehaviour
 {
 
     [Header("Item Management")]
-    public int itemIndex = 0;    
+    public int itemIndex = 0;
+    public GameObject currentItem;
     public GameObject[] items;
 
     [Header("Event Management")]
@@ -69,6 +70,7 @@ public class ItemCycler : MonoBehaviour
     
 
         items[index].SetActive(true);
+        currentItem = items[index];
     }
 
     public void NextItem()
