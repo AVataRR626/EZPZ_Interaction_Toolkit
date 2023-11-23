@@ -36,6 +36,7 @@ public class RaycastInteractor : MonoBehaviour
     Rigidbody subjectRbody;
     public float originalRayLength;
     public EventSystem myEventSystem;
+    public Transform previousMoveParent;
     // Start is called before the first frame update
     void Start()
     {
@@ -221,16 +222,18 @@ public class RaycastInteractor : MonoBehaviour
         {
             if (!moveSubject.moving)
             {
+                previousMoveParent = moveSubject.transform.parent;
                 moveSubject.moving = true;
 
-                if(moveSubject.noCollideOnHold)
+                if (moveSubject.noCollideOnHold)
                 {
                     Collider c = moveSubject.GetComponent<Collider>();
                     c.isTrigger = true;
                 }
 
                 if (moveSubject.groundPlace)
-                {
+                {   
+
                     moveSubject.transform.position = environmentHit.position;
                     moveSubject.transform.parent = environmentHit;
                 }
@@ -250,6 +253,7 @@ public class RaycastInteractor : MonoBehaviour
             else
             {
                 moveSubject.moving = false;
+                
 
                 if (moveSubject.noCollideOnHold)
                 {
@@ -267,10 +271,11 @@ public class RaycastInteractor : MonoBehaviour
                         Vector3 direction = moveSubject.transform.position - rayPointer.position;
                         subjectRbody.AddForce(moveSubject.throwForce * direction * 100);
                     }
-
                 }
 
-                moveSubject.transform.parent = null;
+
+                moveSubject.transform.parent = previousMoveParent;
+                previousMoveParent = null;
             }
         }
     }
