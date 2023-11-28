@@ -20,12 +20,15 @@ public class MovableMagnetSnapper : MonoBehaviour
 
     [Header("System Stuff (Usually Don't Touch)")]
     public Movable subject;
+    public bool snapFlag = true;
 
     // Start is called before the first frame update
     void Start()
     {
         if (snappingPoint == null)
             snappingPoint = transform;
+
+        snapFlag = true;
     }
 
     // Update is called once per frame
@@ -33,17 +36,22 @@ public class MovableMagnetSnapper : MonoBehaviour
     {
         if(subject != null)
         {
-            if(!subject.moving)
+            if (!snapFlag)
             {
-                subject.transform.parent = snappingPoint;
-                subject.transform.localPosition = Vector3.zero;
-                subject.transform.rotation = snappingPoint.rotation;
-
-                Rigidbody r = subject.GetComponent<Rigidbody>();
-
-                if(r != null)
+                if (!subject.moving)
                 {
-                    r.velocity = Vector3.zero;
+                    subject.transform.parent = snappingPoint;
+                    subject.transform.localPosition = Vector3.zero;
+                    subject.transform.rotation = snappingPoint.rotation;
+
+                    Rigidbody r = subject.GetComponent<Rigidbody>();
+
+                    if (r != null)
+                    {
+                        r.velocity = Vector3.zero;
+                    }
+
+                    snapFlag = false;
                 }
             }
         }
@@ -51,21 +59,49 @@ public class MovableMagnetSnapper : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        subject = other.GetComponent<Movable>();
+        if (subject == null)
+        {
+            subject = other.GetComponent<Movable>();
+
+            if(subject != null)
+                snapFlag = false;
+        }
 
         onTriggerEnter.Invoke();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        subject = null;
+        if (subject != null)
+        {
+            Movable om = other.GetComponent<Movable>();
+
+            if (om != null)
+            {
+                //make sure the object exiting the area
+                //is exactly the one that's leaving...
+                if (om == subject)
+                {
+                    ReleaseSubject();
+                }
+                //don't want another object to trigger dropping
+            }
+        }
 
         onTriggerExit.Invoke();
     }
 
-
     private void OnTriggerStay(Collider other)
     {
         onTriggerStay.Invoke();
+    }
+
+    public void ReleaseSubject()
+    {
+        if(subject != null)
+        {
+            snapFlag = true;
+            subject = null;
+        }
     }
 }
