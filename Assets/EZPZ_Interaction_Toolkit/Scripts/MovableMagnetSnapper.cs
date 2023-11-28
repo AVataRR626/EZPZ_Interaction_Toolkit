@@ -82,8 +82,7 @@ public class MovableMagnetSnapper : MonoBehaviour
                 //is exactly the one that's leaving...
                 if (om == subject)
                 {
-                    snapFlag = true;
-                    subject = null;
+                    ReleaseSubject();
                 }
                 //don't want another object to trigger dropping
             }
@@ -92,9 +91,17 @@ public class MovableMagnetSnapper : MonoBehaviour
         onTriggerExit.Invoke();
     }
 
-
     private void OnTriggerStay(Collider other)
     {
         onTriggerStay.Invoke();
+    }
+
+    public void ReleaseSubject()
+    {
+        if(subject != null)
+        {
+            snapFlag = true;
+            subject = null;
+        }
     }
 }
