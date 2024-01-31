@@ -48,7 +48,10 @@ public class InteractableTrigger : MonoBehaviour
                 onTriggerEnter.Invoke();
 
             if (deleteOnEnter)
-                Destroy(other.gameObject);
+            {
+                if(other.tag != "Player")
+                    Destroy(other.gameObject);
+            }
         }
         
     }

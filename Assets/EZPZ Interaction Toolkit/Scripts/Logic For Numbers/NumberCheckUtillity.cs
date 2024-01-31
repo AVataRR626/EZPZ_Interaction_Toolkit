@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
 
-public class NumberCheckTrigger : MonoBehaviour
+public class NumberCheckUtillity : MonoBehaviour
 {
     public NumberHolder reference;
 
@@ -58,6 +58,11 @@ public class NumberCheckTrigger : MonoBehaviour
         {
             onNotEnoughToBuy.Invoke();
         }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        
     }
 
 }
