@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0339aee51b9d34ba1c9ff1d184b215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subject: {fileID: 0}
+  subject: {fileID: 624138189}
   destination: {fileID: 134307545}
   activaitonDelay: 0.25
   cooldown: 0.25
@@ -471,6 +471,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onReset:
+    m_PersistentCalls:
+      m_Calls: []
   textDisplay: {fileID: 948096066}
   textDisplayUGui: {fileID: 0}
   triggerFlag: 0
@@ -798,6 +801,11 @@ RectTransform:
   m_AnchoredPosition: {x: 9.34, y: 2.96}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &624138189 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5477663902695651912, guid: df63664dbdd376b4298726771ab129fa, type: 3}
+  m_PrefabInstance: {fileID: 1925345761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &647381093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,6 +1724,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onReset:
+    m_PersistentCalls:
+      m_Calls: []
   textDisplay: {fileID: 391415421}
   textDisplayUGui: {fileID: 0}
   triggerFlag: 0
