@@ -8,6 +8,8 @@ public class NMAWalkTowards : MonoBehaviour
 {    
     public Transform destination;
 
+    public Transform[] altDestinations;
+
     [Header("System Stuff (usually dont touch")]
     public NavMeshAgent myNma;
 
@@ -33,5 +35,11 @@ public class NMAWalkTowards : MonoBehaviour
     public void SetDestination(Transform newDest)
     {
         destination = newDest;
+    }
+
+    public void SetDestination(int i)
+    {
+        Debug.Log("Set Destination! " + i);
+        destination = altDestinations[i];
     }
 }

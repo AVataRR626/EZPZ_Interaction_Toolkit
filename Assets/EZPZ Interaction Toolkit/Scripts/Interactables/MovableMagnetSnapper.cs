@@ -14,9 +14,12 @@ public class MovableMagnetSnapper : MonoBehaviour
     public bool alignRotation = true;
 
     [Header("Event Handling")]
+    public UnityEvent onSnap;
+    public UnityEvent onRelease;
     public UnityEvent onTriggerEnter;
     public UnityEvent onTriggerExit;
     public UnityEvent onTriggerStay;
+
 
     [Header("System Stuff (Usually Don't Touch)")]
     public Movable subject;
@@ -44,11 +47,15 @@ public class MovableMagnetSnapper : MonoBehaviour
                     subject.transform.localPosition = Vector3.zero;
                     subject.transform.rotation = snappingPoint.rotation;
 
+                    Debug.Log("On Snap!");
+                    onSnap.Invoke();
+
                     Rigidbody r = subject.GetComponent<Rigidbody>();
 
                     if (r != null)
                     {
                         r.velocity = Vector3.zero;
+                        r.useGravity = false;
                     }
 
                     snapFlag = false;
@@ -63,8 +70,10 @@ public class MovableMagnetSnapper : MonoBehaviour
         {
             subject = other.GetComponent<Movable>();
 
-            if(subject != null)
+            if (subject != null)
+            {
                 snapFlag = false;
+            }
         }
 
         onTriggerEnter.Invoke();
@@ -100,6 +109,7 @@ public class MovableMagnetSnapper : MonoBehaviour
     {
         if(subject != null)
         {
+            onRelease.Invoke();
             snapFlag = true;
             subject = null;
         }
