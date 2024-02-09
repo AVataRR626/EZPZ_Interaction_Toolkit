@@ -274,7 +274,8 @@ public class RaycastInteractor : MonoBehaviour
                 }
 
 
-                moveSubject.transform.parent = previousMoveParent;
+                //moveSubject.transform.parent = previousMoveParent;
+                moveSubject.transform.parent = null;
                 previousMoveParent = null;
             }
         }
