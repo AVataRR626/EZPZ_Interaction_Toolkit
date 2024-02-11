@@ -37,6 +37,7 @@ public class Movable : InteractableGeneral
         {
             myRbody.velocity = Vector3.zero;
             myRbody.angularVelocity = Vector3.zero;
+            myRbody.useGravity = true;
         }
     }
 

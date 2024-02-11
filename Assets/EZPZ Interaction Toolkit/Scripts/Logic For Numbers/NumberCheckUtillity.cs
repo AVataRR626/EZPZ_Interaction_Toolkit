@@ -60,9 +60,4 @@ public class NumberCheckUtillity : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        
-    }
-
 }
