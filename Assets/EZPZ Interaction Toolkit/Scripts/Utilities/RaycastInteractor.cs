@@ -16,6 +16,7 @@ public class RaycastInteractor : MonoBehaviour
     public LayerMask layerMask;
     public LayerMask environmentLayer;
     public float rayLength = 4;
+    public float holdingDistance = 1.5f;
 
     [Header("User Feedback")]
     public GameObject clickableIndicator;
@@ -239,7 +240,7 @@ public class RaycastInteractor : MonoBehaviour
                 }
                 else
                 {
-                    //moveSubject.transform.position = rayPointer.forward * 0.5f;
+                    moveSubject.transform.position = rayPointer.position + rayPointer.forward * holdingDistance;
                     moveSubject.transform.parent = rayPointer;
 
                     subjectRbody = moveSubject.GetComponent<Rigidbody>();

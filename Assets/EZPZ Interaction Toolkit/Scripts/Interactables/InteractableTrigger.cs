@@ -44,13 +44,15 @@ public class InteractableTrigger : MonoBehaviour
     {
         if (triggerActive)
         {
-            if(CheckFilter(other))
+            if (CheckFilter(other))
+            {
                 onTriggerEnter.Invoke();
 
-            if (deleteOnEnter)
-            {
-                if(other.tag != "Player")
-                    Destroy(other.gameObject);
+                if (deleteOnEnter)
+                {
+                    if (other.tag != "Player")
+                        Destroy(other.gameObject);
+                }
             }
         }
         
