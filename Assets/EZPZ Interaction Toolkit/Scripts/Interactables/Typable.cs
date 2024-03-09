@@ -40,8 +40,8 @@ public class Typable : InteractableGeneral
             if (ch == '\b')
             {
                 //backspace
-                typeTextBuffer = typeTextBuffer.Substring(0, typeTextBuffer.Length - 1);
-            }
+                typeTextBuffer = typeTextBuffer.Substring(0, typeTextBuffer.Length - 1);                
+            }           
             else if(ch == '\r')
             {
                 if (releaseOnEnterKey)
@@ -54,11 +54,14 @@ public class Typable : InteractableGeneral
             else if(ch == '')
             {
                 raycastInteractor.ReleaseFromTyping();
-                //_
+                //_  <- the escape key string
             }
-            else if(ch == '\t')
+            else if(ch == '`')
             {
-                raycastInteractor.ReleaseFromTyping();                
+                raycastInteractor.ReleaseFromTyping();
+
+                //tab: '\t'
+                //tab: '\x09'
             }
             else
             {

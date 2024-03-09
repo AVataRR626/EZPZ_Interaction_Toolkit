@@ -161,7 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[tab]  to  end  typing'
+  m_text: '[~ key]  to  end  typing'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -676,6 +676,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rayLength: 100
+  holdingDistance: 1.5
   clickableIndicator: {fileID: 8083486867239521812}
   aimingCrosshair: {fileID: 3052569639275739935}
   keyboardFreezeIcon: {fileID: 5652342127101919466}
@@ -691,6 +692,7 @@ MonoBehaviour:
   myPlayerInput: {fileID: 1925446888896478073}
   originalRayLength: 0
   myEventSystem: {fileID: 8438739614652577098}
+  previousMoveParent: {fileID: 0}
 --- !u!114 &4731424083571104669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,7 +835,7 @@ Transform:
   m_GameObject: {fileID: 1986086630925795676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.20000002, y: 1.375, z: 0}
+  m_LocalPosition: {x: 0.19999981, y: 1.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1297,8 +1299,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7221695795010427153}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.20000002, y: 1.375, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.19999981, y: 1.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
