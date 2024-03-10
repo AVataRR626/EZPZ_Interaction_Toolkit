@@ -301,15 +301,18 @@ public class RaycastInteractor : MonoBehaviour
 
     public void ReleaseFromTyping()
     {
-        //revert to moving
-        typeSubject.typeCapture = false;
-        typeSubject.raycastInteractor = null;
-        myPlayerInput.enabled = true;
+        if (typeSubject != null)
+        {
+            //revert to moving
+            typeSubject.typeCapture = false;
+            typeSubject.raycastInteractor = null;
+            myPlayerInput.enabled = true;
 
-        rayLength = originalRayLength;
-        //clickableIndicator.SetActive(true);
-        //aimingCrosshair.SetActive(true);
-        //keyboardFreezeIcon.SetActive(false);
+            rayLength = originalRayLength;
+            //clickableIndicator.SetActive(true);
+            //aimingCrosshair.SetActive(true);
+            //keyboardFreezeIcon.SetActive(false);
+        }
     }
 
     public void FreezeForTyping()
