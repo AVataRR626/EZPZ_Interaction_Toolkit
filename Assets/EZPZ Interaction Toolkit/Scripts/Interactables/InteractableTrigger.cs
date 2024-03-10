@@ -20,6 +20,7 @@ public class InteractableTrigger : MonoBehaviour
     public UnityEvent onTriggerExit;
     public UnityEvent onTriggerStay;
     public bool deleteOnEnter = false;
+    public GameObject subject;
 
     [Header("System Stuff - Usually Dont Touch")]
     public bool triggerActive = true;
@@ -29,6 +30,17 @@ public class InteractableTrigger : MonoBehaviour
     {
         triggerActive = false;
         Invoke("TriggerActive", 0.1f);
+
+        Collider c = GetComponent<Collider>();
+
+        if(c != null)
+        {
+            c.isTrigger = true;
+        }
+        else
+        {
+            Debug.LogError("ERROR: Missing Collider on InteractableTrigger: " + name);
+        }
     }
 
     private void Start()
@@ -53,6 +65,10 @@ public class InteractableTrigger : MonoBehaviour
                     if (other.tag != "Player")
                         Destroy(other.gameObject);
                 }
+                else
+                {
+                    subject = other.gameObject;
+                }
             }
         }
         
@@ -61,7 +77,10 @@ public class InteractableTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (CheckFilter(other))
-            onTriggerExit.Invoke();        
+            onTriggerExit.Invoke();
+
+        if (subject != null)
+            subject = null;
     }
 
     
