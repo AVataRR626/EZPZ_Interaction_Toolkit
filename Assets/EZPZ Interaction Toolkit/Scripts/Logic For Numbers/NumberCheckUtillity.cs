@@ -25,23 +25,29 @@ public class NumberCheckUtillity : MonoBehaviour
 
     public void CheckNumber(float comparison)
     {
+        Debug.Log("CheckNumber: i:" + comparison + " VS r:" + reference.value);
+
         if (comparison == reference.value)
         {
             onEqual.Invoke();
         }
-        else if (comparison > reference.value)
+
+        if (reference.value > comparison)
         {
             onGreaterThan.Invoke();
         }
-        else if (comparison < reference.value)
+
+        if (reference.value < comparison)
         {
             onLessThan.Invoke();
         }
-        else if (comparison >= reference.value)
+
+        if (reference.value >= comparison)
         {
             onGreaterOrEqual.Invoke();
         }
-        else if (comparison <= reference.value)
+
+        if (reference.value <= comparison)
         {
             onLessOrEqual.Invoke();
         }

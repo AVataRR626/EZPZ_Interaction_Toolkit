@@ -58,8 +58,14 @@ public class MovableMagnetSnapper : MonoBehaviour
                         r.useGravity = false;
                     }
 
-                    snapFlag = false;
+                    snapFlag = true;
                 }
+            }
+
+            if(snapFlag && !subject.moving)
+            {
+                subject.transform.localPosition = Vector3.zero;
+                subject.transform.rotation = snappingPoint.rotation;
             }
         }
     }
@@ -109,6 +115,7 @@ public class MovableMagnetSnapper : MonoBehaviour
     {
         if(subject != null)
         {
+            Debug.Log("ReleaseSubject");
             onRelease.Invoke();
             snapFlag = true;
             subject = null;

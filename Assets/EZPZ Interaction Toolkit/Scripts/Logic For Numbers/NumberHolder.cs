@@ -39,4 +39,8 @@ public class NumberHolder : MonoBehaviour
         value -= 1;
     }
 
+    public void SetValue(float newValue)
+    {
+        value = newValue;
+    }
 }
