@@ -15,10 +15,11 @@ public class Stopwatch : MonoBehaviour
     [Header("Display Parameters")]
     public TextMeshPro textDisplay;
     public TextMeshProUGUI textDisplayUGui;
+    public string format = "N2";
 
     [Header("System Stuff - Usually Don't Touch")]
     public bool stopTimeFlag = false;
-    public bool clockRunning = false;
+    public bool clockRunning = false;    
 
 
     // Update is called once per frame
@@ -32,10 +33,10 @@ public class Stopwatch : MonoBehaviour
         }
 
         if (textDisplay != null)
-            textDisplay.text = clock.ToString("N3");
+            textDisplay.text = clock.ToString(format);
 
         if (textDisplayUGui != null)
-            textDisplayUGui.text = clock.ToString("N3");
+            textDisplayUGui.text = clock.ToString(format);
 
     }
 
