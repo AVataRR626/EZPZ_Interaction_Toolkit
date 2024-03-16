@@ -21,7 +21,6 @@ public class Stopwatch : MonoBehaviour
     public bool stopTimeFlag = false;
     public bool clockRunning = false;    
 
-
     // Update is called once per frame
     void Update()
     {
@@ -57,6 +56,13 @@ public class Stopwatch : MonoBehaviour
         }
     }
 
+    public void StartClock()
+    {
+        clockRunning = true;
+        stopTimeFlag = false;
+        onStart.Invoke();
+    }
+
     public void PauseClock()
     {
         clockRunning = false;
@@ -65,9 +71,7 @@ public class Stopwatch : MonoBehaviour
 
     public void UnpauseClock()
     {
-        clockRunning = true;
-        stopTimeFlag = false;
-        onStart.Invoke();
+        StartClock();
     }
 
     public void RestartClock()
@@ -81,5 +85,10 @@ public class Stopwatch : MonoBehaviour
         clock = 0;
         clockRunning = false;
         stopTimeFlag = false;
+    }
+
+    public void ResumeClock()
+    {
+        StartClock();
     }
 }

@@ -11,6 +11,7 @@ public class ItemSpawner : MonoBehaviour
     public GameObject template;
     public Transform spawnPoint;
     public GameObject lastObject;
+    public Vector3 randomPositionOffset;
 
     private void Start()
     {
@@ -20,6 +21,13 @@ public class ItemSpawner : MonoBehaviour
 
     public void Spawn()
     {
-        lastObject = Instantiate(template, spawnPoint.position, spawnPoint.rotation);
+
+        Vector3 offset = new Vector3(
+            Random.Range(-randomPositionOffset.x, randomPositionOffset.x),
+            Random.Range(-randomPositionOffset.y, randomPositionOffset.y),
+            Random.Range(-randomPositionOffset.y, randomPositionOffset.y)
+            );
+
+        lastObject = Instantiate(template, spawnPoint.position + offset, spawnPoint.rotation);
     }
 }

@@ -22,6 +22,7 @@ public class CountdownEvent : MonoBehaviour
     public TextMeshProUGUI textDisplayUGui;
 
     public bool triggerFlag;
+    public bool clockRunning = true;
 
     public void OnEnable()
     {
@@ -38,32 +39,35 @@ public class CountdownEvent : MonoBehaviour
     {
         if (isActiveAndEnabled)
         {
-            if (clock > 0)
+            if (clockRunning)
             {
-                clock -= Time.fixedDeltaTime;
+                if (clock > 0)
+                {
+                    clock -= Time.fixedDeltaTime;
 
-                if (clock < 0)
+                    if (clock < 0)
+                        clock = 0;
+
+                    if (textDisplay != null)
+                        textDisplay.text = clock.ToString("N3");
+
+                    if (textDisplayUGui != null)
+                        textDisplayUGui.text = clock.ToString("N3");
+                }
+                else
+                {
+                    if (!triggerFlag)
+                    {
+                        triggerFlag = true;
+                        onClockZero.Invoke();
+                    }
+
                     clock = 0;
 
-                if (textDisplay != null)
-                    textDisplay.text = clock.ToString("N3");
-
-                if(textDisplayUGui != null)
-                    textDisplayUGui.text = clock.ToString("N3");
-            }
-            else
-            {
-                if (!triggerFlag)
-                {
-                    triggerFlag = true;
-                    onClockZero.Invoke();
-                }
-
-                clock = 0;
-
-                if(looping)
-                {
-                    Reset();
+                    if (looping)
+                    {
+                        Reset();
+                    }
                 }
             }
         }
@@ -76,5 +80,25 @@ public class CountdownEvent : MonoBehaviour
         triggerFlag = false;
 
         onReset.Invoke();
+    }
+
+    public void PauseClock()
+    {
+        clockRunning = false;
+    }
+
+    public void ResumeClock()
+    {
+        StartClock();
+    }
+
+    public void UnpauseClock()
+    {
+        StartClock();
+    }
+
+    public void StartClock()
+    {
+        clockRunning = true;
     }
 }
