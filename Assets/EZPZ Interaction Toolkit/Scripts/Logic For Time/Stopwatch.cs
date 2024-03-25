@@ -19,7 +19,7 @@ public class Stopwatch : MonoBehaviour
 
     [Header("System Stuff - Usually Don't Touch")]
     public bool stopTimeFlag = false;
-    public bool clockRunning = false;    
+    public bool clockRunning = false;
 
     // Update is called once per frame
     void Update()
@@ -32,10 +32,10 @@ public class Stopwatch : MonoBehaviour
         }
 
         if (textDisplay != null)
-            textDisplay.text = clock.ToString(format);
+            textDisplay.text = GenUtils.HMSFormat(clock, format);
 
         if (textDisplayUGui != null)
-            textDisplayUGui.text = clock.ToString(format);
+            textDisplayUGui.text = GenUtils.HMSFormat(clock, format);
 
     }
 

@@ -20,6 +20,7 @@ public class CountdownEvent : MonoBehaviour
     [Header("Display Parameters")]
     public TextMeshPro textDisplay;
     public TextMeshProUGUI textDisplayUGui;
+    public string format = "N2";
 
     public bool triggerFlag;
     public bool clockRunning = true;
@@ -49,10 +50,10 @@ public class CountdownEvent : MonoBehaviour
                         clock = 0;
 
                     if (textDisplay != null)
-                        textDisplay.text = clock.ToString("N3");
+                        textDisplay.text = GenUtils.HMSFormat(clock, format);
 
                     if (textDisplayUGui != null)
-                        textDisplayUGui.text = clock.ToString("N3");
+                        textDisplayUGui.text = GenUtils.HMSFormat(clock, format);
                 }
                 else
                 {
