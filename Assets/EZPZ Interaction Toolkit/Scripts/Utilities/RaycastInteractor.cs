@@ -223,6 +223,9 @@ public class RaycastInteractor : MonoBehaviour
         {
             if (!moveSubject.moving)
             {
+                //Pick up objects
+                moveSubject.Grab();
+
                 previousMoveParent = moveSubject.transform.parent;
                 moveSubject.moving = true;
 
@@ -253,8 +256,9 @@ public class RaycastInteractor : MonoBehaviour
             }
             else
             {
+                //Release objects
                 moveSubject.moving = false;
-                
+                moveSubject.Drop();
 
                 if (moveSubject.noCollideOnHold)
                 {
@@ -273,7 +277,6 @@ public class RaycastInteractor : MonoBehaviour
                         subjectRbody.AddForce(moveSubject.throwForce * direction * 100);
                     }
                 }
-
 
                 //moveSubject.transform.parent = previousMoveParent;
                 moveSubject.transform.parent = null;
