@@ -231,8 +231,7 @@ public class RaycastInteractor : MonoBehaviour
 
                 if (moveSubject.noCollideOnHold)
                 {
-                    Collider c = moveSubject.GetComponent<Collider>();
-                    c.isTrigger = true;
+                    SetColliderIsTrigger(moveSubject, true);
                 }
 
                 if (moveSubject.groundPlace)
@@ -262,8 +261,7 @@ public class RaycastInteractor : MonoBehaviour
 
                 if (moveSubject.noCollideOnHold)
                 {
-                    Collider c = moveSubject.GetComponent<Collider>();
-                    c.isTrigger = false;
+                    SetColliderIsTrigger(moveSubject, false);
                 }
 
                 if (subjectRbody != null)
@@ -281,6 +279,26 @@ public class RaycastInteractor : MonoBehaviour
                 //moveSubject.transform.parent = previousMoveParent;
                 moveSubject.transform.parent = null;
                 previousMoveParent = null;
+            }
+        }
+    }
+
+    public static void SetColliderIsTrigger(Movable m, bool setting)
+    {
+        Collider c = m.GetComponent<Collider>();
+        if (c != null)
+        {   
+            c.isTrigger = setting; 
+
+            if (m.subCollliders.Length > 0)
+            {
+                foreach (Collider subC in m.subCollliders)
+                {
+                    if (subC != null)
+                    {
+                        subC.isTrigger = setting;
+                    }
+                }
             }
         }
     }
