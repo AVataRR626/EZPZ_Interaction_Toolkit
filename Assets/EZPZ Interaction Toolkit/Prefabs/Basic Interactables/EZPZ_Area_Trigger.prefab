@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8096237311894986233}
   - component: {fileID: 2094408382421972447}
   - component: {fileID: 7839655520829733149}
-  - component: {fileID: -2818729594547210390}
   m_Layer: 0
   m_Name: EZPZ_Area_Trigger
   m_TagString: Untagged
@@ -61,6 +60,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   deleteOnEnter: 0
+  subject: {fileID: 0}
   triggerActive: 0
   myRenderer: {fileID: 0}
 --- !u!33 &8096237311894986233
@@ -134,15 +134,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-2818729594547210390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861110927101218661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31b5522546e193745bb5ec60f075233d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

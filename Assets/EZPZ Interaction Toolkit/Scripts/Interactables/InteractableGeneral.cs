@@ -14,6 +14,28 @@ public class InteractableGeneral : MonoBehaviour
     public UnityEvent onHoverExit;
     //public UnityEvent onHoldInteract;
 
+    public void Start()
+    {
+        onFirstInteract.AddListener(Pulse);
+        onHoverEnter.AddListener(PulseUp);
+        onHoverExit.AddListener(PulseDown);
+    }
+
+    public void PulseUp()
+    {   
+        gameObject.transform.parent.SendMessage("PulseUp");
+    }
+
+    public void PulseDown()
+    {
+        gameObject.transform.parent.SendMessage("PulseDown");
+    }
+
+    public void Pulse()
+    {
+        gameObject.transform.parent.SendMessage("Pulse");
+    }
+
     public void LoadScene(string newScene)
     {
         GenUtils.LoadScene(newScene);
