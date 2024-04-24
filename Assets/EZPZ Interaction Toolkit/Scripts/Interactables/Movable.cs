@@ -111,11 +111,11 @@ public class Movable : InteractableGeneral
 
         if(otherMovable != null)
         {
-            if(trayMode)
+            if(otherMovable.trayMode)
             {
                 //StartCoroutine(DAttachToTray(otherMovable,0.1f));
-                if(otherMovable.transform.position.y > transform.position.y)
-                    AttachToTray(otherMovable);
+                if(transform.position.y > otherMovable.transform.position.y)
+                    otherMovable.AttachToTray(this);
             }
         }
     }
