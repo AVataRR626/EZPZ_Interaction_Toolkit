@@ -41,6 +41,12 @@ public class RaycastInteractor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if(transform.localScale.x != 1 || transform.localScale.y != 1 || transform.localScale.z != 1)
+        {
+            Debug.LogError("!!!!! ALERT !!!!!" + name + " SCALE IS NOT (1,1,1). This will cause object pickup & drop problems. Reset scale to (1,1,1)");
+        }
+
         if (rayPointer == null)
             rayPointer = transform;
 
@@ -52,6 +58,13 @@ public class RaycastInteractor : MonoBehaviour
             {
                 hitIndicatorRenderer.enabled = true;
             }
+
+            /*
+            if (environmentHit.transform.localScale.x != 1 || environmentHit.transform.localScale.y != 1 || environmentHit.transform.localScale.z != 1)
+            {
+                Debug.LogError("!!!!! ALERT !!!!!" + environmentHit.name + " SCALE IS NOT (1,1,1). This will cause object pickup & drop problems. Reset scale to (1,1,1)");
+            }
+            */
         }
 
         if (myPlayerInput == null)
