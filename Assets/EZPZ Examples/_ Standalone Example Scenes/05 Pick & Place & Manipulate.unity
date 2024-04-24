@@ -299,7 +299,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100257808514044958, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_text
-      value: Delete On Touch
+      value: Disable On Touch
       objectReference: {fileID: 0}
     - target: {fileID: 3172445459502377556, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_Name
@@ -512,7 +512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421189083}
   m_Layer: 0
-  m_Name: Delete_On_Touch
+  m_Name: Disable_On_Touch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2809,6 +2809,18 @@ PrefabInstance:
     - target: {fileID: 3228447302401519564, guid: 5344f74aa97c4e543af12c461e915e8c, type: 3}
       propertyPath: m_Name
       value: Rotating Movable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920029771134864300, guid: 5344f74aa97c4e543af12c461e915e8c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.247
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920029771134864300, guid: 5344f74aa97c4e543af12c461e915e8c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920029771530323950, guid: 5344f74aa97c4e543af12c461e915e8c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.247
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
