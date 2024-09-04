@@ -92,6 +92,8 @@ public class ItemCycler : MonoBehaviour
             onLastItem.Invoke();
         }
 
+        HandleSkip(true);
+
         onNextItem.Invoke();
         onChangeItem.Invoke();
 
@@ -117,11 +119,94 @@ public class ItemCycler : MonoBehaviour
             onFirstItem.Invoke();
         }
 
+        HandleSkip(false);
 
         onPrevItem.Invoke();
         onChangeItem.Invoke();
 
         ActivateCurrentItem();
+    }
+
+    public void HandleSkip(bool next)
+    {
+        CycledItem ci = items[itemIndex].GetComponent<CycledItem>();
+
+        if (ci != null)
+        {
+            if (ci.skip)
+            {
+                Debug.Log("HandleSkip: " + ci.name);
+                if (next)
+                {
+                    SkipNext(1);
+                }
+                else
+                {
+                    SkipPrev(1);
+                }
+                return;
+            }
+        }
+    }
+
+    public void SkipNext(int level)
+    {
+        if (level < items.Length)
+        {
+            int nextIndex = itemIndex + 1;
+
+            if(nextIndex > items.Length - 1)
+            {
+                //handle overflow case
+                if(loopCycle)
+                {
+                    nextIndex = 0;
+                }
+            }
+
+            itemIndex = nextIndex;
+
+            CycledItem ci = items[nextIndex].GetComponent<CycledItem>();
+
+            if(ci != null)
+            {
+                Debug.Log("SkipNext: " + ci.name + " | " + level);
+                if (ci.skip)
+                {
+                    SkipNext(level + 1);
+                }
+            }
+        }
+    }
+
+    public void SkipPrev(int level)
+    {
+        if (level < items.Length)
+        {
+            int nextIndex = itemIndex - 1;
+
+            if (nextIndex < 0)
+            {
+                //handle overflow case
+                if (loopCycle)
+                {
+                    nextIndex = items.Length - 1;
+                }
+            }
+
+            itemIndex = nextIndex;
+
+            CycledItem ci = items[nextIndex].GetComponent<CycledItem>();
+
+            if (ci != null)
+            {
+                Debug.Log("SkipNext: " + ci.name + " | " + level);
+                if (ci.skip)
+                {
+                    SkipPrev(level + 1);
+                }
+            }
+        }
     }
 
     public void SetExclusiveMode(bool newMode)

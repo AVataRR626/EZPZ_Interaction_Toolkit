@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8955650092381858407}
   - component: {fileID: 5544175329326611562}
   - component: {fileID: 5651802161157450214}
-  - component: {fileID: 3952286957551763153}
   m_Layer: 2
   m_Name: Movable Magnet Snapper
   m_TagString: Untagged
@@ -50,6 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snappingPoint: {fileID: 9182882645681806097}
   alignRotation: 1
+  onSnap:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls: []
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -60,6 +65,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   subject: {fileID: 0}
+  snapFlag: 1
 --- !u!33 &8955650092381858407
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -131,18 +137,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3952286957551763153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2304173210996454519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31b5522546e193745bb5ec60f075233d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6086266383777699628
 GameObject:
   m_ObjectHideFlags: 0

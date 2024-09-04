@@ -693,9 +693,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onReset:
+    m_PersistentCalls:
+      m_Calls: []
   textDisplay: {fileID: 0}
   textDisplayUGui: {fileID: 0}
+  format: N2
   triggerFlag: 0
+  clockRunning: 1
 --- !u!114 &218541349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,6 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIndex: 2
+  currentItem: {fileID: 0}
   items:
   - {fileID: 1734803438}
   - {fileID: 169343312}
@@ -798,6 +804,7 @@ MonoBehaviour:
   template: {fileID: 1717984155584059218, guid: 170e761007453a441bb30dafd223517a, type: 3}
   spawnPoint: {fileID: 329614773}
   lastObject: {fileID: 0}
+  randomPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &329614773
 Transform:
   m_ObjectHideFlags: 0
@@ -1052,6 +1059,7 @@ MonoBehaviour:
   template: {fileID: 1717984155584059218, guid: 8b11fb7adeba01a47b98c99931a8f6a1, type: 3}
   spawnPoint: {fileID: 462794992}
   lastObject: {fileID: 0}
+  randomPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &462794992
 Transform:
   m_ObjectHideFlags: 0
@@ -1419,9 +1427,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onReset:
+    m_PersistentCalls:
+      m_Calls: []
   textDisplay: {fileID: 0}
   textDisplayUGui: {fileID: 0}
+  format: N2
   triggerFlag: 0
+  clockRunning: 1
 --- !u!114 &690351234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1435,6 +1448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIndex: 2
+  currentItem: {fileID: 0}
   items:
   - {fileID: 1696211924}
   - {fileID: 1129538661}
@@ -1584,6 +1598,7 @@ MonoBehaviour:
   template: {fileID: 1717984155584059218, guid: 8b11fb7adeba01a47b98c99931a8f6a1, type: 3}
   spawnPoint: {fileID: 714632643}
   lastObject: {fileID: 0}
+  randomPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &714632643
 Transform:
   m_ObjectHideFlags: 0
@@ -1736,6 +1751,7 @@ MonoBehaviour:
   template: {fileID: 0}
   spawnPoint: {fileID: 742196478}
   lastObject: {fileID: 0}
+  randomPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &742196478
 Transform:
   m_ObjectHideFlags: 0
@@ -1886,6 +1902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIndex: 0
+  currentItem: {fileID: 0}
   items:
   - {fileID: 1205102310}
   - {fileID: 134254920}
@@ -2802,6 +2819,7 @@ MonoBehaviour:
   template: {fileID: 7412776933097279607, guid: 83a45005a317efa4483477e461aa0b6a, type: 3}
   spawnPoint: {fileID: 1114636004}
   lastObject: {fileID: 0}
+  randomPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1120946790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,6 +2850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIndex: 2
+  currentItem: {fileID: 0}
   items:
   - {fileID: 1329690728}
   - {fileID: 498070305}
@@ -3088,6 +3107,7 @@ MonoBehaviour:
   template: {fileID: 1717984155584059218, guid: 170e761007453a441bb30dafd223517a, type: 3}
   spawnPoint: {fileID: 1139531116}
   lastObject: {fileID: 0}
+  randomPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1139531116
 Transform:
   m_ObjectHideFlags: 0
@@ -4753,6 +4773,7 @@ MonoBehaviour:
   template: {fileID: 7412776933097279607, guid: 83a45005a317efa4483477e461aa0b6a, type: 3}
   spawnPoint: {fileID: 1641184174}
   lastObject: {fileID: 0}
+  randomPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1641184174
 Transform:
   m_ObjectHideFlags: 0
@@ -5128,6 +5149,7 @@ MonoBehaviour:
   template: {fileID: 0}
   spawnPoint: {fileID: 1757654160}
   lastObject: {fileID: 0}
+  randomPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1757654160
 Transform:
   m_ObjectHideFlags: 0
@@ -5175,6 +5197,7 @@ MonoBehaviour:
   template: {fileID: 0}
   spawnPoint: {fileID: 1758487789}
   lastObject: {fileID: 0}
+  randomPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1758487789
 Transform:
   m_ObjectHideFlags: 0

@@ -98,4 +98,5 @@ public class Typable : InteractableGeneral
         else
             textDisplay.text = typeTextBuffer;
     }
-}
+ }
+

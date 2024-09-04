@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class RaycastInteractor : MonoBehaviour
 {
@@ -41,6 +42,12 @@ public class RaycastInteractor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if(transform.localScale.x != 1 || transform.localScale.y != 1 || transform.localScale.z != 1)
+        {
+            Debug.LogError("!!!!! ALERT !!!!!" + name + " SCALE IS NOT (1,1,1). This will cause object pickup & drop problems. Reset scale to (1,1,1)");
+        }
+
         if (rayPointer == null)
             rayPointer = transform;
 
@@ -52,6 +59,13 @@ public class RaycastInteractor : MonoBehaviour
             {
                 hitIndicatorRenderer.enabled = true;
             }
+
+            /*
+            if (environmentHit.transform.localScale.x != 1 || environmentHit.transform.localScale.y != 1 || environmentHit.transform.localScale.z != 1)
+            {
+                Debug.LogError("!!!!! ALERT !!!!!" + environmentHit.name + " SCALE IS NOT (1,1,1). This will cause object pickup & drop problems. Reset scale to (1,1,1)");
+            }
+            */
         }
 
         if (myPlayerInput == null)
@@ -223,13 +237,15 @@ public class RaycastInteractor : MonoBehaviour
         {
             if (!moveSubject.moving)
             {
+                //Pick up objects
+                moveSubject.Grab();
+
                 previousMoveParent = moveSubject.transform.parent;
                 moveSubject.moving = true;
 
                 if (moveSubject.noCollideOnHold)
                 {
-                    Collider c = moveSubject.GetComponent<Collider>();
-                    c.isTrigger = true;
+                    SetColliderIsTrigger(moveSubject, true);
                 }
 
                 if (moveSubject.groundPlace)
@@ -253,13 +269,13 @@ public class RaycastInteractor : MonoBehaviour
             }
             else
             {
+                //Release objects
                 moveSubject.moving = false;
-                
+                moveSubject.Drop();
 
                 if (moveSubject.noCollideOnHold)
                 {
-                    Collider c = moveSubject.GetComponent<Collider>();
-                    c.isTrigger = false;
+                    SetColliderIsTrigger(moveSubject, false);
                 }
 
                 if (subjectRbody != null)
@@ -274,10 +290,31 @@ public class RaycastInteractor : MonoBehaviour
                     }
                 }
 
-
                 //moveSubject.transform.parent = previousMoveParent;
                 moveSubject.transform.parent = null;
                 previousMoveParent = null;
+            }
+        }
+    }
+
+    public static void SetColliderIsTrigger(Movable m, bool setting)
+    {
+        Collider c = m.GetComponent<Collider>();
+        if (c != null)
+        {   
+            c.isTrigger = setting; 
+
+            if (m.subCollliders.Length > 0)
+            {
+                foreach (Collider subC in m.subCollliders)
+                {
+                    if (subC != null)
+                    {
+                        CharacterController cc = subC.GetComponent<CharacterController>();
+                        if(cc == null)   
+                            subC.isTrigger = setting;
+                    }
+                }
             }
         }
     }
@@ -378,5 +415,16 @@ public class RaycastInteractor : MonoBehaviour
                 hitIndicatorRenderer.enabled = false;
             }
         }
+    }
+
+
+    public void OnRestart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void OnQuit()
+    {
+        Application.Quit();
     }
 }

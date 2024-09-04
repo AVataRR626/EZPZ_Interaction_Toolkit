@@ -1,25 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Movable : InteractableGeneral
 {
+    public UnityEvent onDrop;
     public bool noCollideOnHold = true;
     public bool groundPlace = false;
     public bool moving = false;
+    public bool freezeRotation = false;
+    public bool trayMode = false;       
     public float throwForce = 0;
-    public Rigidbody myRbody;
+    public Collider [] subCollliders;
+    public float snapSpeed = 20;
 
     [Header("System Stuff (Usually Don't Touch")]
     public Vector3 startingPosition;
     public Quaternion startingRotation;
+    public Rigidbody myRbody;
+    public Collider myCollider;
+    public Movable myTray;
+    public Vector3 trayOffset;    
+    public List<Movable> trayInventory = new List<Movable>();
 
     private void Start()
     {
         startingPosition = transform.position;
         startingRotation = transform.rotation;
 
+        myCollider = GetComponent<Collider>();
         myRbody = GetComponent<Rigidbody>();
+        trayInventory = new List<Movable>();
+
+        if(subCollliders.Length <= 0)
+        {
+            subCollliders = transform.GetComponentsInChildren<Collider>();
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        if(freezeRotation)
+        {
+            transform.rotation = startingRotation;
+        }
+
+        if(trayMode && trayInventory != null)
+        {
+            foreach (Movable m in trayInventory)
+            {
+                if (m != null)
+                {
+                    m.transform.position = transform.position + m.trayOffset;
+
+                    if (!m.myRbody.isKinematic)
+                    {
+                        m.myRbody.velocity = Vector3.zero;
+                        m.myRbody.angularVelocity = Vector3.zero;
+                        m.myRbody.isKinematic = true;
+                    }
+
+                    if (moving)
+                        m.myCollider.enabled = false;
+                }
+            }
+            
+        }
     }
 
 
@@ -55,6 +102,104 @@ public class Movable : InteractableGeneral
             foreach (MovableMagnetSnapper m in allMagnets)
                 m.ReleaseSubject();
         }
+    }
+
+    
+    public void OnCollisionEnter(Collision collision)
+    {
+        Movable otherMovable = collision.gameObject.GetComponent<Movable>();
+
+        if(otherMovable != null)
+        {
+            if(otherMovable.trayMode)
+            {
+                //StartCoroutine(DAttachToTray(otherMovable,0.1f));
+                if(transform.position.y > otherMovable.transform.position.y)
+                    otherMovable.AttachToTray(this);
+            }
+        }
+    }
+
+    public IEnumerator DAttachToTray(Movable m, float s)
+    {
+        yield return new WaitForSeconds(s);
+
+        AttachToTray(m);
+    }
+
+    public void AttachToTray(Movable m)
+    {
+        if (m != null && trayInventory != null)
+        {   
+            if (!trayInventory.Contains(m))
+            {
+                trayInventory.Add(m);
+
+                m.myTray = this;
+                m.trayOffset = m.transform.position - transform.position + new Vector3(0, 0.01f, 0);
+                m.myRbody.velocity = Vector3.zero;
+                m.myRbody.angularVelocity = Vector3.zero;
+                m.myRbody.useGravity = false;
+                m.transform.rotation = m.startingRotation;
+            }
+        }
+    }
+
+    public void Grab()
+    {
+        if (myTray != null)
+        {
+            if(myTray.trayInventory !=  null)
+                myTray.trayInventory.Remove(this);
+
+            myTray = null;
+        }
+    }
+    
+    public void Drop()
+    {
+        //Debug.Log("--- DROP");
+
+        if(trayMode && trayInventory != null)
+        {
+            foreach (Movable m in trayInventory)
+            {
+                if (m != null)
+                {
+                    //m.transform.position = transform.position + m.trayOffset;
+                    m.myRbody.useGravity = true;
+                    m.myRbody.isKinematic = false;
+                    m.myCollider.enabled = true;
+                }
+            }
+
+            trayInventory.Clear();
+        }
+
+        if (myTray != null)
+        {
+            if (myTray.trayInventory != null)            
+                myTray.trayInventory.Remove(this);
+
+            myTray = null;
+        }
+
+        onDrop.Invoke();
+    }
+
+    public void ResetTray()
+    {
+        foreach (Movable m in trayInventory)
+        {
+            if (m != null)
+            {
+                m.myCollider.enabled = true;
+                m.myTray = null;
+                m.myRbody.isKinematic = false;
+            }
+        }
+
+        trayInventory.Clear();
     }
 
 }
