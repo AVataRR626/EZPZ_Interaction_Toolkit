@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class RaycastInteractor : MonoBehaviour
 {
@@ -414,5 +415,16 @@ public class RaycastInteractor : MonoBehaviour
                 hitIndicatorRenderer.enabled = false;
             }
         }
+    }
+
+
+    public void OnRestart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void OnQuit()
+    {
+        Application.Quit();
     }
 }

@@ -13,7 +13,7 @@ public class Movable : InteractableGeneral
     public bool trayMode = false;       
     public float throwForce = 0;
     public Collider [] subCollliders;
-    
+    public float snapSpeed = 20;
 
     [Header("System Stuff (Usually Don't Touch")]
     public Vector3 startingPosition;
