@@ -76,4 +76,15 @@ public class NMAWalkTowards : MonoBehaviour
         Debug.Log("Set Destination! " + i);
         destination = altDestinations[i];
     }
+
+    [ContextMenu("Random Destination")]
+    public void SetDestinationRandom()
+    {
+        int randomIndex = Random.Range(0, altDestinations.Length);
+
+        while (altDestinations[randomIndex] == destination)
+            randomIndex = Random.Range(0, altDestinations.Length);
+
+        SetDestination(randomIndex);
+    }
 }
