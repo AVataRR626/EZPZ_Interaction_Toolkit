@@ -41,4 +41,9 @@ public class TransformUtility : MonoBehaviour
         transform.position += delta;
     }
 
+    public void ScaleUniformDelta(float delta)
+    {
+        transform.localScale *= (1 + delta);
+    }
+
 }
