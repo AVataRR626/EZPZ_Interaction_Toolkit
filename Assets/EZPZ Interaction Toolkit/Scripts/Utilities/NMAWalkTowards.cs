@@ -6,13 +6,17 @@ using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class NMAWalkTowards : MonoBehaviour
-{    
-    public Transform destination;
+{
 
+    [Header("Navigation")]
+    public Transform destination;
     public UnityEvent onArrive;
     public UnityEvent onFirstMove;
-
     public Transform[] altDestinations;
+
+    [Header("Graphics")]
+    public Animator avatarAnimator;
+    public string speedString = "speed";
 
     [Header("System Stuff (usually dont touch")]
     public NavMeshAgent myNma;
@@ -20,6 +24,9 @@ public class NMAWalkTowards : MonoBehaviour
     public bool prevArrivalFlag = false;
     public float dist2PrevPos;
     public Vector3 prevPos;
+    public float fixedUpdateSpeed;
+    public Vector3 fixedUpdateVelocity;
+    public Vector3 prevPosFixedUpdate;
 
     // Start is called before the first frame update
     void Start()
@@ -59,11 +66,18 @@ public class NMAWalkTowards : MonoBehaviour
             else                
                 myNma.SetDestination(transform.position);
         }
-        
 
+        HandleAvatar();
 
         prevArrivalFlag = arrivalFlag;
         prevPos = transform.position;
+    }
+
+    public void FixedUpdate()
+    {
+        fixedUpdateVelocity = myNma.velocity;
+        fixedUpdateSpeed = myNma.velocity.magnitude;
+        prevPosFixedUpdate = transform.position;
     }
 
     public void SetDestination(Transform newDest)
@@ -86,5 +100,16 @@ public class NMAWalkTowards : MonoBehaviour
             randomIndex = Random.Range(0, altDestinations.Length);
 
         SetDestination(randomIndex);
+    }
+
+    public void HandleAvatar()
+    {
+        if (myNma != null)
+        {   
+            if (avatarAnimator != null)
+            {
+                avatarAnimator.SetFloat(speedString, fixedUpdateSpeed);
+            }
+        }
     }
 }
