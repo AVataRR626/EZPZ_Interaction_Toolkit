@@ -24,7 +24,7 @@ public class Movable : InteractableGeneral
     public Vector3 trayOffset;    
     public List<Movable> trayInventory = new List<Movable>();
 
-    private void Start()
+    private new void Start()
     {
         startingPosition = transform.position;
         startingRotation = transform.rotation;
