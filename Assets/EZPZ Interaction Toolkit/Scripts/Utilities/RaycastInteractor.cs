@@ -177,13 +177,13 @@ public class RaycastInteractor : MonoBehaviour
     public void HandleRaycastInteractions()
     {
         RaycastHit hit;
-        if (Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, rayLength, layerMask))
+
+        bool didHit = Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, rayLength, layerMask);
+
+        if(didHit)
         {
             Debug.DrawRay(rayPointer.position, rayPointer.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            //Debug.Log("Did Hit " + hit.collider.name);
-
-            HandleInteractables(ref hit);
-
+            HandleInteractables(hit);
         }
         else
         {
@@ -192,7 +192,7 @@ public class RaycastInteractor : MonoBehaviour
         }
     }
 
-    void HandleInteractables(ref RaycastHit hit)
+    void HandleInteractables(RaycastHit hit)
     {
         hitSubject = hit.collider.gameObject.GetComponent<InteractableGeneral>();
 
@@ -215,13 +215,6 @@ public class RaycastInteractor : MonoBehaviour
                 HandleMovables(subject);
                 HandleTypables(subject);
             }
-
-            /*
-            if(interactState && interactState == prevInteractState)
-            {
-                //subject.onHoldInteract.Invoke();
-            }
-            */
         }
         else
         {
