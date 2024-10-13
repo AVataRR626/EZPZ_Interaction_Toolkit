@@ -32,7 +32,21 @@ public class ItemCycler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CullNulls();
         ActivateCurrentItem();
+    }
+
+    public void CullNulls()
+    {
+        List<GameObject> noNulls = new List<GameObject>();
+
+        for(int i = 0; i < items.Length; i++)
+        {
+            if (items[i] != null)
+                noNulls.Add(items[i]);
+        }
+
+        items = noNulls.ToArray();
     }
 
     public void DisableAllItems()
