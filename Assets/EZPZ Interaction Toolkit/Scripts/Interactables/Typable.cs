@@ -40,7 +40,8 @@ public class Typable : InteractableGeneral
             if (ch == '\b')
             {
                 //backspace
-                typeTextBuffer = typeTextBuffer.Substring(0, typeTextBuffer.Length - 1);                
+                if(typeTextBuffer.Length >= 1)
+                    typeTextBuffer = typeTextBuffer.Substring(0, typeTextBuffer.Length - 1);
             }           
             else if(ch == '\r')
             {
