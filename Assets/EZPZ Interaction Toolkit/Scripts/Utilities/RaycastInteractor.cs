@@ -43,7 +43,7 @@ public class RaycastInteractor : MonoBehaviour
     void Start()
     {
 
-        if(transform.localScale.x != 1 || transform.localScale.y != 1 || transform.localScale.z != 1)
+        if (transform.localScale.x != 1 || transform.localScale.y != 1 || transform.localScale.z != 1)
         {
             Debug.LogError("!!!!! ALERT !!!!!" + name + " SCALE IS NOT (1,1,1). This will cause object pickup & drop problems. Reset scale to (1,1,1)");
         }
@@ -118,7 +118,7 @@ public class RaycastInteractor : MonoBehaviour
 
     public void EventSystemCleanup()
     {
-        if(myEventSystem != null)
+        if (myEventSystem != null)
         {
             EventSystem[] allEventSystems = FindObjectsOfType<EventSystem>();
 
@@ -180,7 +180,7 @@ public class RaycastInteractor : MonoBehaviour
 
         bool didHit = Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, rayLength, layerMask);
 
-        if(didHit)
+        if (didHit)
         {
             Debug.DrawRay(rayPointer.position, rayPointer.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             HandleInteractables(hit);
@@ -242,7 +242,7 @@ public class RaycastInteractor : MonoBehaviour
                 }
 
                 if (moveSubject.groundPlace)
-                {   
+                {
 
                     moveSubject.transform.position = environmentHit.position;
                     moveSubject.transform.parent = environmentHit;
@@ -294,8 +294,8 @@ public class RaycastInteractor : MonoBehaviour
     {
         Collider c = m.GetComponent<Collider>();
         if (c != null)
-        {   
-            c.isTrigger = setting; 
+        {
+            c.isTrigger = setting;
 
             if (m.subCollliders.Length > 0)
             {
@@ -304,7 +304,7 @@ public class RaycastInteractor : MonoBehaviour
                     if (subC != null)
                     {
                         CharacterController cc = subC.GetComponent<CharacterController>();
-                        if(cc == null)   
+                        if (cc == null)
                             subC.isTrigger = setting;
                     }
                 }
@@ -336,7 +336,9 @@ public class RaycastInteractor : MonoBehaviour
             //revert to moving
             typeSubject.typeCapture = false;
             typeSubject.raycastInteractor = null;
-            myPlayerInput.enabled = true;
+
+            if (myPlayerInput != null)
+                myPlayerInput.enabled = true;
 
             rayLength = originalRayLength;
             //clickableIndicator.SetActive(true);
@@ -351,7 +353,9 @@ public class RaycastInteractor : MonoBehaviour
         typeSubject.typeCapture = true;
         typeSubject.raycastInteractor = this;
         typeSubject.SyncText();
-        myPlayerInput.enabled = false;
+
+        if (myPlayerInput != null)
+            myPlayerInput.enabled = false;
 
         rayLength = 0;
         //clickableIndicator.SetActive(false);
@@ -361,18 +365,21 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnNoClickable()
     {
-        clickableIndicator.SetActive(false);
+        if (clickableIndicator != null)
+            clickableIndicator.SetActive(false);
 
         if (rayLength > 0)
         {
-            aimingCrosshair.SetActive(true);
+            if (aimingCrosshair != null)
+                aimingCrosshair.SetActive(true);
 
             if (keyboardFreezeIcon != null)
                 keyboardFreezeIcon.SetActive(false);
         }
         else
         {
-            aimingCrosshair.SetActive(false);
+            if (aimingCrosshair != null)
+                aimingCrosshair.SetActive(false);
 
             if (keyboardFreezeIcon != null)
                 keyboardFreezeIcon.SetActive(true);
@@ -395,8 +402,11 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnClickableHover()
     {
-        clickableIndicator.SetActive(true);
-        aimingCrosshair.SetActive(false);
+        if (clickableIndicator != null)
+            clickableIndicator.SetActive(true);
+
+        if (aimingCrosshair != null)
+            aimingCrosshair.SetActive(false);
 
         if (keyboardFreezeIcon != null)
             keyboardFreezeIcon.SetActive(false);

@@ -6,8 +6,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class InteractableGeneral : MonoBehaviour
+public class InteractableGeneral : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {   
     public UnityEvent onFirstInteract;
     public UnityEvent onHoverEnter;
@@ -42,5 +43,23 @@ public class InteractableGeneral : MonoBehaviour
     public void LoadScene(string newScene)
     {
         GenUtils.LoadScene(newScene);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        onHoverEnter.Invoke();
+        Debug.Log("Cursor Entering " + name + " GameObject");
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        onHoverExit.Invoke();
+        Debug.Log("Cursor Exiting " + name + " GameObject");
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        onFirstInteract.Invoke();
+        Debug.Log("Cursor CLICKING " + name + " GameObject");
     }
 }
