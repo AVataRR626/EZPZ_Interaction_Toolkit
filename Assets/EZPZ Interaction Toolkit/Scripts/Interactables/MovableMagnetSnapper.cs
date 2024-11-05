@@ -12,6 +12,8 @@ public class MovableMagnetSnapper : MonoBehaviour
     [Header("Snap Settings")]
     public Transform snappingPoint;
     public bool alignRotation = true;
+    [Tooltip("Leave empty to accept all items")]
+    public string filterString;
 
     [Header("Event Handling")]
     public UnityEvent onSnap;
@@ -43,6 +45,7 @@ public class MovableMagnetSnapper : MonoBehaviour
             {
                 if (!subject.moving)
                 {
+
                     subject.transform.parent = snappingPoint;
                     subject.transform.localPosition = Vector3.zero;
                     subject.transform.rotation = snappingPoint.rotation;
@@ -72,12 +75,36 @@ public class MovableMagnetSnapper : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (subject == null)
         {
+
             subject = other.GetComponent<Movable>();
 
             if (subject != null)
             {
+
+                if (filterString.Length > 0)
+                {
+                    TriggerFilter tf = subject.GetComponent<TriggerFilter>();
+
+                    if (tf != null)
+                    {
+                        if (!tf.filterString.Equals(filterString))
+                        {
+                            subject = null;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        subject = null;
+                        return;
+                    }
+
+                }
+
+
                 snapFlag = false;
             }
         }
