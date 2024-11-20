@@ -8,12 +8,14 @@ public class Movable : InteractableGeneral
     public UnityEvent onDrop;
     public bool noCollideOnHold = true;
     public bool groundPlace = false;
+    public Vector3 groundPlaceOffset;
     public bool moving = false;
     public bool freezeRotation = false;
     public bool trayMode = false;       
     public float throwForce = 0;
     public Collider [] subCollliders;
     public float snapSpeed = 20;
+    
 
     [Header("System Stuff (Usually Don't Touch")]
     public Vector3 startingPosition;

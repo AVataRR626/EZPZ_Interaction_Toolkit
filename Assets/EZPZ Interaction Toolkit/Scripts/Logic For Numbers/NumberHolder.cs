@@ -8,10 +8,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
+using JetBrains.Annotations;
 
 public class NumberHolder : MonoBehaviour
 {
-    public float value;
+    public float value;    
 
     [Header("Display Parameters")]
     public string prefix = "$ ";
@@ -19,6 +20,10 @@ public class NumberHolder : MonoBehaviour
     public string format = "N2";
     public TextMeshPro textDisplay;
     public TextMeshProUGUI textDisplayUGui;
+
+    [Header("Peer Number Holders (for comparisons)")]
+    public List<NumberHolder> numberHolderPeers;
+    public UnityEvent onGreatest;
 
     public void Update()
     {
@@ -42,5 +47,23 @@ public class NumberHolder : MonoBehaviour
     public void SetValue(float newValue)
     {
         value = newValue;
+    }
+
+    public void CheckIfGreatest()
+    {
+        float greatest = value;
+
+        for(int i = 0; i < numberHolderPeers.Count; i++)
+        {
+            if(greatest < numberHolderPeers[i].value)
+            {
+                greatest = numberHolderPeers[i].value;
+            }
+        }
+
+        if(value == greatest)
+        {
+            onGreatest.Invoke();
+        }
     }
 }

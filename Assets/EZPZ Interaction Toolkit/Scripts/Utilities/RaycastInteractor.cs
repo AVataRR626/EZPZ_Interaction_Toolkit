@@ -244,7 +244,7 @@ public class RaycastInteractor : MonoBehaviour
                 if (moveSubject.groundPlace)
                 {
 
-                    moveSubject.transform.position = environmentHit.position;
+                    moveSubject.transform.position = environmentHit.position + moveSubject.groundPlaceOffset;
                     moveSubject.transform.parent = environmentHit;
                 }
                 else
