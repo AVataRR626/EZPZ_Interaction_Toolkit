@@ -20,6 +20,7 @@ public class InteractableTrigger : MonoBehaviour
     public UnityEvent onTriggerExit;
     public UnityEvent onTriggerStay;
     public bool deleteOnEnter = false;
+    public bool disableOnEnter = false;
     public GameObject subject;
 
     [Header("System Stuff - Usually Dont Touch")]
@@ -59,6 +60,16 @@ public class InteractableTrigger : MonoBehaviour
             if (CheckFilter(other))
             {
                 onTriggerEnter.Invoke();
+
+                if(disableOnEnter)
+                {
+                    if (other.tag != "Player")
+                        other.gameObject.SetActive(false);
+                }
+                else
+                {
+                    subject = other.gameObject;
+                }
 
                 if (deleteOnEnter)
                 {

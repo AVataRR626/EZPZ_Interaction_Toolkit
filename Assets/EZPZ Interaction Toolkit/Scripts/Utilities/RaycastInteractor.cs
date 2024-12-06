@@ -211,7 +211,13 @@ public class RaycastInteractor : MonoBehaviour
 
             if (interactState && !prevInteractState)
             {
+                subject.onPrimaryInteract.Invoke();
+
+                //legacy-----
                 subject.onFirstInteract.Invoke();
+                //legacy-----
+
+
                 HandleMovables(subject);
                 HandleTypables(subject);
             }

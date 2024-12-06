@@ -5,19 +5,20 @@ using UnityEngine.Events;
 
 public class Movable : InteractableGeneral
 {
+    [Header("Movable Object Settings")]
     public UnityEvent onDrop;
+    public float throwForce = 0;
     public bool noCollideOnHold = true;
     public bool groundPlace = false;
     public Vector3 groundPlaceOffset;
     public bool moving = false;
     public bool freezeRotation = false;
-    public bool trayMode = false;       
-    public float throwForce = 0;
+    public bool trayMode = false;           
     public Collider [] subCollliders;
     public float snapSpeed = 20;
     
 
-    [Header("System Stuff (Usually Don't Touch")]
+    [Header("System Stuff (Usually Don't Touch)")]
     public Vector3 startingPosition;
     public Quaternion startingRotation;
     public Rigidbody myRbody;
@@ -104,6 +105,8 @@ public class Movable : InteractableGeneral
             foreach (MovableMagnetSnapper m in allMagnets)
                 m.ReleaseSubject();
         }
+
+        Debug.Log("MOVABLE - RESET ALL");
     }
 
     

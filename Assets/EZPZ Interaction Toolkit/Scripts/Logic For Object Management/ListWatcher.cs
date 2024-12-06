@@ -6,11 +6,14 @@ using UnityEngine;
 public class ListWatcher : MonoBehaviour
 {
     public float checkFrequency;
+    public bool invokeOnce;
     public List<GameObject> watchList;
 
     [Header("Event Handling")]
     public UnityEvent onEmpty;
     public UnityEvent onCountMatch;
+    public bool invokedFlag = false;
+    public int activeCount = 0;
     // Start is called before the first frame update
 
     private void Start()
@@ -26,32 +29,59 @@ public class ListWatcher : MonoBehaviour
             Invoke("CheckContinuous", checkFrequency);
     }
 
-    public void CheckIfEmpty()
+    public void CountActives()
     {
         int i = 0;
-        while(i < watchList.Count)
+        activeCount = 0;
+        while (i < watchList.Count)
         {
-            if (watchList[i] == null)
+            if (watchList[i] != null)
             {
-                watchList.RemoveAt(i);
+                if (watchList[i].activeSelf)
+                    activeCount++;
             }
-            else
-            {
-                i++;
-            }
+            i++;
         }
+    }
+
+    public void CheckIfEmpty()
+    {
+        if (invokeOnce && invokedFlag)
+            return;
 
 
-        if (watchList.Count == 0)
+        CountActives();
+
+        if (activeCount == 0)
         {
+
+            if (invokeOnce)
+            {
+                if (!invokedFlag)
+                    invokedFlag = true;
+            }
+
             onEmpty.Invoke();
         }
     }
 
     public void CheckMatchCount(int test)
     {
-        if(watchList.Count == test)
+
+        if (invokeOnce && invokedFlag)
+            return;
+
+        CountActives();
+
+        if (activeCount == test)
         {
+
+            if (invokeOnce)
+            {
+                if (!invokedFlag)
+                    invokedFlag = true;
+            }
+
             onCountMatch.Invoke();
         }
     }
