@@ -15,10 +15,13 @@ public class InteractableGeneral : MonoBehaviour//, IPointerEnterHandler, IPoint
     public UnityEvent onHoverExit;
     //public UnityEvent onHoldInteract;
 
-
-    [Header("Advanced Settings: Be Careful")]
-    public InteractableGeneral eventRelay;
+    [Header("For Legacy Compatibility")]
+    [Tooltip("This event is the same as onPrimaryInteract. Use that instead. This is only here to keep old things from breaking.")]
     public UnityEvent onFirstInteract;
+
+    [Header("Advanced Setting - Be Careful!")]
+    public InteractableGeneral eventRelay;
+    
 
     private void Start()
     {

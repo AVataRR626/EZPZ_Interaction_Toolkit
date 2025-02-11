@@ -59,7 +59,7 @@ public class Movable : InteractableGeneral
 
                     if (!m.myRbody.isKinematic)
                     {
-                        m.myRbody.velocity = Vector3.zero;
+                        m.myRbody.linearVelocity = Vector3.zero;
                         m.myRbody.angularVelocity = Vector3.zero;
                         m.myRbody.isKinematic = true;
                     }
@@ -85,7 +85,7 @@ public class Movable : InteractableGeneral
 
         if(myRbody != null)
         {
-            myRbody.velocity = Vector3.zero;
+            myRbody.linearVelocity = Vector3.zero;
             myRbody.angularVelocity = Vector3.zero;
             myRbody.useGravity = true;
         }
@@ -142,7 +142,7 @@ public class Movable : InteractableGeneral
 
                 m.myTray = this;
                 m.trayOffset = m.transform.position - transform.position + new Vector3(0, 0.01f, 0);
-                m.myRbody.velocity = Vector3.zero;
+                m.myRbody.linearVelocity = Vector3.zero;
                 m.myRbody.angularVelocity = Vector3.zero;
                 m.myRbody.useGravity = false;
                 m.transform.rotation = m.startingRotation;

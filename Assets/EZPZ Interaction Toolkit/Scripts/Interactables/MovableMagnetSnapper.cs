@@ -57,7 +57,7 @@ public class MovableMagnetSnapper : MonoBehaviour
 
                     if (r != null)
                     {
-                        r.velocity = Vector3.zero;
+                        r.linearVelocity = Vector3.zero;
                         r.useGravity = false;
                     }
 
