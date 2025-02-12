@@ -6,19 +6,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class InteractableGeneral : MonoBehaviour
-{   
-    public UnityEvent onFirstInteract;
+public class InteractableGeneral : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+{
+    public UnityEvent onPrimaryInteract;
     public UnityEvent onHoverEnter;
     public UnityEvent onHoverExit;
     //public UnityEvent onHoldInteract;
 
+    [Header("For Legacy Compatibility")]
+    [Tooltip("This event is the same as onPrimaryInteract. Use that instead. This is only here to keep old things from breaking.")]
+    public UnityEvent onFirstInteract;
+
+    [Header("Advanced Setting - Be Careful!")]
+    public InteractableGeneral eventRelay;
+    
+
     private void Start()
     {
-        onFirstInteract.AddListener(ParentPulse);
+        onPrimaryInteract.AddListener(ParentPulse);
         onHoverEnter.AddListener(ParentPulseUp);
         onHoverExit.AddListener(ParentPulseDOwn);
+
+        onFirstInteract.AddListener(ParentPulse);
+
+        if (eventRelay != null)
+        {
+            onPrimaryInteract.AddListener(RelayOnPrimaryInteract);
+            onHoverEnter.AddListener(RelayOnHoverEnter);
+            onHoverExit.AddListener(RelayOnHoverExit);
+
+            onFirstInteract.AddListener(RelayOnFirstInteract);
+        }
     }
 
     public void ParentPulseUp()
@@ -43,4 +63,59 @@ public class InteractableGeneral : MonoBehaviour
     {
         GenUtils.LoadScene(newScene);
     }
+
+    public void RelayOnPrimaryInteract()
+    {
+        if (eventRelay != null)
+            eventRelay.onPrimaryInteract.Invoke();
+    }
+
+    public void RelayOnFirstInteract()
+    {
+        if (eventRelay != null)
+            eventRelay.onFirstInteract.Invoke();
+    }
+
+    public void RelayOnHoverEnter()
+    {
+        if (eventRelay != null)
+            eventRelay.onHoverEnter.Invoke();
+    }
+
+    public void RelayOnHoverExit()
+    {
+        if (eventRelay != null)
+            eventRelay.onHoverExit.Invoke();
+    }
+
+    /*
+     * Test later 
+     *
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        onHoverEnter.Invoke();
+        Debug.Log("Cursor Entering " + name + " GameObject");
+
+        if (eventRelay != null)
+            eventRelay.onHoverEnter.Invoke();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        onHoverExit.Invoke();
+        Debug.Log("Cursor Exiting " + name + " GameObject");
+
+        if (eventRelay != null)
+            eventRelay.onHoverExit.Invoke();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        onFirstInteract.Invoke();
+        Debug.Log("Cursor CLICKING " + name + " GameObject");
+
+        if (eventRelay != null)
+            eventRelay.onFirstInteract.Invoke();
+    }
+    */
 }

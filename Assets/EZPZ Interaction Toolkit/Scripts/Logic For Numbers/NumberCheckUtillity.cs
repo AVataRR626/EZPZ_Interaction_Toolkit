@@ -10,6 +10,7 @@ using UnityEngine.UIElements;
 
 public class NumberCheckUtillity : MonoBehaviour
 {
+    [Header("Number Holder References")]
     public NumberHolder reference;
 
     [Header("Purchase Logic Events")]

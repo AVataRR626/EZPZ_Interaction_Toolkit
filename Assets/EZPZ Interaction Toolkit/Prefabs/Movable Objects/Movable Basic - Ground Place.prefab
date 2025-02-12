@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7753128975706630859}
   - component: {fileID: 7753128975706630858}
   - component: {fileID: 7753128975706630857}
-  - component: {fileID: -7797562902470651642}
   m_Layer: 0
   m_Name: Movable Basic - Ground Place
   m_TagString: Untagged
@@ -48,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefea2dc44ab577428bd17825ce28f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onHoverEnter:
@@ -57,10 +56,29 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  eventRelay: {fileID: 0}
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
+  throwForce: 0
   noCollideOnHold: 1
   groundPlace: 1
+  groundPlaceOffset: {x: 0, y: 0.25, z: 0}
   moving: 0
-  throwForce: 0
+  freezeRotation: 0
+  trayMode: 0
+  subCollliders: []
+  snapSpeed: 20
+  startingPosition: {x: 0, y: 0, z: 0}
+  startingRotation: {x: 0, y: 0, z: 0, w: 0}
+  myRbody: {fileID: 0}
+  myCollider: {fileID: 0}
+  myTray: {fileID: 0}
+  trayOffset: {x: 0, y: 0, z: 0}
+  trayInventory: []
 --- !u!33 &7753128975706630859
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -131,30 +149,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &-7797562902470651642
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7753128975706630855}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
