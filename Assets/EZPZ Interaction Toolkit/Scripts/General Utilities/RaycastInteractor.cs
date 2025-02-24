@@ -39,6 +39,7 @@ public class RaycastInteractor : MonoBehaviour
     public float originalRayLength;
     public EventSystem myEventSystem;
     public Transform previousMoveParent;
+    public bool cameraCleanupOnStart = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +74,9 @@ public class RaycastInteractor : MonoBehaviour
 
         originalRayLength = rayLength;
 
-        CameraCleanup();
+        if(cameraCleanupOnStart)
+            CameraCleanup();
+
         EventSystemCleanup();
     }
 

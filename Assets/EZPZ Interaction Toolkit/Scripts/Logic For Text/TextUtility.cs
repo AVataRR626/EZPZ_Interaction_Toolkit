@@ -26,4 +26,16 @@ public class TextUtility : MonoBehaviour
         if (textDisplayPUGUI != null)
             textDisplayPUGUI.text += t;
     }
+
+    public void Backspace()
+    {
+        if (textDisplay != null)
+            if (textDisplay.text.Length > 0)
+                textDisplay.text = textDisplay.text.Substring(0, textDisplay.text.Length - 1);
+
+
+        if (textDisplayPUGUI != null)
+            if (textDisplayPUGUI.text.Length > 0)
+                textDisplayPUGUI.text = textDisplayPUGUI.text.Substring(0, textDisplayPUGUI.text.Length - 1);
+    }
 }
