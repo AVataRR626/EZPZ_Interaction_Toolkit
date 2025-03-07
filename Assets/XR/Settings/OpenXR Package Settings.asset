@@ -240,12 +240,12 @@ MonoBehaviour:
   m_Name: HandTracking Android
   m_EditorClassIdentifier: 
   m_enabled: 0
-  nameUi: 
-  version: 
-  featureIdInternal: 
-  openxrExtensionStrings: 
-  company: 
-  priority: 0
+  nameUi: Hand Tracking Subsystem
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.handtracking
+  openxrExtensionStrings: XR_EXT_hand_tracking
+  company: Unity
+  priority: -100
   required: 0
 --- !u!114 &-6492643234214584928
 MonoBehaviour:
@@ -748,8 +748,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   features:
   - {fileID: -7768541509677668697}
-  - {fileID: -7641462904884932495}
-  - {fileID: 8564233488929851115}
   - {fileID: -9174397128254678697}
   - {fileID: 836019911589936928}
   - {fileID: -4500463404055224011}
@@ -759,6 +757,7 @@ MonoBehaviour:
   - {fileID: -5612932179523443070}
   - {fileID: -4836135702625627396}
   - {fileID: 8929145491071220171}
+  - {fileID: -7641462904884932495}
   - {fileID: -875757363016377245}
   - {fileID: 6763009042448125765}
   - {fileID: -4579876869972330967}
@@ -779,6 +778,7 @@ MonoBehaviour:
   - {fileID: 3413807305501790438}
   - {fileID: 4696754267265365037}
   - {fileID: 1114611842164517360}
+  - {fileID: 8564233488929851115}
   m_renderMode: 1
   m_autoColorSubmissionMode: 1
   m_colorSubmissionModes:
@@ -1079,6 +1079,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   features:
   - {fileID: -4053740986697768925}
+  - {fileID: 3432729771546100621}
+  - {fileID: -7090262781491698057}
   - {fileID: 1046845009975853981}
   - {fileID: 3952538338134013363}
   - {fileID: -8842078585218396944}
@@ -1150,11 +1152,11 @@ MonoBehaviour:
   m_Name: MetaHandTrackingAim Android
   m_EditorClassIdentifier: 
   m_enabled: 0
-  nameUi: 
-  version: 
-  featureIdInternal: 
-  openxrExtensionStrings: 
-  company: 
+  nameUi: Meta Hand Tracking Aim
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.metahandtrackingaim
+  openxrExtensionStrings: XR_FB_hand_tracking_aim
+  company: Unity
   priority: 0
   required: 0
 --- !u!114 &3952538338134013363
