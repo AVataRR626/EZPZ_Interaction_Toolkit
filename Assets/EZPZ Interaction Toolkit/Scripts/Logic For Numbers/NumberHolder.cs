@@ -41,7 +41,7 @@ public class NumberHolder : MonoBehaviour
 
     public void Subtract(float delta)
     {
-        value -= 1;
+        value -= delta;
     }
 
     public void SetValue(float newValue)

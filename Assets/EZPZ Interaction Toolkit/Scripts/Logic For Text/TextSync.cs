@@ -11,6 +11,7 @@ public class TextSync : MonoBehaviour
 {
     public TextMeshPro textDisplay;
     public string text;
+    public TextMeshPro sourceDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,12 @@ public class TextSync : MonoBehaviour
     void Update()
     {
         if (textDisplay != null)
-            textDisplay.text = text;
+        {
+            if (sourceDisplay != null)
+                textDisplay.text = sourceDisplay.text;
+            else
+                textDisplay.text = text;
+        }
     }
 
     public void SetText(string newText)

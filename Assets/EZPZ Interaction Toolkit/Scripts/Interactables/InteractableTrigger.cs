@@ -59,8 +59,6 @@ public class InteractableTrigger : MonoBehaviour
         {
             if (CheckFilter(other))
             {
-                onTriggerEnter.Invoke();
-
                 if(disableOnEnter)
                 {
                     if (other.tag != "Player")
@@ -80,6 +78,8 @@ public class InteractableTrigger : MonoBehaviour
                 {
                     subject = other.gameObject;
                 }
+
+                onTriggerEnter.Invoke();
             }
         }
         

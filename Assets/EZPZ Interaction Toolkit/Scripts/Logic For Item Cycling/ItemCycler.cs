@@ -87,6 +87,16 @@ public class ItemCycler : MonoBehaviour
         currentItem = items[index];
     }
 
+    public void ActivateItemRandom()
+    {
+        int rSelect = itemIndex;
+            
+        while(rSelect == itemIndex)
+            rSelect = Random.Range(0, items.Length);
+
+        ActivateItem(rSelect);
+    }
+
     public void NextItem()
     {
         itemIndex++;
