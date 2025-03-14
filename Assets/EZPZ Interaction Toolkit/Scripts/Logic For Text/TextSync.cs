@@ -9,8 +9,14 @@ using TMPro;
 
 public class TextSync : MonoBehaviour
 {
-    public TextMeshPro textDisplay;
     public string text;
+
+    [Header("TextMeshProGUI")]
+    public TextMeshProUGUI textDisplayTMPG;
+    public TextMeshProUGUI sourceDisplayTMPG;
+
+    [Header("TextMeshPro")]
+    public TextMeshPro textDisplay;    
     public TextMeshPro sourceDisplay;
 
     // Start is called before the first frame update
@@ -29,6 +35,14 @@ public class TextSync : MonoBehaviour
                 textDisplay.text = sourceDisplay.text;
             else
                 textDisplay.text = text;
+        }
+
+        if (textDisplayTMPG != null)
+        {
+            if (sourceDisplayTMPG != null)
+                textDisplayTMPG.text = sourceDisplayTMPG.text;
+            else
+                textDisplayTMPG.text = text;
         }
     }
 
