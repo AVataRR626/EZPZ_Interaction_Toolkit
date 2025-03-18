@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using TMPro;
 using UnityEngine.UI;
+using System.Security.Cryptography;
+using System;
 
 public class Typable : InteractableGeneral
 {
@@ -42,7 +44,14 @@ public class Typable : InteractableGeneral
                 //backspace
                 if(typeTextBuffer.Length >= 1)
                     typeTextBuffer = typeTextBuffer.Substring(0, typeTextBuffer.Length - 1);
-            }           
+            }
+            else if (ch == 127)
+            {
+                Debug.Log("MAC backspace");
+                //backspace
+                if (typeTextBuffer.Length >= 1)
+                    typeTextBuffer = typeTextBuffer.Substring(0, typeTextBuffer.Length - 1);
+            }
             else if(ch == '\r')
             {
                 if (releaseOnEnterKey)

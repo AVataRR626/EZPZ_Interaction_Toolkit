@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 5df33211f7a31464794d106d6b055d71, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: e6595c78fb40b2a4796da39bdc95d2ce, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 01b21b75f7034984d964af682a9c55d0, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -191,6 +191,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1422487027}
   m_SourcePrefab: {fileID: 100100000, guid: cc979301ead36a64bad5cf0ad5a0d78d, type: 3}
+--- !u!4 &132566635 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5477663902695651912, guid: df63664dbdd376b4298726771ab129fa, type: 3}
+  m_PrefabInstance: {fileID: 1230763580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &161161147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -201,7 +206,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1293250610060812742, guid: 27818f6f8d758ed48901a6a1310405e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.99
       objectReference: {fileID: 0}
     - target: {fileID: 1293250610060812742, guid: 27818f6f8d758ed48901a6a1310405e3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -209,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1293250610060812742, guid: 27818f6f8d758ed48901a6a1310405e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 9.01
       objectReference: {fileID: 0}
     - target: {fileID: 1293250610060812742, guid: 27818f6f8d758ed48901a6a1310405e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -543,6 +548,7 @@ MonoBehaviour:
   triggerActive: 1
   myRenderer: {fileID: 0}
   chaser: {fileID: 1773456106}
+  autochase: 1
 --- !u!65 &729623016
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1989,7 +1995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
   m_AgentTypeID: 0
-  m_CollectObjects: 3
+  m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -2005,7 +2011,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: b83c40feb41a8754b99be527edfad5f8, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c4960cbc28a58e34bb1f5f8b54a7b567, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1900834625
 Transform:
@@ -2193,6 +2199,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2153213926687262829, guid: 4a0054a57a6af8941b68b7633998117f, type: 3}
+      propertyPath: 'altDestinations.Array.data[1]'
+      value: 
+      objectReference: {fileID: 132566635}
     - target: {fileID: 3411921127519314762, guid: 4a0054a57a6af8941b68b7633998117f, type: 3}
       propertyPath: m_Name
       value: Moving Character - Doggo Feedable Animated

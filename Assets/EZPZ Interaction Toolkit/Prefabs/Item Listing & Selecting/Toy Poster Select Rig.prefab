@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 3266890122687682032}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: -0.30999994, z: 0.101}
-  m_LocalScale: {x: 1, y: 1, z: 0.026491255}
+  m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
+  m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
@@ -60,6 +60,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -118,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onHoverEnter:
@@ -127,6 +130,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1 &4777969279070608178
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,8 +163,8 @@ Transform:
   m_GameObject: {fileID: 4777969279070608178}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.31, z: 0.101}
-  m_LocalScale: {x: 1, y: 1, z: 0.026491255}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0.101}
+  m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
@@ -187,6 +194,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -245,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onHoverEnter:
@@ -254,6 +264,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1 &4950201964667984571
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,8 +297,8 @@ Transform:
   m_GameObject: {fileID: 4950201964667984571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: -0.30999994, z: 0.101}
-  m_LocalScale: {x: 1, y: 1, z: 0.026491255}
+  m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
+  m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
@@ -314,6 +328,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -372,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onHoverEnter:
@@ -381,6 +398,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1 &7033245782281614625
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,8 +431,8 @@ Transform:
   m_GameObject: {fileID: 7033245782281614625}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: -0.30999994, z: 0.101}
-  m_LocalScale: {x: 1, y: 1, z: 0.026491255}
+  m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
+  m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
@@ -441,6 +462,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -499,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onHoverEnter:
@@ -508,6 +532,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1 &7269812583351956471
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +561,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7269812583351956471}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000058114523}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 13.99, y: 5.443, z: -1.657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -627,8 +655,8 @@ Transform:
   m_GameObject: {fileID: 7881203225973056737}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: -0.30999994, z: 0.101}
-  m_LocalScale: {x: 1, y: 1, z: 0.026491255}
+  m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
+  m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
@@ -658,6 +686,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -716,7 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onHoverEnter:
@@ -725,6 +756,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1 &7937517451229397601
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,8 +789,8 @@ Transform:
   m_GameObject: {fileID: 7937517451229397601}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: -0.30999994, z: 0.101}
-  m_LocalScale: {x: 1, y: 1, z: 0.026491255}
+  m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
+  m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
@@ -785,6 +820,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -843,7 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onHoverEnter:
@@ -852,6 +890,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1 &8500564355843554490
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,8 +923,8 @@ Transform:
   m_GameObject: {fileID: 8500564355843554490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: -0.30999994, z: 0.101}
-  m_LocalScale: {x: 1, y: 1, z: 0.026491255}
+  m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
+  m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
@@ -912,6 +954,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -970,7 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onHoverEnter:
@@ -979,6 +1024,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1001 &1524196615239471602
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,10 +5,12 @@ public class ChaseItemTrigger : InteractableTrigger
 {
     [Header("Agent Settings")]
     public NMAWalkTowards chaser;
+    public bool autochase = true;
 
     private void Start()
     {
-        onTriggerEnter.AddListener(Chase);
+        if(autochase)
+            onTriggerEnter.AddListener(Chase);
     }
 
 
