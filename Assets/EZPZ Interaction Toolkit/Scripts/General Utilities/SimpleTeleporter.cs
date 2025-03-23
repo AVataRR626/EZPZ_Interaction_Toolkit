@@ -2,6 +2,8 @@
 //by Matt Cabanag
 //created 26 Jul 2022
 
+using JetBrains.Annotations;
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,13 +33,17 @@ public class SimpleTeleporter : MonoBehaviour
         {
             Debug.Log("Teleporting! " + name);            
             cooldownClock = cooldown;
-            Invoke("ForceTeleport", activaitonDelay);
+            ForceTeleport();
         }
         
     }
 
     public void ForceTeleport()
     {
+        Debug.Log("FORCE TELEPORT");
+
+        
         subject.position = destination.position;
+        Physics.SyncTransforms();
     }
 }

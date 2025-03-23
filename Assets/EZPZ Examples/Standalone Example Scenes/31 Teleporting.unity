@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0339aee51b9d34ba1c9ff1d184b215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subject: {fileID: 0}
+  subject: {fileID: 980119945}
   destination: {fileID: 24334994}
   activaitonDelay: 0.1
   cooldown: 0.1
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0339aee51b9d34ba1c9ff1d184b215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subject: {fileID: 0}
+  subject: {fileID: 980119945}
   destination: {fileID: 134307545}
   activaitonDelay: 0.1
   cooldown: 0.1
@@ -783,6 +783,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7772526916590547685, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
+      propertyPath: visibleAtRuntime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772526916590547685, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -847,6 +851,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
+--- !u!4 &980119945 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5477663902695651912, guid: df63664dbdd376b4298726771ab129fa, type: 3}
+  m_PrefabInstance: {fileID: 584665827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1563649898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1245,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7772526916590547685, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
       propertyPath: cooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772526916590547685, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
+      propertyPath: visibleAtRuntime
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7772526916590547685, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
