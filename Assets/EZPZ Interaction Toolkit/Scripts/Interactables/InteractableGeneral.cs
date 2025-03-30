@@ -87,35 +87,4 @@ public class InteractableGeneral : MonoBehaviour//, IPointerEnterHandler, IPoint
         if (eventRelay != null)
             eventRelay.onHoverExit.Invoke();
     }
-
-    /*
-     * Test later 
-     *
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        onHoverEnter.Invoke();
-        Debug.Log("Cursor Entering " + name + " GameObject");
-
-        if (eventRelay != null)
-            eventRelay.onHoverEnter.Invoke();
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        onHoverExit.Invoke();
-        Debug.Log("Cursor Exiting " + name + " GameObject");
-
-        if (eventRelay != null)
-            eventRelay.onHoverExit.Invoke();
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        onFirstInteract.Invoke();
-        Debug.Log("Cursor CLICKING " + name + " GameObject");
-
-        if (eventRelay != null)
-            eventRelay.onFirstInteract.Invoke();
-    }
-    */
 }

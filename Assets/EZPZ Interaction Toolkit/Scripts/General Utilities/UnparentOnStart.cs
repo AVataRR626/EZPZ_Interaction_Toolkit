@@ -7,10 +7,15 @@ using UnityEngine;
 
 public class UnparentOnStart : MonoBehaviour
 {
+    public bool resetScale = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        transform.parent = null;        
+        transform.parent = null;
+        
+        if(resetScale)
+            transform.localScale = Vector3.one;
     }
 
 }
