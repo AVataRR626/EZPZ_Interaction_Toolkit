@@ -313,7 +313,8 @@ public class RaycastInteractor : MonoBehaviour
                     if (subC != null)
                     {
                         CharacterController cc = subC.GetComponent<CharacterController>();
-                        if (cc == null)
+                        InteractableTrigger it = subC.GetComponent<InteractableTrigger>();
+                        if (cc == null && it == null)
                             subC.isTrigger = setting;
                     }
                 }

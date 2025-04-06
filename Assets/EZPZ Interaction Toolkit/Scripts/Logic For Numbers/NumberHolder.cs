@@ -66,4 +66,9 @@ public class NumberHolder : MonoBehaviour
             onGreatest.Invoke();
         }
     }
+
+    public int GetIntValue()
+    {
+        return (int)value;
+    }
 }

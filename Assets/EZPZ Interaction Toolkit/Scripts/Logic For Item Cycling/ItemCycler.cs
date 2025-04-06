@@ -9,11 +9,14 @@ using UnityEngine.Events;
 
 public class ItemCycler : MonoBehaviour
 {
-
     [Header("Item Management")]
     public int itemIndex = 0;
     public GameObject currentItem;
     public GameObject[] items;
+
+    [Header("Synchronisation")]
+    public bool autoSync = false;
+    public NumberHolder indexSynchroniser;
 
     [Header("Event Management")]
     public bool loopCycle = true;
@@ -36,11 +39,23 @@ public class ItemCycler : MonoBehaviour
         ActivateCurrentItem();
     }
 
+    private void Update()
+    {
+        if (autoSync)
+        {
+            if (indexSynchroniser != null)
+            {
+                ActivateItem(indexSynchroniser.GetIntValue());
+            }
+        }
+
+    }
+
     public void CullNulls()
     {
         List<GameObject> noNulls = new List<GameObject>();
 
-        for(int i = 0; i < items.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
             if (items[i] != null)
                 noNulls.Add(items[i]);
@@ -55,10 +70,25 @@ public class ItemCycler : MonoBehaviour
             g.SetActive(false);
     }
 
+    public void AutoSync(bool newMode)
+    {
+        autoSync = newMode;
+    }
+
     public void ActivateCurrentItem()
     {
         itemIndex = Mathf.Clamp(itemIndex, 0, items.Length - 1);
         ActivateItem(itemIndex);
+    }
+
+    public void SelectItem(int index)
+    {
+        ActivateItem(index);
+    }
+
+    public void SelectItemRandom()
+    {
+        ActivateItemRandom();
     }
 
     public void ActivateItem(int index)

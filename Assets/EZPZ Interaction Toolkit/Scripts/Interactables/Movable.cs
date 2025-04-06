@@ -42,7 +42,7 @@ public class Movable : InteractableGeneral
         }
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         if(freezeRotation)
         {
@@ -121,7 +121,13 @@ public class Movable : InteractableGeneral
                 //StartCoroutine(DAttachToTray(otherMovable,0.1f));
                 if(transform.position.y > otherMovable.transform.position.y)
                     otherMovable.AttachToTray(this);
+                
             }
+            else if(trayMode)
+            {
+                myRbody.linearVelocity = Vector3.zero;
+            }
+
         }
     }
 
