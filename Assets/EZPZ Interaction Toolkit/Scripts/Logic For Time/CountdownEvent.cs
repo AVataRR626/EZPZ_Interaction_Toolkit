@@ -14,6 +14,7 @@ public class CountdownEvent : MonoBehaviour
     public float startingTime;
     public float clock;
     public bool looping = false;
+    public bool resetOnEnable = true;
     public UnityEvent onClockZero;
     public UnityEvent onReset;
 
@@ -27,7 +28,8 @@ public class CountdownEvent : MonoBehaviour
 
     public void OnEnable()
     {
-        Reset();
+        if(resetOnEnable)
+            Reset();
     }
 
     private void Start()
