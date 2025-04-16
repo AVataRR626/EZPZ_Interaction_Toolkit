@@ -7,7 +7,7 @@ Quick, 23 minute video guide below: https://youtu.be/mIoewQ2zQBI
 by Matt Cabanag https://www.linkedin.com/in/mattavc/
 
 MIT License:
-Copyright 2022-2024, Matt Cabanag
+Copyright 2022 - present, Matt Cabanag
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
