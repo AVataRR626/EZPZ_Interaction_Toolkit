@@ -41,8 +41,6 @@ public class SimpleTeleporter : MonoBehaviour
     public void ForceTeleport()
     {
         Debug.Log("FORCE TELEPORT");
-
-        
         subject.position = destination.position;
         Physics.SyncTransforms();
     }
