@@ -26,6 +26,7 @@ public class Movable : InteractableGeneral
     public Movable myTray;
     public Vector3 trayOffset;    
     public List<Movable> trayInventory = new List<Movable>();
+    public RaycastInteractor rayManipulator;
 
     private new void Start()
     {
@@ -156,8 +157,10 @@ public class Movable : InteractableGeneral
         }
     }
 
-    public void Grab()
+    public void Grab(RaycastInteractor newManipulator)
     {
+        rayManipulator = newManipulator;
+
         if (myTray != null)
         {
             if(myTray.trayInventory !=  null)
@@ -198,6 +201,28 @@ public class Movable : InteractableGeneral
         onDrop.Invoke();
     }
 
+    public void ForceDrop()
+    {
+        moving = false;
+        transform.parent = null;
+
+        if(rayManipulator != null)
+        {
+            rayManipulator.previousMoveParent = null;
+            rayManipulator.moveSubject = null;
+        }
+        
+        SetColliderIsTrigger(this, false);        
+        myCollider.enabled = true;
+        myTray = null;
+
+        if(myRbody != null)
+        {
+            myRbody.isKinematic = false;
+            myRbody.useGravity = true;
+        }
+    }
+
     public void ResetTray()
     {
         foreach (Movable m in trayInventory)
@@ -211,6 +236,29 @@ public class Movable : InteractableGeneral
         }
 
         trayInventory.Clear();
+    }
+
+    public static void SetColliderIsTrigger(Movable m, bool setting)
+    {
+        Collider c = m.GetComponent<Collider>();
+        if (c != null)
+        {
+            c.isTrigger = setting;
+
+            if (m.subCollliders.Length > 0)
+            {
+                foreach (Collider subC in m.subCollliders)
+                {
+                    if (subC != null)
+                    {
+                        CharacterController cc = subC.GetComponent<CharacterController>();
+                        InteractableTrigger it = subC.GetComponent<InteractableTrigger>();
+                        if (cc == null && it == null)
+                            subC.isTrigger = setting;
+                    }
+                }
+            }
+        }
     }
 
 }

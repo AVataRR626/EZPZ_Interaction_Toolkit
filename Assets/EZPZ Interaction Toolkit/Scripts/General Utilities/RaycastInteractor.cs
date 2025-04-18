@@ -240,14 +240,14 @@ public class RaycastInteractor : MonoBehaviour
             if (!moveSubject.moving)
             {
                 //Pick up objects
-                moveSubject.Grab();
+                moveSubject.Grab(this);
 
                 previousMoveParent = moveSubject.transform.parent;
                 moveSubject.moving = true;
 
                 if (moveSubject.noCollideOnHold)
                 {
-                    SetColliderIsTrigger(moveSubject, true);
+                    Movable.SetColliderIsTrigger(moveSubject, true);
                 }
 
                 if (moveSubject.groundPlace)
@@ -277,7 +277,7 @@ public class RaycastInteractor : MonoBehaviour
 
                 if (moveSubject.noCollideOnHold)
                 {
-                    SetColliderIsTrigger(moveSubject, false);
+                    Movable.SetColliderIsTrigger(moveSubject, false);
                 }
 
                 if (subjectRbody != null)
@@ -295,29 +295,6 @@ public class RaycastInteractor : MonoBehaviour
                 //moveSubject.transform.parent = previousMoveParent;
                 moveSubject.transform.parent = null;
                 previousMoveParent = null;
-            }
-        }
-    }
-
-    public static void SetColliderIsTrigger(Movable m, bool setting)
-    {
-        Collider c = m.GetComponent<Collider>();
-        if (c != null)
-        {
-            c.isTrigger = setting;
-
-            if (m.subCollliders.Length > 0)
-            {
-                foreach (Collider subC in m.subCollliders)
-                {
-                    if (subC != null)
-                    {
-                        CharacterController cc = subC.GetComponent<CharacterController>();
-                        InteractableTrigger it = subC.GetComponent<InteractableTrigger>();
-                        if (cc == null && it == null)
-                            subC.isTrigger = setting;
-                    }
-                }
             }
         }
     }
