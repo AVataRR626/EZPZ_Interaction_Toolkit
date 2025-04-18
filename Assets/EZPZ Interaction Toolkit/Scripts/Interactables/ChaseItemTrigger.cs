@@ -1,5 +1,9 @@
+//EZPZ Interaction Toolkit
+//by Matt Cabanag
+//created Mar 2025
 
 using UnityEngine;
+
 
 public class ChaseItemTrigger : InteractableTrigger
 {

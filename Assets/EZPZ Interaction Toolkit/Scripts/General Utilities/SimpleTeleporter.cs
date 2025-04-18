@@ -8,14 +8,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleTeleporter : MonoBehaviour
+public class SimpleTeleporter : MonoBehaviour, ISubjectRelay
 {
     [Header("Target Settings")]
     public Transform subject;
     public Transform destination;
-    public float activaitonDelay = 0.25f;
+    public bool syncOrientation = false;
 
     [Header("Cooldown Management")]
+    public float activaitonDelay = 0.25f;
     public float cooldown = 0.25f;
     public float cooldownClock;
 
@@ -42,6 +43,15 @@ public class SimpleTeleporter : MonoBehaviour
     {
         Debug.Log("FORCE TELEPORT");
         subject.position = destination.position;
+
+        if (syncOrientation)
+            subject.transform.rotation = destination.rotation;
+
         Physics.SyncTransforms();
+    }
+
+    void ISubjectRelay.SyncSubject(GameObject newSubject)
+    {
+        subject = newSubject.transform;
     }
 }

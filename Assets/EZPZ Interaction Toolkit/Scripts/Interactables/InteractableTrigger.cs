@@ -26,6 +26,8 @@ public class InteractableTrigger : MonoBehaviour
     [Header("System Stuff - Usually Dont Touch")]
     public bool triggerActive = true;
     public Renderer myRenderer;
+    [SerializeField]
+    public ISubjectRelay subjectSync;
 
     private void OnEnable()
     {
@@ -77,6 +79,12 @@ public class InteractableTrigger : MonoBehaviour
                 else
                 {
                     subject = other.gameObject;
+                }
+
+                if(subject != null)
+                {
+                    if(subjectSync != null)
+                        subjectSync.SyncSubject(subject);
                 }
 
                 onTriggerEnter.Invoke();
