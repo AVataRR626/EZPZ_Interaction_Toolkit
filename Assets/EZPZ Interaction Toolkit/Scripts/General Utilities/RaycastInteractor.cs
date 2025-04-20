@@ -258,8 +258,28 @@ public class RaycastInteractor : MonoBehaviour
                 }
                 else
                 {
-                    moveSubject.transform.position = rayPointer.position + rayPointer.forward * holdingDistance;
-                    moveSubject.transform.parent = rayPointer;
+                    Vector3 attachPos = rayPointer.position + rayPointer.forward * holdingDistance;
+
+                    if (moveSubject.attachPoint != null)
+                    {
+                        //swap parentage first
+                        moveSubject.attachPoint.parent = null;
+                        moveSubject.transform.parent = moveSubject.attachPoint;
+
+                        //align rotations and positions;
+                        moveSubject.attachPoint.transform.position = attachPos;
+                        moveSubject.attachPoint.transform.rotation = rayPointer.rotation;
+
+                        //return parentage
+                        moveSubject.transform.parent = rayPointer;
+                        moveSubject.attachPoint.parent = moveSubject.transform;
+
+                    }
+                    else
+                    {
+                        moveSubject.transform.position = attachPos;
+                        moveSubject.transform.parent = rayPointer;
+                    }
 
                     subjectRbody = moveSubject.GetComponent<Rigidbody>();
                     if (subjectRbody != null)
@@ -272,8 +292,9 @@ public class RaycastInteractor : MonoBehaviour
             else
             {
                 //Release objects
+                /*
                 moveSubject.moving = false;
-                moveSubject.Drop();
+                
 
                 if (moveSubject.noCollideOnHold)
                 {
@@ -292,10 +313,54 @@ public class RaycastInteractor : MonoBehaviour
                     }
                 }
 
+                moveSubject.Drop();
+
                 //moveSubject.transform.parent = previousMoveParent;
                 moveSubject.transform.parent = null;
                 previousMoveParent = null;
+                */
+                DropMovable();
             }
+        }
+    }
+
+    public void DropMovable()
+    {
+        if (moveSubject != null)
+        {
+            moveSubject.moving = false;
+            moveSubject.Drop();
+
+            if (moveSubject.noCollideOnHold)
+            {
+                Movable.SetColliderIsTrigger(moveSubject, false);
+            }
+
+            if (subjectRbody != null)
+            {
+                subjectRbody.useGravity = true;
+                subjectRbody.isKinematic = false;
+
+                if (moveSubject.throwForce > 0)
+                {
+                    Vector3 direction = moveSubject.transform.position - rayPointer.position;
+                    subjectRbody.AddForce(moveSubject.throwForce * direction * 100);
+                }
+            }
+
+            //moveSubject.transform.parent = previousMoveParent;
+            moveSubject.transform.parent = null;
+            previousMoveParent = null;
+            moveSubject = null;
+        }
+    }
+
+
+    public void HandleNonclickableMovable()
+    {
+        if (interactState && !prevInteractState)
+        {
+            DropMovable();
         }
     }
 
@@ -385,6 +450,8 @@ public class RaycastInteractor : MonoBehaviour
 
         if (hitSubject != null)
             hitSubject.onHoverExit.Invoke();
+
+        HandleNonclickableMovable();
     }
 
     public void OnClickableHover()

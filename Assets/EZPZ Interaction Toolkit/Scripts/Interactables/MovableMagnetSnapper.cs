@@ -45,10 +45,28 @@ public class MovableMagnetSnapper : MonoBehaviour
             {
                 if (!subject.moving)
                 {
+                    Vector3 attachPos = snappingPoint.position;
 
-                    subject.transform.parent = snappingPoint;
-                    subject.transform.localPosition = Vector3.zero;
-                    subject.transform.rotation = snappingPoint.rotation;
+                    if (subject.attachPoint == null)
+                    {
+                        subject.transform.parent = snappingPoint;
+                        subject.transform.localPosition = Vector3.zero;
+                        subject.transform.rotation = snappingPoint.rotation;
+                    }
+                    else
+                    {
+                        //swap parentage first
+                        subject.attachPoint.parent = null;
+                        subject.transform.parent = subject.attachPoint;
+
+                        //align rotations and positions;
+                        subject.attachPoint.transform.position = attachPos;
+                        subject.attachPoint.transform.rotation = snappingPoint.rotation;
+
+                        //return parentage
+                        subject.transform.parent = snappingPoint;
+                        subject.attachPoint.parent = snappingPoint.transform;
+                    }
 
                     Debug.Log("On Snap!");
                     onSnap.Invoke();
@@ -59,26 +77,27 @@ public class MovableMagnetSnapper : MonoBehaviour
                     {
                         r.linearVelocity = Vector3.zero;
                         r.useGravity = false;
+                        r.isKinematic = true;
                     }
 
                     snapFlag = true;
                 }
             }
 
+            /*
             if(snapFlag && !subject.moving)
             {
                 subject.transform.localPosition = Vector3.zero;
                 subject.transform.rotation = snappingPoint.rotation;
             }
+            */
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (subject == null)
         {
-
             subject = other.GetComponent<Movable>();
 
             if (subject != null)
@@ -103,7 +122,6 @@ public class MovableMagnetSnapper : MonoBehaviour
                     }
 
                 }
-
 
                 snapFlag = false;
             }
@@ -143,6 +161,14 @@ public class MovableMagnetSnapper : MonoBehaviour
         if(subject != null)
         {
             Debug.Log("ReleaseSubject");
+            Rigidbody r = subject.GetComponent<Rigidbody>();
+
+            if (r != null)
+            {
+                r.linearVelocity = Vector3.zero;                
+                r.isKinematic = false;
+            }
+
             onRelease.Invoke();
             snapFlag = true;
             subject = null;
