@@ -21,10 +21,6 @@ public class NumberHolder : MonoBehaviour
     public TextMeshPro textDisplay;
     public TextMeshProUGUI textDisplayUGui;
 
-    [Header("Peer Number Holders (for comparisons)")]
-    public List<NumberHolder> numberHolderPeers;
-    public UnityEvent onGreatest;
-
     public void Update()
     {
         if (textDisplay != null)
@@ -41,7 +37,7 @@ public class NumberHolder : MonoBehaviour
 
     public void Subtract(float delta)
     {
-        value -= delta;
+        value -= 1;
     }
 
     public void SetValue(float newValue)
@@ -49,22 +45,22 @@ public class NumberHolder : MonoBehaviour
         value = newValue;
     }
 
-    public void CheckIfGreatest()
+    public void SetRandomDelta(float range)
     {
-        float greatest = value;
+        float delta = Random.Range(-range, range);
+        value = value + delta;
+    }
 
-        for(int i = 0; i < numberHolderPeers.Count; i++)
-        {
-            if(greatest < numberHolderPeers[i].value)
-            {
-                greatest = numberHolderPeers[i].value;
-            }
-        }
+    public void AddRandom(float range)
+    {
+        float delta = Random.Range(0, range);
+        value = value + delta;
+    }
 
-        if(value == greatest)
-        {
-            onGreatest.Invoke();
-        }
+    public void SubtractRandom(float range)
+    {
+        float delta = Random.Range(0, range);
+        value = value - delta;
     }
 
     public int GetIntValue()
