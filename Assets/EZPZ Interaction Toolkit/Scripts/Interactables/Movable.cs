@@ -13,8 +13,7 @@ public class Movable : InteractableGeneral
     public bool groundPlace = false;
     public Vector3 groundPlaceOffset;
     public bool moving = false;
-    public bool freezeRotation = false;
-    public bool trayMode = false;           
+    public bool freezeRotation = false;           
     public Collider [] subCollliders;
     public float snapSpeed = 20;
 
@@ -23,6 +22,7 @@ public class Movable : InteractableGeneral
     public Quaternion startingRotation;
     public Rigidbody myRbody;
     public Collider myCollider;
+    public MovableMagnetSnapper myMagnetSnapper;
     public RaycastInteractor myRayManipulator;
 
     private void Start()
@@ -150,9 +150,12 @@ public class Movable : InteractableGeneral
                 {
                     if (subC != null)
                     {
+                        //exempt special object types
                         CharacterController cc = subC.GetComponent<CharacterController>();
                         InteractableTrigger it = subC.GetComponent<InteractableTrigger>();
-                        if (cc == null && it == null)
+                        MovableMagnetSnapper ms = subC.GetComponent<MovableMagnetSnapper>();
+
+                        if (cc == null && it == null && ms == null)
                             subC.isTrigger = setting;
                     }
                 }

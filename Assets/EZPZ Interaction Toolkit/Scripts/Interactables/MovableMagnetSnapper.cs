@@ -43,9 +43,10 @@ public class MovableMagnetSnapper : MonoBehaviour
         {
             if (!snapFlag)
             {
-                if (!subject.moving)
+                if (!subject.moving && subject.myMagnetSnapper == null)
                 {
                     Vector3 attachPos = snappingPoint.position;
+                    subject.myMagnetSnapper = this;
 
                     if (subject.attachPoint == null)
                     {
@@ -77,20 +78,20 @@ public class MovableMagnetSnapper : MonoBehaviour
                     {
                         r.linearVelocity = Vector3.zero;
                         r.useGravity = false;
-                        r.isKinematic = true;
+                        //r.isKinematic = true;
                     }
 
                     snapFlag = true;
                 }
             }
 
-            /*
+            
             if(snapFlag && !subject.moving)
-            {
+            {   
                 subject.transform.localPosition = Vector3.zero;
                 subject.transform.rotation = snappingPoint.rotation;
             }
-            */
+            
         }
     }
 
@@ -102,7 +103,6 @@ public class MovableMagnetSnapper : MonoBehaviour
 
             if (subject != null)
             {
-
                 if (filterString.Length > 0)
                 {
                     TriggerFilter tf = subject.GetComponent<TriggerFilter>();
@@ -123,7 +123,15 @@ public class MovableMagnetSnapper : MonoBehaviour
 
                 }
 
-                snapFlag = false;
+                if (subject.myMagnetSnapper == null)
+                {
+                    snapFlag = false;
+                }
+                else
+                {
+                    subject = null;
+                    return;
+                }
             }
         }
 
@@ -142,13 +150,18 @@ public class MovableMagnetSnapper : MonoBehaviour
                 //is exactly the one that's leaving...
                 if (om == subject)
                 {
-                    ReleaseSubject();
+                    if (subject.moving)
+                    {
+                        ReleaseSubject();
+                    }
                 }
                 //don't want another object to trigger dropping
             }
         }
-
-        onTriggerExit.Invoke();
+        else
+        {
+            onTriggerExit.Invoke();
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -161,7 +174,7 @@ public class MovableMagnetSnapper : MonoBehaviour
         if(subject != null)
         {
             Debug.Log("ReleaseSubject");
-            Rigidbody r = subject.GetComponent<Rigidbody>();
+            Rigidbody r = subject.GetComponent<Rigidbody>();           
 
             if (r != null)
             {
@@ -170,6 +183,8 @@ public class MovableMagnetSnapper : MonoBehaviour
             }
 
             onRelease.Invoke();
+
+            subject.myMagnetSnapper = null;
             snapFlag = true;
             subject = null;
         }
