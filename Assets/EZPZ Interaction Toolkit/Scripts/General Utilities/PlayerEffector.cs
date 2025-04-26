@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using UnityEngine.SceneManagement;
 
 public class PlayerEffector : MonoBehaviour
 {
@@ -25,5 +26,20 @@ public class PlayerEffector : MonoBehaviour
     public void SetMoveSpeed(float newSpeed)
     {
         myController.MoveSpeed = newSpeed;
+    }
+
+    public void OnRestartApp()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void OnRestartLevel()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
+    }
+    public void OnQuit()
+    {
+        Application.Quit();
     }
 }

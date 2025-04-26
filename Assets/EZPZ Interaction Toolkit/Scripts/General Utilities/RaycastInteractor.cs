@@ -319,6 +319,7 @@ public class RaycastInteractor : MonoBehaviour
                 moveSubject.transform.parent = null;
                 previousMoveParent = null;
                 */
+
                 DropMovable();
             }
         }
@@ -346,6 +347,11 @@ public class RaycastInteractor : MonoBehaviour
                     Vector3 direction = moveSubject.transform.position - rayPointer.position;
                     subjectRbody.AddForce(moveSubject.throwForce * direction * 100);
                 }
+            }
+
+            if(moveSubject.myMagnetSnapper != null)
+            {
+                moveSubject.myMagnetSnapper.ReleaseSubject();
             }
 
             //moveSubject.transform.parent = previousMoveParent;
@@ -472,16 +478,5 @@ public class RaycastInteractor : MonoBehaviour
                 hitIndicatorRenderer.enabled = false;
             }
         }
-    }
-
-
-    public void OnRestart()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    public void OnQuit()
-    {
-        Application.Quit();
     }
 }

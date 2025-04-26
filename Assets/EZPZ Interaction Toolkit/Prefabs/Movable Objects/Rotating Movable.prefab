@@ -270,22 +270,21 @@ MonoBehaviour:
   onDrop:
     m_PersistentCalls:
       m_Calls: []
+  attachPoint: {fileID: 0}
   throwForce: 0
   noCollideOnHold: 1
   groundPlace: 1
   groundPlaceOffset: {x: 0, y: 0, z: 0}
   moving: 0
   freezeRotation: 0
-  trayMode: 0
   subCollliders: []
   snapSpeed: 20
   startingPosition: {x: 0, y: 0, z: 0}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
   myRbody: {fileID: 0}
   myCollider: {fileID: 0}
-  myTray: {fileID: 0}
-  trayOffset: {x: 0, y: 0, z: 0}
-  trayInventory: []
+  myMagnetSnapper: {fileID: 0}
+  myRayManipulator: {fileID: 0}
 --- !u!1 &4217789585584660951
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subject: {fileID: 3228447302401519559}
-  positionSyncRate: 16
+  positionSyncRate: 20
   startRotation: {x: 0, y: 0, z: 0, w: 0}
   yRotation: 0
   autoSyncYRotation: 0

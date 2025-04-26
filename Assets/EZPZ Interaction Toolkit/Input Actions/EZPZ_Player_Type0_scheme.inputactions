@@ -60,10 +60,19 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Restart",
+                    "name": "RestartLevel",
                     "type": "Button",
                     "id": "28763b5d-3858-4a0c-b852-47c33c497777",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RestartApp",
+                    "type": "Button",
+                    "id": "58440974-b219-49f9-b9e2-81529c7fb0ae",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -280,18 +289,29 @@
                 {
                     "name": "",
                     "id": "18417b99-baf4-40a3-b253-3daebff0e7fd",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Restart",
+                    "action": "RestartLevel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d7fa304-3916-4391-ade0-3c0aa25c1830",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RestartApp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "4649fbe4-fa76-4305-8b01-90c93b2d2164",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
