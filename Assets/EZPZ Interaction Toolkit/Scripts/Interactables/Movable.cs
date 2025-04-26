@@ -126,6 +126,13 @@ public class Movable : InteractableGeneral
             myRayManipulator.moveSubject = null;
             myRayManipulator = null;
         }
+
+        if(myMagnetSnapper != null)
+        {
+            myMagnetSnapper.subject = null;
+            myMagnetSnapper = null;
+        }
+
         
         SetColliderIsTrigger(this, false);        
 

@@ -25,8 +25,7 @@ public class MovableMagnetSnapper : MonoBehaviour
 
     [Header("System Stuff (Usually Don't Touch)")]
     public Movable subject;
-    public bool snapFlag = true;
-    public Rigidbody subjectRbody;
+    public bool snapFlag = true;    
     public Vector3 subjectLocalAttachPos;
 
     // Start is called before the first frame update
@@ -43,71 +42,76 @@ public class MovableMagnetSnapper : MonoBehaviour
     {
         if(subject != null)
         {
-            if (!snapFlag)
-            {
-                HandleSnapping();
-            }
-
-            if (!subject.moving)
-            {
-                if (snapFlag)
-                {
-                    subjectRbody.linearVelocity = Vector3.zero;
-                    subject.transform.localPosition = subjectLocalAttachPos;
-                    subject.transform.rotation = snappingPoint.rotation;
-                }
-
-            }
-
-            if (subject.myMagnetSnapper != this)
-            {
-                ReleaseSubject();
-            }
+            HandleSnapping();
+            HandleFixedPos();
         }
     }
 
     public void HandleSnapping()
     {
-        if (!subject.moving && subject.myMagnetSnapper == null)
+        if (!snapFlag)
         {
-            Vector3 attachPos = snappingPoint.position;
-            subject.myMagnetSnapper = this;
-
-            if (subject.attachPoint == null)
+            if (!subject.moving && subject.myMagnetSnapper == null)
             {
-                subject.transform.parent = snappingPoint;
-                subject.transform.localPosition = Vector3.zero;
-                subject.transform.rotation = snappingPoint.rotation;
+                Vector3 attachPos = snappingPoint.position;
+                subject.myMagnetSnapper = this;
+
+                if (subject.attachPoint == null)
+                {
+                    subject.transform.parent = snappingPoint;
+                    subject.transform.localPosition = Vector3.zero;
+                    subject.transform.rotation = snappingPoint.rotation;
+                }
+                else
+                {
+                    //swap parentage first
+                    subject.attachPoint.parent = null;
+                    subject.transform.parent = subject.attachPoint;
+
+                    //align rotations and positions;
+                    subject.attachPoint.transform.position = attachPos;
+                    subject.attachPoint.transform.rotation = snappingPoint.rotation;
+
+                    //return parentage
+                    subject.transform.parent = snappingPoint;
+                    subject.attachPoint.parent = snappingPoint.transform;
+                    subjectLocalAttachPos = subject.transform.localPosition;
+                }
+
+                Debug.Log("On Snap!");
+                onSnap.Invoke();
+
+                if (subject.myRbody != null)
+                {
+                    subject.myRbody.linearVelocity = Vector3.zero;
+                    subject.myRbody.useGravity = false;
+                    //r.isKinematic = true;
+                }
+
+                snapFlag = true;
+            }
+        }        
+    }
+
+    public void HandleFixedPos()
+    {
+        if (!subject.moving)
+        {
+            if (subject.transform.parent == snappingPoint)
+            {
+                if (snapFlag)
+                {
+                    if (subject.myRbody != null)
+                        subject.myRbody.linearVelocity = Vector3.zero;
+
+                    subject.transform.localPosition = subjectLocalAttachPos;
+                    subject.transform.rotation = snappingPoint.rotation;
+                }
             }
             else
             {
-                //swap parentage first
-                subject.attachPoint.parent = null;
-                subject.transform.parent = subject.attachPoint;
-
-                //align rotations and positions;
-                subject.attachPoint.transform.position = attachPos;
-                subject.attachPoint.transform.rotation = snappingPoint.rotation;
-
-                //return parentage
-                subject.transform.parent = snappingPoint;
-                subject.attachPoint.parent = snappingPoint.transform;
-                subjectLocalAttachPos = subject.transform.localPosition;
+                subject = null;
             }
-
-            Debug.Log("On Snap!");
-            onSnap.Invoke();
-
-            subjectRbody = subject.GetComponent<Rigidbody>();
-
-            if (subjectRbody != null)
-            {
-                subjectRbody.linearVelocity = Vector3.zero;
-                subjectRbody.useGravity = false;
-                //r.isKinematic = true;
-            }
-
-            snapFlag = true;
         }
     }
 
