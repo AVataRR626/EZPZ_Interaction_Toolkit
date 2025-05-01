@@ -12,7 +12,9 @@ public class Typable : InteractableGeneral
 {
     [Header("Typing Interaction Settings")]
     public UnityEvent onTextMatch;
-    public UnityEvent onEnterKey;
+    public UnityEvent onReleaseTyping;
+    public UnityEvent onEnterKeyNotForWebGL;
+    public TextMatchRelay textMatchRelay;
     public string matchText;
     public string cursorText = "_";
     public bool releaseOnEnterKey = true;    
@@ -52,15 +54,15 @@ public class Typable : InteractableGeneral
                 if (typeTextBuffer.Length >= 1)
                     typeTextBuffer = typeTextBuffer.Substring(0, typeTextBuffer.Length - 1);
             }
-            else if(ch == '\r')
+            else if (Keyboard.current.enterKey.wasPressedThisFrame)
             {
-                if (releaseOnEnterKey)
-                    raycastInteractor.ReleaseFromTyping();
-                else
-                    typeTextBuffer += '\n';
-
-                onEnterKey.Invoke();
+                Debug.Log("enterKey.wasPressed");
+                HandleEnterKey();
             }
+            //else if(ch == '\r')
+            //{
+            //    HandleEnterKey();
+            //}
             else if(ch == '')
             {
                 raycastInteractor.ReleaseFromTyping();
@@ -68,8 +70,8 @@ public class Typable : InteractableGeneral
             }
             else if(ch == '`')
             {
+                onReleaseTyping.Invoke();
                 raycastInteractor.ReleaseFromTyping();
-
                 //tab: '\t'
                 //tab: '\x09'
             }
@@ -80,6 +82,16 @@ public class Typable : InteractableGeneral
 
             SyncText();
         }
+    }
+
+    public void HandleEnterKey()
+    {
+        if (releaseOnEnterKey)
+            raycastInteractor.ReleaseFromTyping();
+        else
+            typeTextBuffer += '\n';
+
+        onEnterKeyNotForWebGL.Invoke();
     }
 
     public void ClearTypeBuffer()
@@ -104,6 +116,9 @@ public class Typable : InteractableGeneral
                         raycastInteractor.ReleaseFromTyping();
                 }
             }
+
+            if(textMatchRelay != null)
+                textMatchRelay.CheckMatch();
         }
         else
             textDisplay.text = typeTextBuffer;

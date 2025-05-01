@@ -234,7 +234,15 @@ public class RaycastInteractor : MonoBehaviour
     void HandleMovables(InteractableGeneral hitSubject)
     {
 
-        moveSubject = hitSubject.GetComponent<Movable>();
+        if (moveSubject == null)
+        {
+            moveSubject = hitSubject.GetComponent<Movable>();
+        }
+        else
+        {
+            Debug.Log("Pre-existing object!");
+            DropMovable();
+        }
 
         if (moveSubject != null)
         {
@@ -252,7 +260,6 @@ public class RaycastInteractor : MonoBehaviour
 
                 if (moveSubject.groundPlace)
                 {
-
                     moveSubject.transform.position = environmentHit.position + moveSubject.groundPlaceOffset;
                     moveSubject.transform.parent = environmentHit;
                 }
