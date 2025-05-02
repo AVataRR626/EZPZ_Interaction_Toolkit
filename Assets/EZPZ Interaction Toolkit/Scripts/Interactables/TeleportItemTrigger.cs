@@ -24,7 +24,6 @@ public class TeleportItemTrigger : InteractableTrigger
 
     public void Teleport()
     {
-
         Movable m = subject.GetComponent<Movable>();
 
         if (m != null)

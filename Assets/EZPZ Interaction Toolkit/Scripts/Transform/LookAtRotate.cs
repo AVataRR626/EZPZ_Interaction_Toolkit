@@ -26,7 +26,7 @@ public class LookAtRotate : MonoBehaviour
                 target = candidate.transform;
         }
 
-        startRotation = subject.rotation;
+        startRotation = subject.localRotation;
     }
 
 
@@ -48,7 +48,7 @@ public class LookAtRotate : MonoBehaviour
 
             if (yLookOnly)
             {
-                transform.rotation = startRotation;
+                transform.localRotation = startRotation;
                 transform.Rotate(0, yRotation, 0);
             }
 

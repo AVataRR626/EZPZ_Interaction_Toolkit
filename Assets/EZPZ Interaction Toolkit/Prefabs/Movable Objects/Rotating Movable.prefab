@@ -466,9 +466,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5140043200938433704}
-  - component: {fileID: 5140043200938433707}
   - component: {fileID: 7835791495647398310}
   - component: {fileID: 878114610}
+  - component: {fileID: 2944783994602310144}
   m_Layer: 0
   m_Name: RotationRig
   m_TagString: Untagged
@@ -493,19 +493,6 @@ Transform:
   - {fileID: 3920029770619692062}
   m_Father: {fileID: 3228447302401519559}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &5140043200938433707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5140043200938433705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31b5522546e193745bb5ec60f075233d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resetScale: 0
 --- !u!114 &7835791495647398310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,6 +530,19 @@ MonoBehaviour:
   yLookOnly: 1
   startRotation: {x: 0, y: 0, z: 0, w: 0}
   yRotation: 0
+--- !u!114 &2944783994602310144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140043200938433705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b5522546e193745bb5ec60f075233d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetScale: 0
 --- !u!1 &5565110303783900342
 GameObject:
   m_ObjectHideFlags: 0
