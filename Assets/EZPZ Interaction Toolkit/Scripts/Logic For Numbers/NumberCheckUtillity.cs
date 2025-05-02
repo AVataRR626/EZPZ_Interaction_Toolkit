@@ -97,6 +97,16 @@ public class NumberCheckUtillity : MonoBehaviour
         {
             onNotLeast.Invoke();
         }
+
+        CheckPeer();
+    }
+
+    public void CheckPeer()
+    {
+        if(referencePeers.Count == 1)
+        {
+            CheckNumber(referencePeers[0].value);
+        }
     }
     
     public void Buy(float price)

@@ -18,10 +18,12 @@ public class ItemCycler : MonoBehaviour
     public bool autoSync = false;
     public NumberHolder indexSynchroniser;
 
-    [Header("Event Management")]
+    [Header("List Modes")]
     public bool loopCycle = true;
     public bool exclusiveMode = true;
     public bool cascadeMode = false;
+
+    [Header("Event Management")]
     public UnityEvent onNextItem;
     public UnityEvent onPrevItem;
     public UnityEvent onChangeItem;

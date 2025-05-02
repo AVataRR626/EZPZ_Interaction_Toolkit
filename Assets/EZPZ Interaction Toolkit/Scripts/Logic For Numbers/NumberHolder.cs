@@ -37,7 +37,7 @@ public class NumberHolder : MonoBehaviour
 
     public void Subtract(float delta)
     {
-        value -= 1;
+        value -= delta;
     }
 
     public void SetValue(float newValue)
@@ -48,19 +48,19 @@ public class NumberHolder : MonoBehaviour
     public void SetRandomDelta(float range)
     {
         float delta = Random.Range(-range, range);
-        value = value + delta;
+        Add(delta);
     }
 
     public void AddRandom(float range)
     {
         float delta = Random.Range(0, range);
-        value = value + delta;
+        Add(delta);
     }
 
     public void SubtractRandom(float range)
     {
         float delta = Random.Range(0, range);
-        value = value - delta;
+        Add(-delta);
     }
 
     public int GetIntValue()

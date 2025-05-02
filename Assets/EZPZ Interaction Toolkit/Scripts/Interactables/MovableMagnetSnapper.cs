@@ -35,6 +35,11 @@ public class MovableMagnetSnapper : MonoBehaviour
             snappingPoint = transform;
 
         snapFlag = true;
+
+        if(snappingPoint.parent.localScale != Vector3.one || snappingPoint.localScale != Vector3.one)
+        {
+            Debug.LogError("SNAPPING POINT SCALE MISMATCH " + name + " snapping point scale or its parent is not (1,1,1)");
+        }
     }
 
     // Update is called once per frame
