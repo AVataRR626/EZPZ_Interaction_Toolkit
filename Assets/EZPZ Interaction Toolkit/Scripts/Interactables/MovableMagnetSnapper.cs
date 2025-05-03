@@ -178,18 +178,16 @@ public class MovableMagnetSnapper : MonoBehaviour
                 //is exactly the one that's leaving...
                 if (om == subject)
                 {
-                    //if (subject.moving)
+                    if (subject.moving)
                     {
-                        //ReleaseSubject();
+                        SoftReleaseSubject();
                     }
                 }
                 //don't want another object to trigger dropping
             }
         }
-        else
-        {
-            onTriggerExit.Invoke();
-        }
+
+        onTriggerExit.Invoke();
     }
 
     private void OnTriggerStay(Collider other)
@@ -211,12 +209,18 @@ public class MovableMagnetSnapper : MonoBehaviour
                 r.isKinematic = false;
             }
 
-            onRelease.Invoke();
-
-            subjectLocalAttachPos = Vector3.zero;
-            subject.myMagnetSnapper = null;
-            snapFlag = true;
-            subject = null;
+            SoftReleaseSubject();
         }
     }
+
+    public void SoftReleaseSubject()
+    {
+        onRelease.Invoke();
+
+        subjectLocalAttachPos = Vector3.zero;
+        subject.myMagnetSnapper = null;
+        snapFlag = true;
+        subject = null;
+    }
+    
 }
