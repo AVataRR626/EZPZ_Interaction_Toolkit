@@ -69,7 +69,7 @@ public class RaycastInteractor : MonoBehaviour
 
         originalRayLength = rayLength;
 
-        if(cameraCleanupOnStart)
+        if (cameraCleanupOnStart)
             CameraCleanup();
 
         EventSystemCleanup();
@@ -99,7 +99,7 @@ public class RaycastInteractor : MonoBehaviour
             if (mainCam != null)
             {
 
-                
+
 
                 Camera[] allCams = FindObjectsByType<Camera>(FindObjectsSortMode.None);
 
@@ -199,9 +199,9 @@ public class RaycastInteractor : MonoBehaviour
         hitSubject = hit.collider.gameObject.GetComponent<InteractableGeneral>();
 
         if (hitSubject != null)
-        {   
+        {
             subject = hitSubject;
-            
+
             OnClickableHover();
 
             if (subject != prevHitSubject)
@@ -248,86 +248,73 @@ public class RaycastInteractor : MonoBehaviour
         {
             if (!moveSubject.moving)
             {
-                //Pick up objects
-                moveSubject.Grab(this);
-                previousMoveParent = moveSubject.transform.parent;
-                moveSubject.moving = true;
-
-                if (moveSubject.noCollideOnHold)
-                {
-                    Movable.SetColliderIsTrigger(moveSubject, true);
-                }
-
-                if (moveSubject.groundPlace)
-                {
-                    moveSubject.transform.position = environmentHit.position + moveSubject.groundPlaceOffset;
-                    moveSubject.transform.parent = environmentHit;
-                }
-                else
-                {
-                    Vector3 attachPos = rayPointer.position + rayPointer.forward * holdingDistance;
-
-                    if (moveSubject.attachPoint != null)
-                    {
-                        //swap parentage first
-                        moveSubject.attachPoint.parent = null;
-                        moveSubject.transform.parent = moveSubject.attachPoint;
-
-                        //align rotations and positions;
-                        moveSubject.attachPoint.transform.position = attachPos;
-                        moveSubject.attachPoint.transform.rotation = rayPointer.rotation;
-
-                        //return parentage
-                        moveSubject.transform.parent = rayPointer;
-                        moveSubject.attachPoint.parent = moveSubject.transform;
-
-                    }
-                    else
-                    {
-                        moveSubject.transform.position = attachPos;
-                        moveSubject.transform.parent = rayPointer;
-                    }
-
-                    subjectRbody = moveSubject.GetComponent<Rigidbody>();
-                    if (subjectRbody != null)
-                    {
-                        subjectRbody.useGravity = false;
-                        subjectRbody.isKinematic = true;
-                    }
-                }
+                GrabMovable();
             }
             else
             {
-                //Release objects
-                /*
-                moveSubject.moving = false;
-                
-
-                if (moveSubject.noCollideOnHold)
+                if (moveSubject.myRayManipulator == this)
                 {
-                    Movable.SetColliderIsTrigger(moveSubject, false);
+                    DropMovable();
                 }
-
-                if (subjectRbody != null)
+                else
                 {
-                    subjectRbody.useGravity = true;
-                    subjectRbody.isKinematic = false;
+                    Movable newGrab = moveSubject;
+                    moveSubject.myRayManipulator.DropMovable();
 
-                    if (moveSubject.throwForce > 0)
-                    {
-                        Vector3 direction = moveSubject.transform.position - rayPointer.position;
-                        subjectRbody.AddForce(moveSubject.throwForce * direction * 100);
-                    }
+                    moveSubject = newGrab;
+                    GrabMovable();
                 }
+            }
+        }
+    }
 
-                moveSubject.Drop();
+    public void GrabMovable()
+    {
+        //Pick up objects
+        moveSubject.Grab(this);
+        previousMoveParent = moveSubject.transform.parent;
+        moveSubject.moving = true;
 
-                //moveSubject.transform.parent = previousMoveParent;
-                moveSubject.transform.parent = null;
-                previousMoveParent = null;
-                */
+        if (moveSubject.noCollideOnHold)
+        {
+            Movable.SetColliderIsTrigger(moveSubject, true);
+        }
 
-                DropMovable();
+        if (moveSubject.groundPlace)
+        {
+            moveSubject.transform.position = environmentHit.position + moveSubject.groundPlaceOffset;
+            moveSubject.transform.parent = environmentHit;
+        }
+        else
+        {
+            Vector3 attachPos = rayPointer.position + rayPointer.forward * holdingDistance;
+
+            if (moveSubject.attachPoint != null)
+            {
+                //swap parentage first
+                moveSubject.attachPoint.parent = null;
+                moveSubject.transform.parent = moveSubject.attachPoint;
+
+                //align rotations and positions;
+                moveSubject.attachPoint.transform.position = attachPos;
+                moveSubject.attachPoint.transform.rotation = rayPointer.rotation;
+
+                //return parentage
+                moveSubject.transform.parent = rayPointer;
+                moveSubject.attachPoint.parent = moveSubject.transform;
+
+            }
+            else
+            {
+                moveSubject.transform.position = attachPos;
+                moveSubject.transform.parent = rayPointer;
+            }
+
+            subjectRbody = moveSubject.GetComponent<Rigidbody>();
+            if (subjectRbody != null)
+            {
+                subjectRbody.useGravity = false;
+                subjectRbody.isKinematic = true;
             }
         }
     }
@@ -356,7 +343,7 @@ public class RaycastInteractor : MonoBehaviour
                 }
             }
 
-            if(moveSubject.myMagnetSnapper != null)
+            if (moveSubject.myMagnetSnapper != null)
             {
                 moveSubject.myMagnetSnapper.ReleaseSubject();
             }

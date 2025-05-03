@@ -26,9 +26,13 @@ public class LookAtRotate : MonoBehaviour
                 target = candidate.transform;
         }
 
-        startRotation = subject.localRotation;
+        if (subject == null)
+            startRotation = transform.rotation;
+        else
+            startRotation = subject.rotation;
+    
+    
     }
-
 
     // Update is called once per frame
     void Update()
@@ -48,10 +52,20 @@ public class LookAtRotate : MonoBehaviour
 
             if (yLookOnly)
             {
-                transform.localRotation = startRotation;
+                transform.rotation = startRotation;
                 transform.Rotate(0, yRotation, 0);
             }
 
+        }
+    }
+
+    public void TrackTarget(bool mode)
+    {
+        constantTracking = mode;
+
+        if(mode)
+        {
+            startRotation = Quaternion.identity;
         }
     }
 }
