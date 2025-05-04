@@ -11,7 +11,8 @@ public class TransformUtility : MonoBehaviour
 
     public void RotateAxis(Vector3 axis, float angle)
     {
-        transform.Rotate(axis, angle * Mathf.Deg2Rad);
+        //transform.Rotate(axis, angle * Mathf.Deg2Rad);
+        transform.Rotate(axis, angle);
     }
 
     public void RotateAxisX(float angle)
