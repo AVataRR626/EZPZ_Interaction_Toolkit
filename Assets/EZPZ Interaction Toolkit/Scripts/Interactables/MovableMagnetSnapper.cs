@@ -10,10 +10,14 @@ using UnityEngine.Events;
 public class MovableMagnetSnapper : MonoBehaviour
 {
     [Header("Snap Settings")]
+    [Tooltip("Where objects will get snapped to the magnet snapper")]
     public Transform snappingPoint;
+    [Tooltip("Align snapped object to magnet snapper's rotation")]
     public bool alignRotation = true;
     [Tooltip("Leave empty to accept all items")]
     public string filterString;
+    [Tooltip("Keep the snap area visible at runtime")]
+    public bool visibleAtRuntime = true;
 
     [Header("Event Handling")]
     public UnityEvent onSnap;
@@ -27,6 +31,7 @@ public class MovableMagnetSnapper : MonoBehaviour
     public Movable subject;
     public bool snapFlag = true;    
     public Vector3 subjectLocalAttachPos;
+    public Renderer myRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +41,18 @@ public class MovableMagnetSnapper : MonoBehaviour
 
         snapFlag = true;
 
-        if(snappingPoint.parent.localScale != Vector3.one || snappingPoint.localScale != Vector3.one)
+        if (snappingPoint.parent.localScale != Vector3.one || snappingPoint.localScale != Vector3.one)
         {
             Debug.LogError("SNAPPING POINT SCALE MISMATCH " + name + " snapping point scale or its parent is not (1,1,1)");
         }
+
+        if (myRenderer == null)
+        {
+            myRenderer = GetComponent<Renderer>();
+        }
+
+        if(myRenderer != null)
+            myRenderer.enabled = visibleAtRuntime;
     }
 
     // Update is called once per frame

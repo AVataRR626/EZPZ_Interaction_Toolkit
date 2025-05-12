@@ -2405,7 +2405,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100257808514044958, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_text
-      value: "Carry \n(Custom Attach Point)"
+      value: "Carry \n(Custom Attach Point\n& Compound Graphics)"
       objectReference: {fileID: 0}
     - target: {fileID: 100257808514044958, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -2413,7 +2413,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3172445459502377556, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_Name
-      value: Label - Carry (Attack Point)
+      value: Label - Carry (Attach Point)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845920686402873384, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_Pivot.x
@@ -3893,13 +3897,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1390947625952486504, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: m_Name
+      value: Tray Spot Indicator
+      objectReference: {fileID: 0}
     - target: {fileID: 1449538166478615150, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1592028945974437534, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: visibleAtRuntime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318821417066077006, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: visibleAtRuntime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2381357529650057129, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2458640613480656022, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: m_Name
+      value: Tray Spot Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516792247229645886, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: m_Name
+      value: Tray Spot Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 4138657526611065542, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: m_Name
+      value: Tray Spot Indicator
       objectReference: {fileID: 0}
     - target: {fileID: 4359009302281150797, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
       propertyPath: m_Enabled
@@ -3909,13 +3937,37 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4657824318922156321, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: m_Name
+      value: Tray Spot Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974008690515324180, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: visibleAtRuntime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083154812723945865, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: visibleAtRuntime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295210150027122792, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: m_Name
+      value: Tray Spot Indicator
+      objectReference: {fileID: 0}
     - target: {fileID: 6546732235899771786, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6627321236606373741, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: visibleAtRuntime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7848846606842406490, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992054026327372458, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: visibleAtRuntime
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8388080559984398390, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
       propertyPath: m_Name

@@ -45,6 +45,11 @@ public class Movable : InteractableGeneral
 
         if (attachPoint == null)
         {
+            attachPoint = transform.Find("AttachPoint");
+        }
+
+        if (attachPoint == null)
+        {
             attachPoint = transform.Find("Attach Point");
         }
 
@@ -52,6 +57,17 @@ public class Movable : InteractableGeneral
         {
             attachPoint = transform.Find("attach point");
         }
+
+        if(attachPoint != null)
+        {
+            if(transform.localScale.x != 1 ||
+                transform.localScale.y != 1 ||
+                transform.localScale.z != 1)
+            {
+                Debug.LogError("!! Movable object with custom attach point does not have unit scale: " + name);
+            }
+        }
+
     }
 
     public void Update()

@@ -40,6 +40,16 @@ public class NumberHolder : MonoBehaviour
         value -= delta;
     }
 
+    public void Multiply(float factor)
+    {
+        value *= factor;
+    }
+
+    public void Divide(float denominator)
+    {
+        value /= denominator;
+    }
+
     public void SetValue(float newValue)
     {
         value = newValue;
@@ -61,6 +71,42 @@ public class NumberHolder : MonoBehaviour
     {
         float delta = Random.Range(0, range);
         Add(-delta);
+    }
+
+    public void MultiplyRandomPositive(float range)
+    {
+        float delta = Random.Range(0, range);
+        Multiply(delta);
+    }
+
+    public void MultiplyRandomNegative(float range)
+    {
+        float delta = Random.Range(0, range);
+        Multiply(-delta);
+    }
+
+    public void MultiplyRandomRange(float range)
+    {
+        float delta = Random.Range(-range, range);
+        Multiply(delta);
+    }
+
+    public void DivideRandomPositive(float range)
+    {
+        float delta = Random.Range(0, range);
+        Divide(delta);
+    }
+
+    public void DivideRandomNegative(float range)
+    {
+        float delta = Random.Range(0, range);
+        Divide(-delta);
+    }
+
+    public void DivideRandomRange(float range)
+    {
+        float delta = Random.Range(-range, range);
+        Divide(delta);
     }
 
     public int GetIntValue()
