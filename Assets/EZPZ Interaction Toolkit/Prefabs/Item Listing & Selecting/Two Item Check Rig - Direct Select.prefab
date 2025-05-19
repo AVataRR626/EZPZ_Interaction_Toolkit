@@ -89,6 +89,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8966844829638411873, guid: bb5c7e2c3413ee04683290f5a512f9ca, type: 3}
+      propertyPath: m_Name
+      value: Line_1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -178,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 667299715271892842}
@@ -199,6 +203,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!4 &6561121565870089575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8824119284837133979, guid: bb5c7e2c3413ee04683290f5a512f9ca, type: 3}
@@ -264,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7097697295199651984}
@@ -285,6 +293,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1 &8278786084377433623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6024814531227737579, guid: bb5c7e2c3413ee04683290f5a512f9ca, type: 3}
@@ -345,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6958472656778635737}
@@ -366,6 +378,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1 &9218373484380537118 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6815746301277407970, guid: bb5c7e2c3413ee04683290f5a512f9ca, type: 3}
@@ -426,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2288449261290779413}
@@ -447,6 +463,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1001 &3856567910399443851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -478,6 +498,10 @@ PrefabInstance:
     - target: {fileID: 100257808514044958, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294835709
+      objectReference: {fileID: 0}
+    - target: {fileID: 100257808514044958, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 3172445459502377556, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_Name
@@ -753,6 +777,7 @@ MonoBehaviour:
   startingTime: 1
   clock: 0
   looping: 0
+  resetOnEnable: 1
   onClockZero:
     m_PersistentCalls:
       m_Calls:
@@ -785,7 +810,9 @@ MonoBehaviour:
         m_CallState: 2
   textDisplay: {fileID: 0}
   textDisplayUGui: {fileID: 0}
+  format: N2
   triggerFlag: 0
+  clockRunning: 1
 --- !u!224 &7784061562842139000 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
@@ -960,6 +987,7 @@ MonoBehaviour:
   startingTime: 1
   clock: 0
   looping: 0
+  resetOnEnable: 1
   onClockZero:
     m_PersistentCalls:
       m_Calls:
@@ -992,7 +1020,9 @@ MonoBehaviour:
         m_CallState: 2
   textDisplay: {fileID: 0}
   textDisplayUGui: {fileID: 0}
+  format: N2
   triggerFlag: 0
+  clockRunning: 1
 --- !u!224 &7853311267797894372 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
@@ -1034,6 +1064,10 @@ PrefabInstance:
     - target: {fileID: 100257808514044958, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294835709
+      objectReference: {fileID: 0}
+    - target: {fileID: 100257808514044958, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 3172445459502377556, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_Name
@@ -1197,6 +1231,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8966844829638411873, guid: bb5c7e2c3413ee04683290f5a512f9ca, type: 3}
+      propertyPath: m_Name
+      value: Line_1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1291,7 +1329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4305951080406144387}
@@ -1312,6 +1350,22 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4305951080406144387}
+        m_TargetAssemblyTypeName: CheckIsActive, Assembly-CSharp
+        m_MethodName: DoCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  eventRelay: {fileID: 0}
 --- !u!1 &2329655866341501153 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6024814531227737579, guid: bb5c7e2c3413ee04683290f5a512f9ca, type: 3}
@@ -1372,7 +1426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6761040986168839753}
@@ -1393,6 +1447,10 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
 --- !u!1 &3269204764928442344 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6815746301277407970, guid: bb5c7e2c3413ee04683290f5a512f9ca, type: 3}
@@ -1453,7 +1511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2556096852077820545}
@@ -1474,6 +1532,22 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2556096852077820545}
+        m_TargetAssemblyTypeName: CheckIsActive, Assembly-CSharp
+        m_MethodName: DoCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  eventRelay: {fileID: 0}
 --- !u!1 &5183528592783794522 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3758111525080208464, guid: bb5c7e2c3413ee04683290f5a512f9ca, type: 3}
@@ -1534,7 +1608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFirstInteract:
+  onPrimaryInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3599844754732563179}
@@ -1555,3 +1629,19 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3599844754732563179}
+        m_TargetAssemblyTypeName: CheckIsActive, Assembly-CSharp
+        m_MethodName: DoCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  eventRelay: {fileID: 0}

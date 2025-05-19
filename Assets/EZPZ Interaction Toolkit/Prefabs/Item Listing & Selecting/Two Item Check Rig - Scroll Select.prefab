@@ -669,6 +669,7 @@ MonoBehaviour:
   startingTime: 1
   clock: 0
   looping: 0
+  resetOnEnable: 1
   onClockZero:
     m_PersistentCalls:
       m_Calls:
@@ -888,6 +889,7 @@ MonoBehaviour:
   startingTime: 1
   clock: 0
   looping: 0
+  resetOnEnable: 1
   onClockZero:
     m_PersistentCalls:
       m_Calls:
@@ -1105,6 +1107,10 @@ PrefabInstance:
       propertyPath: onCheckFalse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 271572384309353668}
+    - target: {fileID: 1269761396203160159, guid: 09805b456c63beb439b5d6bb34327bb2, type: 3}
+      propertyPath: m_Name
+      value: 'Button: Up'
+      objectReference: {fileID: 0}
     - target: {fileID: 1269761396811733601, guid: 09805b456c63beb439b5d6bb34327bb2, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
@@ -1184,6 +1190,10 @@ PrefabInstance:
     - target: {fileID: 2547702364347108811, guid: 09805b456c63beb439b5d6bb34327bb2, type: 3}
       propertyPath: m_Name
       value: Left_Line_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629712541877527965, guid: 09805b456c63beb439b5d6bb34327bb2, type: 3}
+      propertyPath: m_Name
+      value: 'Button: Down'
       objectReference: {fileID: 0}
     - target: {fileID: 2629712542342708643, guid: 09805b456c63beb439b5d6bb34327bb2, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
