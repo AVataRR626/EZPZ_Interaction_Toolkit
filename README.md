@@ -1,5 +1,5 @@
 # Overview
-Quick prototyping interaction toolkit intended for non coders
+Quick prototyping interaction toolkit intended for non coders or Unity beginners.
 
 Quick, 23 minute video guide below: https://youtu.be/mIoewQ2zQBI
 
@@ -25,6 +25,8 @@ Above copyright notice does not include the dependencies used below:
 * https://www.pexels.com/photo/person-holding-white-and-black-frame-4065183/
 * https://unsplash.com/photos/2JONUbTfN38
 * https://freesound.org/people/sandyrb/sounds/105348/
+* https://assetstore.unity.com/packages/tools/network/rest-client-for-unity-102501
+* https://github.com/proyecto26/RestClient
 
 Google images for:
 Peppa Pig, Gundam, Elmo, Doraemon, Poo plush toy
