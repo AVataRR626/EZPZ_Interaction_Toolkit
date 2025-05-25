@@ -3,6 +3,12 @@ Quick prototyping interaction toolkit intended for non coders or Unity beginners
 
 Quick, 23 minute video guide below: https://youtu.be/mIoewQ2zQBI
 
+Unity, quick reminder videos (most less than 2 mins):
+https://www.youtube.com/playlist?list=PLZP8wzCUfgsIQBKy3F4EwIlDgjX4_JypG
+
+Specific, EZPZ toolkit video guides:
+https://www.youtube.com/playlist?list=PLZP8wzCUfgsKfgJDXuiHHAw-qjcEev1k-
+
 # Licensing Info
 by Matt Cabanag https://www.linkedin.com/in/mattavc/
 
@@ -20,6 +26,7 @@ Above copyright notice does not include the dependencies used below:
 
 3rd Party Assets Used:
 * https://assetstore.unity.com/packages/essentials/starter-assets-first-person-character-controller-196525
+* https://assetstore.unity.com/packages/tools/network/rest-client-for-unity-102501
 * https://www.clipartmax.com/download/m2i8H7G6d3K9N4N4_the-mouse-cursor-click-icon-shown-click-icon/
 * https://www.pexels.com/photo/brown-brick-wall-1227515/
 * https://www.pexels.com/photo/person-holding-white-and-black-frame-4065183/
@@ -27,7 +34,8 @@ Above copyright notice does not include the dependencies used below:
 * https://freesound.org/people/sandyrb/sounds/105348/
 * https://assetstore.unity.com/packages/tools/network/rest-client-for-unity-102501
 * https://github.com/proyecto26/RestClient
+* https://freesound.org/people/kwahmah_02/sounds/275072/
 
 Google images for:
 Peppa Pig, Gundam, Elmo, Doraemon, Poo plush toy
-* https://freesound.org/people/kwahmah_02/sounds/275072/
+
