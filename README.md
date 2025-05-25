@@ -1,13 +1,14 @@
 # Overview
 Quick prototyping interaction toolkit intended for non coders or Unity beginners.
 
-Quick, 23 minute video guide below: https://youtu.be/mIoewQ2zQBI
+Quick, 23 minute video guide below: 
+* https://youtu.be/mIoewQ2zQBI
 
 Unity, quick reminder videos (most less than 2 mins):
-https://www.youtube.com/playlist?list=PLZP8wzCUfgsIQBKy3F4EwIlDgjX4_JypG
+* https://www.youtube.com/playlist?list=PLZP8wzCUfgsIQBKy3F4EwIlDgjX4_JypG
 
 Specific, EZPZ toolkit video guides:
-https://www.youtube.com/playlist?list=PLZP8wzCUfgsKfgJDXuiHHAw-qjcEev1k-
+* https://www.youtube.com/playlist?list=PLZP8wzCUfgsKfgJDXuiHHAw-qjcEev1k-
 
 # Licensing Info
 by Matt Cabanag https://www.linkedin.com/in/mattavc/
