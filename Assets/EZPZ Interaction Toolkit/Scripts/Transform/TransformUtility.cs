@@ -46,4 +46,14 @@ public class TransformUtility : MonoBehaviour
         transform.localScale *= (1 + delta);
     }
 
+    public void MoveRight(float distance)
+    {
+        transform.position += transform.right * distance;
+    }
+
+    public void MoveLeft(float distance)
+    {
+        transform.position += transform.right * -distance;
+    }
+
 }
