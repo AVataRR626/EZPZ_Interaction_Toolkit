@@ -17,14 +17,17 @@ public class RaycastInteractor : MonoBehaviour
     public Transform rayPointer;
     public LayerMask layerMask;
     public LayerMask environmentLayer;
-    public float rayLength = 4;
+    public float rayLength = 15;
+    public float touchDistance = 5;
     public float holdingDistance = 1.5f;
 
     [Header("User Feedback")]
     public GameObject clickableIndicator;
     public GameObject aimingCrosshair;
     public GameObject keyboardFreezeIcon;
+    public GameObject tooFarIcon;
     public Transform environmentHit;
+    public Transform generalHit;
 
     [Header("System Stuff (do not touch, usually)")]
     public InteractableGeneral subject;
@@ -35,7 +38,8 @@ public class RaycastInteractor : MonoBehaviour
     public Typable typeSubject;
     public bool interactState = false;
     public bool prevInteractState = false;
-    public Renderer hitIndicatorRenderer;
+    public Renderer environmentHitIndicatorRenderer;
+    public Renderer generalHitIndicatorRenderer;
     public PlayerInput myPlayerInput;
     Rigidbody subjectRbody;
     public float originalRayLength;
@@ -45,7 +49,6 @@ public class RaycastInteractor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         if (transform.localScale.x != 1 || transform.localScale.y != 1 || transform.localScale.z != 1)
         {
             Debug.LogError("!!!!! ALERT !!!!!" + name + " SCALE IS NOT (1,1,1). This will cause object pickup & drop problems. Reset scale to (1,1,1)");
@@ -56,12 +59,22 @@ public class RaycastInteractor : MonoBehaviour
 
         if (environmentHit != null)
         {
-            hitIndicatorRenderer = environmentHit.GetComponent<Renderer>();
+            environmentHitIndicatorRenderer = environmentHit.GetComponent<Renderer>();
 
-            if (hitIndicatorRenderer != null)
+            if (environmentHitIndicatorRenderer != null)
             {
-                hitIndicatorRenderer.enabled = true;
+                environmentHitIndicatorRenderer.enabled = true;
             }
+        }
+
+        if(generalHit != null)
+        {
+            generalHitIndicatorRenderer = generalHit.GetComponent<Renderer>();
+        }
+
+        if(tooFarIcon != null)
+        {
+            tooFarIcon.SetActive(false);
         }
 
         if (myPlayerInput == null)
@@ -185,11 +198,26 @@ public class RaycastInteractor : MonoBehaviour
         if (didHit)
         {
             Debug.DrawRay(rayPointer.position, rayPointer.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+
+            if(generalHit != null)
+            {
+                generalHit.gameObject.SetActive(true);
+                generalHit.position = hit.point;
+            }
+
             HandleInteractables(hit);
         }
         else
         {
+
+            if (generalHit != null)
+            {
+                generalHit.gameObject.SetActive(false);
+                generalHit.position = transform.position;
+            }
+
             hitSubject = null;
+            ActivateTooFarIcon(false);
             OnNoClickable();
         }
     }
@@ -198,10 +226,27 @@ public class RaycastInteractor : MonoBehaviour
     {
         hitSubject = hit.collider.gameObject.GetComponent<InteractableGeneral>();
 
+        if(hitSubject != null)
+        {
+            if(hit.distance <= touchDistance)
+            {
+                ActivateTooFarIcon(false);
+            }
+            else
+            {
+                ActivateTooFarIcon(true);
+                hitSubject = null;
+            }
+        }
+        else
+        {
+            ActivateTooFarIcon(false);
+        }
+
+
         if (hitSubject != null)
         {
             subject = hitSubject;
-
             OnClickableHover();
 
             if (subject != prevHitSubject)
@@ -439,9 +484,9 @@ public class RaycastInteractor : MonoBehaviour
 
         if (environmentHit != null)
         {
-            if (hitIndicatorRenderer != null)
+            if (environmentHitIndicatorRenderer != null)
             {
-                hitIndicatorRenderer.enabled = true;
+                environmentHitIndicatorRenderer.enabled = true;
             }
         }
 
@@ -456,6 +501,7 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnClickableHover()
     {
+
         if (clickableIndicator != null)
             clickableIndicator.SetActive(true);
 
@@ -467,10 +513,18 @@ public class RaycastInteractor : MonoBehaviour
 
         if (environmentHit != null)
         {
-            if (hitIndicatorRenderer != null)
+            if (environmentHitIndicatorRenderer != null)
             {
-                hitIndicatorRenderer.enabled = false;
+                environmentHitIndicatorRenderer.enabled = false;
             }
+        }
+    }
+
+    public void ActivateTooFarIcon(bool mode)
+    {
+        if(tooFarIcon != null)
+        {
+            tooFarIcon.SetActive(mode);
         }
     }
 }
