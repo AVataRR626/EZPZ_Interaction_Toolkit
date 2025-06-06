@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class Movable : InteractableGeneral
 {
@@ -62,12 +64,11 @@ public class Movable : InteractableGeneral
         {
             if(transform.localScale.x != 1 ||
                 transform.localScale.y != 1 ||
-                transform.localScale.z != 1)
+            transform.localScale.z != 1)
             {
-                Debug.LogError("!! Movable object with custom attach point does not have unit scale: " + name);
+                Debug.LogError("!!!! Alert !!!! (" + name + ") Object with custom attachpoint does not have unit scale. This will cause object pickup & drop problems. Reset scale to(1, 1, 1)");
             }
         }
-
     }
 
     public void Update()
