@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RaycastInteractor : MonoBehaviour
 {
@@ -206,6 +207,7 @@ public class RaycastInteractor : MonoBehaviour
             }
 
             HandleInteractables(hit);
+            HandleUnityButton(hit);
         }
         else
         {
@@ -274,6 +276,22 @@ public class RaycastInteractor : MonoBehaviour
         {
             OnNoClickable();
         }
+    }
+
+    void HandleUnityButton(RaycastHit hit)
+    {
+
+        Debug.Log("HandleUnityButton - before");
+        Button b = hit.collider.gameObject.GetComponent<Button>();
+
+        if(b != null)
+        {
+            if (interactState)
+            {
+                b.onClick.Invoke();
+            }
+        }
+      
     }
 
     void HandleMovables(InteractableGeneral hitSubject)
