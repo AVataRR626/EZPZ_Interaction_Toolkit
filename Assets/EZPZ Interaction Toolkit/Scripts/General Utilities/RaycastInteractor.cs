@@ -281,7 +281,7 @@ public class RaycastInteractor : MonoBehaviour
     void HandleUnityButton(RaycastHit hit)
     {
 
-        Debug.Log("HandleUnityButton - before");
+        //Debug.Log("HandleUnityButton - before");
         Button b = hit.collider.gameObject.GetComponent<Button>();
 
         if(b != null)

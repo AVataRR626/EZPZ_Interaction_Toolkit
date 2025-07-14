@@ -146,4 +146,9 @@ public class InteractableTrigger : MonoBehaviour
         //otherwise - don't trigger events
         return false;
     }
+
+    public void LoadScene(string newScene)
+    {
+        GenUtils.LoadScene(newScene);
+    }
 }
