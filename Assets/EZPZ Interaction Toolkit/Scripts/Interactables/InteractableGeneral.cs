@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class InteractableGeneral : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler //, , , IPointerClickHandler
 {
     public UnityEvent onPrimaryInteract;
     public UnityEvent onHoverEnter;
@@ -27,7 +27,7 @@ public class InteractableGeneral : MonoBehaviour//, IPointerEnterHandler, IPoint
     {
         onPrimaryInteract.AddListener(ParentPulse);
         onHoverEnter.AddListener(ParentPulseUp);
-        onHoverExit.AddListener(ParentPulseDOwn);
+        onHoverExit.AddListener(ParentPulseDown);
 
         onFirstInteract.AddListener(ParentPulse);
 
@@ -36,8 +36,37 @@ public class InteractableGeneral : MonoBehaviour//, IPointerEnterHandler, IPoint
             onPrimaryInteract.AddListener(RelayOnPrimaryInteract);
             onHoverEnter.AddListener(RelayOnHoverEnter);
             onHoverExit.AddListener(RelayOnHoverExit);
-
             onFirstInteract.AddListener(RelayOnFirstInteract);
+        }
+    }
+
+    public void PulseUp()
+    {
+        ScalePulse p = GetComponent<ScalePulse>();
+
+        if(p != null)
+        {
+            p.PulseUp();
+        }
+    }
+
+    public void PulseDown()
+    {
+        ScalePulse p = GetComponent<ScalePulse>();
+
+        if (p != null)
+        {
+            p.PulseDown();
+        }
+    }
+
+    public void Pulse()
+    {
+        ScalePulse p = GetComponent<ScalePulse>();
+
+        if (p != null)
+        {
+            p.Pulse();
         }
     }
 
@@ -47,7 +76,7 @@ public class InteractableGeneral : MonoBehaviour//, IPointerEnterHandler, IPoint
             gameObject.transform.parent.SendMessage("PulseUp", SendMessageOptions.DontRequireReceiver);
     }
 
-    public void ParentPulseDOwn()
+    public void ParentPulseDown()
     {
         if (transform.parent != null)
             gameObject.transform.parent.SendMessage("PulseDown", SendMessageOptions.DontRequireReceiver);
@@ -86,5 +115,25 @@ public class InteractableGeneral : MonoBehaviour//, IPointerEnterHandler, IPoint
     {
         if (eventRelay != null)
             eventRelay.onHoverExit.Invoke();
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        onPrimaryInteract.Invoke();
+        Pulse();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("OnPointerEnter: " + gameObject.name);        
+        onHoverEnter.Invoke();
+        PulseUp();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("OnPointerExit: " + gameObject.name);
+        onHoverExit.Invoke();
+        PulseDown();
     }
 }
