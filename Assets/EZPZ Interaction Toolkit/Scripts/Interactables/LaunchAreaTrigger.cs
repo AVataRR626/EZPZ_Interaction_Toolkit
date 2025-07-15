@@ -7,11 +7,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LaunchAreaTrigger : InteractableTrigger
-{
-    public Rigidbody subjectRBody;
+{   
+    public List<Rigidbody> subjectList;
     public Transform launchDirection;
     public Transform launchPoint;
     public float forceFactor = 10;
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Rigidbody r = other.gameObject.GetComponent<Rigidbody>();
+
+        if(r != null)
+        {
+            if(!subjectList.Contains(r))
+                subjectList.Add(r);
+        }
+
+        onTriggerEnter.Invoke();
+    }
 
     public void Launch()
     {
@@ -20,25 +33,22 @@ public class LaunchAreaTrigger : InteractableTrigger
 
     public void Launch(float launchForce)
     {
-        if (subject != null)
+        foreach(Rigidbody r in subjectList)
         {
-            subjectRBody = subject.GetComponent<Rigidbody>();
+            Vector3 launchVector = new Vector3();
 
-            if (subjectRBody != null)
-            {
-                Vector3 launchVector = new Vector3();
+            if (launchDirection != null)
+                launchVector = launchDirection.forward;
+            else
+                launchVector = transform.forward;
 
-                if (launchDirection != null)
-                    launchVector = launchDirection.forward;
-                else
-                    launchVector = transform.forward;
-
-                if (launchPoint != null)
-                    subject.transform.position = launchPoint.position;
+            if (launchPoint != null)
+                subject.transform.position = launchPoint.position;
 
 
-                subjectRBody.AddForce(launchVector * launchForce * forceFactor);
-            }
+            r.AddForce(launchVector * launchForce * forceFactor);
         }
+
+        subjectList.Clear();
     }
 }

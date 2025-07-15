@@ -61,11 +61,6 @@ public class RaycastInteractor : MonoBehaviour
         if (environmentHit != null)
         {
             environmentHitIndicatorRenderer = environmentHit.GetComponent<Renderer>();
-
-            if (environmentHitIndicatorRenderer != null)
-            {
-                environmentHitIndicatorRenderer.enabled = true;
-            }
         }
 
         if(generalHit != null)
@@ -500,14 +495,6 @@ public class RaycastInteractor : MonoBehaviour
                 keyboardFreezeIcon.SetActive(true);
         }
 
-        if (environmentHit != null)
-        {
-            if (environmentHitIndicatorRenderer != null)
-            {
-                environmentHitIndicatorRenderer.enabled = true;
-            }
-        }
-
         if (prevHitSubject != null)
             prevHitSubject.onHoverExit.Invoke();
 
@@ -529,13 +516,6 @@ public class RaycastInteractor : MonoBehaviour
         if (keyboardFreezeIcon != null)
             keyboardFreezeIcon.SetActive(false);
 
-        if (environmentHit != null)
-        {
-            if (environmentHitIndicatorRenderer != null)
-            {
-                environmentHitIndicatorRenderer.enabled = false;
-            }
-        }
     }
 
     public void ActivateTooFarIcon(bool mode)
