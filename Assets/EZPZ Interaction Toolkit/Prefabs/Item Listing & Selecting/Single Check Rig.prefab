@@ -367,7 +367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.02
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -409,6 +409,7 @@ MonoBehaviour:
   startingTime: 1
   clock: 0
   looping: 0
+  resetOnEnable: 1
   onClockZero:
     m_PersistentCalls:
       m_Calls:
@@ -584,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.019999743
+      value: -0.17999983
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -636,6 +637,7 @@ MonoBehaviour:
   startingTime: 1
   clock: 0
   looping: 0
+  resetOnEnable: 1
   onClockZero:
     m_PersistentCalls:
       m_Calls:
@@ -737,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.195
+      value: -0.007
       objectReference: {fileID: 0}
     - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
       propertyPath: m_LocalPosition.z
@@ -804,6 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b5522546e193745bb5ec60f075233d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetScale: 0
 --- !u!4 &1469626178981443210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}

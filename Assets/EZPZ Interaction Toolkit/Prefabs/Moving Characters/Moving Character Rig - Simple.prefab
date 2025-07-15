@@ -25,6 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7850268537504155315}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 11.34, y: 2.697, z: 5.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,7 +33,6 @@ Transform:
   m_Children:
   - {fileID: 6332345430861106946}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!114 &7850268537504155314
 MonoBehaviour:
@@ -47,7 +47,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 0}
+  onArrive:
+    m_PersistentCalls:
+      m_Calls: []
+  onFirstMove:
+    m_PersistentCalls:
+      m_Calls: []
+  altDestinations: []
+  avatarAnimator: {fileID: 0}
+  speedString: speed
   myNma: {fileID: 0}
+  arrivalFlag: 0
+  prevArrivalFlag: 0
+  dist2PrevPos: 0
+  prevPos: {x: 0, y: 0, z: 0}
+  fixedUpdateSpeed: 0
+  fixedUpdateVelocity: {x: 0, y: 0, z: 0}
+  prevPosFixedUpdate: {x: 0, y: 0, z: 0}
 --- !u!195 &7850268537504155312
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -75,7 +91,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 7850268537504155313}
     m_Modifications:
     - target: {fileID: 433352298438955083, guid: b103022f4c636974db9547047307a646, type: 3}
@@ -127,7 +143,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 433352298438955083, guid: b103022f4c636974db9547047307a646, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1298743057}
   m_SourcePrefab: {fileID: 100100000, guid: b103022f4c636974db9547047307a646, type: 3}
 --- !u!4 &6332345430861106946 stripped
 Transform:
@@ -147,11 +168,18 @@ CharacterController:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7706312324080793716}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
