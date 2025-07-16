@@ -1,3 +1,7 @@
+//EZPZ Interaction Toolkit
+//by Matt Cabanag
+//created: some time early 2024??
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;

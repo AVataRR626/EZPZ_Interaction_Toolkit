@@ -28,11 +28,11 @@ Transform:
   m_GameObject: {fileID: 562215321998998787}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0231, z: 0.086}
-  m_LocalScale: {x: 0.037677046, y: 0.037677046, z: 0.17094076}
+  m_LocalPosition: {x: 0, y: -0.0443, z: 0.08600007}
+  m_LocalScale: {x: 0.03767705, y: 0.03767705, z: 0.17094077}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1302136239227046332}
+  m_Father: {fileID: 972192780014438363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8321091232110526250
 MeshFilter:
@@ -120,11 +120,11 @@ Transform:
   m_GameObject: {fileID: 2228374389636202950}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.087, y: 0, z: 0.0813}
-  m_LocalScale: {x: 0.06707733, y: 0.09713468, z: 0.06707733}
+  m_LocalPosition: {x: -0.078, y: 0, z: 0.08129989}
+  m_LocalScale: {x: 0.030911246, y: 0.090729274, z: 0.030911246}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1302136239227046332}
+  m_Father: {fileID: 972192780014438363}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &742510852584442641
 MeshFilter:
@@ -202,6 +202,41 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &3719211668443269029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 972192780014438363}
+  m_Layer: 0
+  m_Name: Catching Prongs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &972192780014438363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3719211668443269029}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8554277151271362555}
+  - {fileID: 6389266745022765440}
+  - {fileID: 6791799681987723579}
+  - {fileID: 4831236336825168911}
+  m_Father: {fileID: 1302136239227046332}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3965801230268307851
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,10 +266,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8554277151271362555}
-  - {fileID: 6389266745022765440}
-  - {fileID: 6791799681987723579}
-  - {fileID: 4831236336825168911}
+  - {fileID: 972192780014438363}
   - {fileID: 1242571211099228493}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -266,11 +298,11 @@ Transform:
   m_GameObject: {fileID: 5289404042903800597}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.0837, z: 0.0813}
-  m_LocalScale: {x: 0.06707733, y: 0.09713468, z: 0.06707733}
+  m_LocalPosition: {x: 0, y: -0.08370014, z: 0.08129989}
+  m_LocalScale: {x: 0.030911246, y: 0.090729274, z: 0.030911246}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1302136239227046332}
+  m_Father: {fileID: 972192780014438363}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &5528426233264538559
 MeshFilter:
@@ -376,11 +408,11 @@ Transform:
   m_GameObject: {fileID: 6536363864128175135}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.087, y: 0, z: 0.0813}
-  m_LocalScale: {x: 0.06707733, y: 0.09713468, z: 0.06707733}
+  m_LocalPosition: {x: 0.078, y: 0, z: 0.08129989}
+  m_LocalScale: {x: 0.030911246, y: 0.090729274, z: 0.030911246}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1302136239227046332}
+  m_Father: {fileID: 972192780014438363}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &8223284869798350749
 MeshFilter:
