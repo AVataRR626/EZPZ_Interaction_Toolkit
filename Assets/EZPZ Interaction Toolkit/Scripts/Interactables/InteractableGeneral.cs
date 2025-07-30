@@ -11,9 +11,12 @@ using UnityEngine.EventSystems;
 public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler //, , , IPointerClickHandler
 {
     public UnityEvent onPrimaryInteract;
+    public UnityEvent onSecondaryInteract;
     public UnityEvent onHoverEnter;
     public UnityEvent onHoverExit;
     //public UnityEvent onHoldInteract;
+
+    public string hoverText;
 
     [Header("For Legacy Compatibility")]
     [Tooltip("This event is the same as onPrimaryInteract. Use that instead. This is only here to keep old things from breaking.")]

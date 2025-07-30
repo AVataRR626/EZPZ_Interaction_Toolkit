@@ -11,6 +11,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+using JetBrains.Annotations;
 
 public class RaycastInteractor : MonoBehaviour
 {
@@ -27,6 +29,8 @@ public class RaycastInteractor : MonoBehaviour
     public GameObject aimingCrosshair;
     public GameObject keyboardFreezeIcon;
     public GameObject tooFarIcon;
+    public GameObject hoverTextRig;
+    public TextMeshProUGUI hoverTextDisplay;
     public Transform environmentHit;
     public Transform generalHit;
 
@@ -108,8 +112,6 @@ public class RaycastInteractor : MonoBehaviour
             if (mainCam != null)
             {
 
-
-
                 Camera[] allCams = FindObjectsByType<Camera>(FindObjectsSortMode.None);
 
 
@@ -157,10 +159,25 @@ public class RaycastInteractor : MonoBehaviour
         //Debug.Log("--FireLift");
     }
 
+    public void OnUse()
+    {
+        Debug.Log("--OnUse");
+
+        HandleSecondaryInteract();
+    }
+
 
     public void ForceInteract()
     {
         interactState = true;
+    }
+
+    public void HandleSecondaryInteract()
+    {
+        if(subject != null)
+        {
+            subject.onSecondaryInteract.Invoke();
+        }
     }
 
     public void HandleEnvironmentRaycast()
@@ -244,14 +261,18 @@ public class RaycastInteractor : MonoBehaviour
         if (hitSubject != null)
         {
             subject = hitSubject;
+
             OnClickableHover();
 
             if (subject != prevHitSubject)
             {
-                subject.onHoverEnter.Invoke();
+                subject.onHoverEnter.Invoke();                
 
                 if (prevHitSubject != null)
+                {
                     prevHitSubject.onHoverExit.Invoke();
+                }
+                
             }
 
             if (interactState && !prevInteractState)
@@ -262,7 +283,6 @@ public class RaycastInteractor : MonoBehaviour
                 subject.onFirstInteract.Invoke();
                 //legacy-----
 
-
                 HandleMovables(subject);
                 HandleTypables(subject);
             }
@@ -270,6 +290,40 @@ public class RaycastInteractor : MonoBehaviour
         else
         {
             OnNoClickable();
+        }
+    }
+
+    public void SyncHoverText(string newText)
+    {
+        if (newText.Length > 0)
+        {
+            if (hoverTextDisplay != null)
+            {
+                hoverTextDisplay.text = newText;
+            }
+        }
+        else
+        {
+            if(hoverTextRig != null)            
+                hoverTextRig.SetActive(false);
+            
+        }
+    }
+
+    public void HandleHoverText(bool mode)
+    {
+        if (hoverTextRig != null)
+        {
+            if (mode)
+            {
+                hoverTextRig.SetActive(true);
+                SyncHoverText(subject.hoverText);
+            }
+            else
+            {
+                hoverTextRig.SetActive(false);
+            }
+            
         }
     }
 
@@ -475,6 +529,8 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnNoClickable()
     {
+        HandleHoverText(false);
+
         if (clickableIndicator != null)
             clickableIndicator.SetActive(false);
 
@@ -506,6 +562,7 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnClickableHover()
     {
+        HandleHoverText(true);
 
         if (clickableIndicator != null)
             clickableIndicator.SetActive(true);
