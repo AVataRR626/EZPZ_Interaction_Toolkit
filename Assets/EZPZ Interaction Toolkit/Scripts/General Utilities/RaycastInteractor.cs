@@ -16,6 +16,8 @@ using JetBrains.Annotations;
 
 public class RaycastInteractor : MonoBehaviour
 {
+    
+
     [Header("Primary Settings")]
     public Transform rayPointer;
     public LayerMask layerMask;
@@ -31,6 +33,8 @@ public class RaycastInteractor : MonoBehaviour
     public GameObject tooFarIcon;
     public GameObject hoverTextRig;
     public TextMeshProUGUI hoverTextDisplay;
+    public string useKeyTag = "%USE_KEY%";
+    public string useKeyString = "[F]";
     public Transform environmentHit;
     public Transform generalHit;
 
@@ -299,7 +303,9 @@ public class RaycastInteractor : MonoBehaviour
         {
             if (hoverTextDisplay != null)
             {
-                hoverTextDisplay.text = newText;
+                Debug.Log(useKeyTag + " : " + useKeyString);
+
+                hoverTextDisplay.text = newText.Replace(useKeyTag,useKeyString);
             }
         }
         else
