@@ -10,12 +10,15 @@ using UnityEngine.EventSystems;
 
 public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler //, , , IPointerClickHandler
 {
+    [Header("Interaction Settings")]
     public UnityEvent onPrimaryInteract;
     public UnityEvent onSecondaryInteract;
+    public bool allowSecondaryOnlyWhenHeld;
+
+    [Header("Hover Settings")]
     public UnityEvent onHoverEnter;
     public UnityEvent onHoverExit;
     //public UnityEvent onHoldInteract;
-
     public string hoverText;
 
     [Header("For Legacy Compatibility")]

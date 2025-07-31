@@ -182,7 +182,28 @@ public class RaycastInteractor : MonoBehaviour
     {
         if(subject != null)
         {
-            subject.onSecondaryInteract.Invoke();
+            if (!subject.allowSecondaryOnlyWhenHeld)
+            {
+                subject.onSecondaryInteract.Invoke();
+            }
+            else
+            {
+                if(moveSubject != null)
+                {
+                    if (moveSubject.isActiveAndEnabled)
+                    {
+                        subject.onSecondaryInteract.Invoke();
+                    }
+
+                    //check if last event disabled the subject
+                    if (!moveSubject.isActiveAndEnabled)
+                    {
+                        //delink subject if it is disabled
+                        moveSubject = null;
+                        subject = null;
+                    }
+                }
+            }
         }
     }
 
@@ -305,8 +326,6 @@ public class RaycastInteractor : MonoBehaviour
         {
             if (hoverTextDisplay != null)
             {
-                Debug.Log(useKeyTag + " : " + useKeyString);
-
                 hoverTextDisplay.text = newText.Replace(useKeyTag,useKeyString);
             }
         }
@@ -360,7 +379,7 @@ public class RaycastInteractor : MonoBehaviour
         }
         else
         {
-            Debug.Log("Pre-existing object!");
+            //Debug.Log("Pre-existing object!");
             DropMovable();
         }
 
