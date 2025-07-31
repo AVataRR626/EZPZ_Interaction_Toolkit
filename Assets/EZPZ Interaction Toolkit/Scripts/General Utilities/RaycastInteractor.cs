@@ -26,15 +26,17 @@ public class RaycastInteractor : MonoBehaviour
     public float touchDistance = 5;
     public float holdingDistance = 1.5f;
 
-    [Header("User Feedback")]
-    public GameObject clickableIndicator;
-    public GameObject aimingCrosshair;
-    public GameObject keyboardFreezeIcon;
-    public GameObject tooFarIcon;
+    [Header("Hover Text Settings")]
     public GameObject hoverTextRig;
     public TextMeshProUGUI hoverTextDisplay;
     public string useKeyTag = "%USE_KEY%";
     public string useKeyString = "[F]";
+
+    [Header("General User Feedback")]
+    public GameObject clickableIndicator;
+    public GameObject aimingCrosshair;
+    public GameObject keyboardFreezeIcon;
+    public GameObject tooFarIcon;
     public Transform environmentHit;
     public Transform generalHit;
 
