@@ -4,8 +4,8 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ListWatcher : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class ListWatcher : MonoBehaviour
 
     [Header("Event Handling")]
     public UnityEvent onEmpty;
+    public UnityEvent onFull;
     public UnityEvent onCountMatch;
     public bool invokedFlag = false;
     public int activeCount = 0;
@@ -28,8 +29,9 @@ public class ListWatcher : MonoBehaviour
     public void CheckContinuous()
     {
         CheckIfEmpty();
+        CheckIfFull();
 
-        if(gameObject.activeSelf)
+        if (gameObject.activeSelf)
             Invoke("CheckContinuous", checkFrequency);
     }
 
@@ -48,17 +50,15 @@ public class ListWatcher : MonoBehaviour
         }
     }
 
-    public void CheckIfEmpty()
+    public bool CheckIfEmpty()
     {
         if (invokeOnce && invokedFlag)
-            return;
-
+            return false;
 
         CountActives();
 
         if (activeCount == 0)
         {
-
             if (invokeOnce)
             {
                 if (!invokedFlag)
@@ -66,20 +66,43 @@ public class ListWatcher : MonoBehaviour
             }
 
             onEmpty.Invoke();
+            return true;
         }
+
+        return false;
     }
 
-    public void CheckMatchCount(int test)
+    public bool CheckIfFull()
     {
-
         if (invokeOnce && invokedFlag)
-            return;
+            return false;
+
+        CountActives();
+
+        if (activeCount == watchList.Count)
+        {
+            if (invokeOnce)
+            {
+                if (!invokedFlag)
+                    invokedFlag = true;
+            }
+
+            onFull.Invoke();
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool CheckMatchCount(int test)
+    {
+        if (invokeOnce && invokedFlag)
+            return false;
 
         CountActives();
 
         if (activeCount == test)
         {
-
             if (invokeOnce)
             {
                 if (!invokedFlag)
@@ -87,6 +110,11 @@ public class ListWatcher : MonoBehaviour
             }
 
             onCountMatch.Invoke();
+            return true;
         }
+
+        return false;
     }
+
+    
 }

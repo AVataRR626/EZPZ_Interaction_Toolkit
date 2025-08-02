@@ -299,7 +299,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8865520874314506014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -399,6 +399,7 @@ MonoBehaviour:
   subject: {fileID: 0}
   triggerActive: 1
   myRenderer: {fileID: 0}
+  contactList: []
 --- !u!1001 &4337646941631850426
 PrefabInstance:
   m_ObjectHideFlags: 0
