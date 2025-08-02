@@ -10,10 +10,17 @@ using UnityEngine.EventSystems;
 
 public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler //, , , IPointerClickHandler
 {
-    [Header("Interaction Settings")]
+    [Header("Interaction Events")]
     public UnityEvent onPrimaryInteract;
     public UnityEvent onSecondaryInteract;
-    public bool allowSecondaryOnlyWhenHeld;
+
+    [Header("Interaction Customisations")]
+    [Tooltip("Set to 0 or less to use default set on RaycastInteractor.")]
+    public float customTouchDistance = -1;
+    [Tooltip("Set to 0 or less to use default set on RaycastInteractor")]
+    public float customHoldDistance = -1;
+    [Tooltip("Block secondary events unless item is being held. Good for 'eating' type interactions.")]
+    public bool restrictSecondaryToHeldOnly;
 
     [Header("Hover Settings")]
     public UnityEvent onHoverEnter;

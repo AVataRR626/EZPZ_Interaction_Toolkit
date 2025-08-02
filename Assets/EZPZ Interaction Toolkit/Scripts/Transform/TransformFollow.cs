@@ -62,4 +62,17 @@ public class TransformFollow : MonoBehaviour
     {
         autoSyncYRotation = n;
     }
+
+    public void SoftStop()
+    {
+        SyncDestination();
+    }
+
+    public void SyncDestination()
+    {
+        if(subject != null)
+        {
+            subject.transform.position = transform.position;
+        }
+    }
 }

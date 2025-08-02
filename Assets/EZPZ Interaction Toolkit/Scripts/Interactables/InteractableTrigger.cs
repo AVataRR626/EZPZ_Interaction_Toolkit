@@ -26,7 +26,7 @@ public class InteractableTrigger : MonoBehaviour
     [Header("System Stuff - Usually Dont Touch")]
     public bool triggerActive = true;
     public Renderer myRenderer;
-    [SerializeField]
+    public List<GameObject> contactList = new List<GameObject>();
     public ISubjectRelay subjectSync;
 
     private void OnEnable()
@@ -55,13 +55,13 @@ public class InteractableTrigger : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (triggerActive)
         {
             if (CheckFilter(other))
             {
-                if(disableOnEnter)
+                if (disableOnEnter)
                 {
                     if (other.tag != "Player")
                         other.gameObject.SetActive(false);
@@ -87,22 +87,45 @@ public class InteractableTrigger : MonoBehaviour
                         subjectSync.SyncSubject(subject);
                 }
 
+                if (subject != null)
+                    Add2ContactList(subject);
+
                 onTriggerEnter.Invoke();
             }
         }
         
     }
 
-    private void OnTriggerExit(Collider other)
+    public void Add2ContactList(GameObject o)
+    {
+        if(!contactList.Contains(o))
+        {
+            contactList.Add(o);
+        }
+    }
+
+
+    public virtual void OnTriggerExit(Collider other)
     {
         if (CheckFilter(other))
+        {
             onTriggerExit.Invoke();
+            RemoveFromContactList(other.gameObject);
+        }
 
         if (subject != null)
             subject = null;
     }
 
-    
+    public void RemoveFromContactList(GameObject o)
+    {
+        if (contactList.Contains(o))
+        {
+            contactList.Remove(o);
+        }
+    }
+
+
     private void OnTriggerStay(Collider other)
     {
         if (CheckFilter(other))
@@ -129,16 +152,18 @@ public class InteractableTrigger : MonoBehaviour
         {
             if(filterString.Length == 0)
             {
+                //allow any filter text when filter string is not set
                 return true;
             }
             else
             {
+                //otherwise, check if the filter strings match
                 return (filterString.Equals(tf.filterString));                    
             }
         }
         else
         {
-            //objects without filters can trigger events
+            //objects without trigger filters can trigger events regardless
             if (allowUnfiltered)
                 return true;
         }

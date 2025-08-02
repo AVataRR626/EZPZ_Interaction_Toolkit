@@ -23,8 +23,8 @@ public class RaycastInteractor : MonoBehaviour
     public LayerMask layerMask;
     public LayerMask environmentLayer;
     public float rayLength = 15;
-    public float touchDistance = 5;
-    public float holdingDistance = 1.5f;
+    public float touchDistanceDefault = 5;
+    public float holdingDistanceDefault = 1.5f;
 
     [Header("Hover Text Settings")]
     public GameObject hoverTextRig;
@@ -40,7 +40,7 @@ public class RaycastInteractor : MonoBehaviour
     public Transform environmentHit;
     public Transform generalHit;
 
-    [Header("System Stuff (do not touch, usually)")]
+    [Header("System Stuff (usually do not touch)")]
     public InteractableGeneral subject;
     public InteractableGeneral prevHitSubject;
     public InteractableGeneral hitSubject;
@@ -182,7 +182,7 @@ public class RaycastInteractor : MonoBehaviour
     {
         if(subject != null)
         {
-            if (!subject.allowSecondaryOnlyWhenHeld)
+            if (!subject.restrictSecondaryToHeldOnly)
             {
                 subject.onSecondaryInteract.Invoke();
             }
@@ -269,14 +269,29 @@ public class RaycastInteractor : MonoBehaviour
 
         if(hitSubject != null)
         {
-            if(hit.distance <= touchDistance)
+            if (hitSubject.customTouchDistance <= 0)
             {
-                ActivateTooFarIcon(false);
+                if (hit.distance <= touchDistanceDefault)
+                {
+                    ActivateTooFarIcon(false);
+                }
+                else
+                {
+                    ActivateTooFarIcon(true);
+                    hitSubject = null;
+                }
             }
             else
             {
-                ActivateTooFarIcon(true);
-                hitSubject = null;
+                if (hit.distance <= hitSubject.customTouchDistance)
+                {
+                    ActivateTooFarIcon(false);
+                }
+                else
+                {
+                    ActivateTooFarIcon(true);
+                    hitSubject = null;
+                }
             }
         }
         else
@@ -426,7 +441,17 @@ public class RaycastInteractor : MonoBehaviour
         }
         else
         {
-            Vector3 attachPos = rayPointer.position + rayPointer.forward * holdingDistance;
+            Vector3 attachPos = rayPointer.position;
+
+            if (moveSubject.customHoldDistance <= 0)
+            {
+                attachPos += rayPointer.forward * holdingDistanceDefault;
+            }
+            else
+            {
+                attachPos += rayPointer.forward * moveSubject.customHoldDistance;
+            }
+
 
             if (moveSubject.attachPoint != null)
             {

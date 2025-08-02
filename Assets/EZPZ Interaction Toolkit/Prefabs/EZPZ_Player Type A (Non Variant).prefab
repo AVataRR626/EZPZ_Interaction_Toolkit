@@ -334,7 +334,6 @@ GameObject:
   - component: {fileID: 8701435937510449520}
   - component: {fileID: 9098159155718466608}
   - component: {fileID: 4542705019843883989}
-  - component: {fileID: 6067929224944474977}
   m_Layer: 7
   m_Name: Eye Visor
   m_TagString: Untagged
@@ -351,8 +350,8 @@ Transform:
   m_GameObject: {fileID: 1287072135125291670}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000035762784}
-  m_LocalPosition: {x: 0, y: 0.475, z: 0.456}
-  m_LocalScale: {x: 0.56688, y: 0.18654, z: 0.15814}
+  m_LocalPosition: {x: 0, y: 0.51, z: 0.49}
+  m_LocalScale: {x: 0.56688, y: 0.08701717, z: 0.24856445}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8185093415363007222}
@@ -410,27 +409,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6067929224944474977
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287072135125291670}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1534723728633843283
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +473,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_SlopeLimit: 45
   m_StepOffset: 0.25
   m_SkinWidth: 0.02
@@ -684,15 +662,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rayLength: 100
-  touchDistance: 6
-  holdingDistance: 1.5
+  touchDistanceDefault: 5
+  holdingDistanceDefault: 1.5
+  hoverTextRig: {fileID: 5944605577564912931}
+  hoverTextDisplay: {fileID: 998904273805121170}
+  useKeyTag: '%USE_KEY%'
+  useKeyString: '[F]'
   clickableIndicator: {fileID: 8083486867239521812}
   aimingCrosshair: {fileID: 3052569639275739935}
   keyboardFreezeIcon: {fileID: 5652342127101919466}
   tooFarIcon: {fileID: 3840600945517506957}
-  hoverTextRig: {fileID: 5944605577564912931}
-  hoverTextDisplay: {fileID: 998904273805121170}
-  useKeyString: '[F]'
   environmentHit: {fileID: 6458361307937417739}
   generalHit: {fileID: 2296977153572712269}
   subject: {fileID: 0}
@@ -1198,7 +1177,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8701435937510449520}

@@ -67,7 +67,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  allowSecondaryOnlyWhenHeld: 1
+  customTouchDistance: 3
+  customHoldDistance: 0.7
+  restrictSecondaryToHeldOnly: 1
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
