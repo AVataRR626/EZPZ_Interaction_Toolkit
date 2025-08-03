@@ -358,7 +358,15 @@ public class RaycastInteractor : MonoBehaviour
             if (mode)
             {
                 hoverTextRig.SetActive(true);
-                SyncHoverText(subject.hoverText);
+                if (moveSubject == null)
+                    SyncHoverText(subject.hoverText);
+                else
+                {
+                    if(moveSubject.heldText.Length > 0)
+                        SyncHoverText(subject.heldText);
+                    else
+                        SyncHoverText(subject.hoverText);
+                }
             }
             else
             {

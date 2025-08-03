@@ -21,6 +21,7 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
     public float customHoldDistance = -1;
     [Tooltip("Block secondary events unless item is being held. Good for 'eating' type interactions.")]
     public bool restrictSecondaryToHeldOnly;
+    public string heldText;
 
     [Header("Hover Settings")]
     public UnityEvent onHoverEnter;

@@ -70,13 +70,14 @@ MonoBehaviour:
   customTouchDistance: 3
   customHoldDistance: 0.7
   restrictSecondaryToHeldOnly: 1
+  heldText: '%USE_KEY% to eat!'
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
-  hoverText: Pickup then %USE_KEY% to eat!
+  hoverText: pick up to eat
   onFirstInteract:
     m_PersistentCalls:
       m_Calls: []
