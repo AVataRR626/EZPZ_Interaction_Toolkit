@@ -8,7 +8,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
-using JetBrains.Annotations;
 
 public class NumberHolder : MonoBehaviour
 {

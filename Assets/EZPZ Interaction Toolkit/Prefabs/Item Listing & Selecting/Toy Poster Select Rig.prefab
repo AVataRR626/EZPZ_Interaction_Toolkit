@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3266890122687682032}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
   m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1941579088361029343
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -124,12 +124,19 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  customTouchDistance: -1
+  customHoldDistance: -1
+  restrictSecondaryToHeldOnly: 0
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  hoverText: 
   onFirstInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -162,13 +169,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4777969279070608178}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.4, z: 0.101}
   m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &796137941262408549
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -258,12 +265,19 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  customTouchDistance: -1
+  customHoldDistance: -1
+  restrictSecondaryToHeldOnly: 0
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  hoverText: 
   onFirstInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -296,13 +310,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4950201964667984571}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
   m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7750787322032224202
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -392,12 +406,19 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  customTouchDistance: -1
+  customHoldDistance: -1
+  restrictSecondaryToHeldOnly: 0
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  hoverText: 
   onFirstInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -430,13 +451,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7033245782281614625}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
   m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7225256280413565978
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -526,12 +547,19 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  customTouchDistance: -1
+  customHoldDistance: -1
+  restrictSecondaryToHeldOnly: 0
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  hoverText: 
   onFirstInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -599,6 +627,8 @@ MonoBehaviour:
   - {fileID: 8500564355843554490}
   - {fileID: 3266890122687682032}
   - {fileID: 7033245782281614625}
+  autoSync: 0
+  indexSynchroniser: {fileID: 0}
   loopCycle: 1
   exclusiveMode: 1
   cascadeMode: 0
@@ -654,13 +684,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7881203225973056737}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
   m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &948424984484837463
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -750,12 +780,19 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  customTouchDistance: -1
+  customHoldDistance: -1
+  restrictSecondaryToHeldOnly: 0
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  hoverText: 
   onFirstInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -788,13 +825,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7937517451229397601}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
   m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2025445905048023225
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -884,12 +921,19 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  customTouchDistance: -1
+  customHoldDistance: -1
+  restrictSecondaryToHeldOnly: 0
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  hoverText: 
   onFirstInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -922,13 +966,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8500564355843554490}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: -0.4, z: 0.101}
   m_LocalScale: {x: 0.82912, y: 0.82912, z: 0.021964429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4027745232640851754}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3900105055534013879
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1018,12 +1062,19 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  customTouchDistance: -1
+  customHoldDistance: -1
+  restrictSecondaryToHeldOnly: 0
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  hoverText: 
   onFirstInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -1098,23 +1149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.175
-      objectReference: {fileID: 0}
-    - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.000000461936
-      objectReference: {fileID: 0}
-    - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.123
       objectReference: {fileID: 0}
     - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1166,6 +1201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b5522546e193745bb5ec60f075233d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetScale: 0
 --- !u!1001 &1569409855740178753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1240,23 +1276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.175
-      objectReference: {fileID: 0}
-    - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.000000461936
-      objectReference: {fileID: 0}
-    - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.123
       objectReference: {fileID: 0}
     - target: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1303,6 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b5522546e193745bb5ec60f075233d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetScale: 0
 --- !u!4 &7274454358473599682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8157043946459995011, guid: 89f7238d42a1e4944903f82e2200a073, type: 3}

@@ -103,7 +103,10 @@ public class Movable : InteractableGeneral
         Movable[] allMovables = Object.FindObjectsByType<Movable>(FindObjectsSortMode.None);
 
         foreach (Movable m in allMovables)
+        {
             m.ResetOrientation();
+            m.transform.parent = null;
+        }
 
         MovableMagnetSnapper[] allMagnets = Object.FindObjectsByType<MovableMagnetSnapper>(FindObjectsSortMode.None);
 
