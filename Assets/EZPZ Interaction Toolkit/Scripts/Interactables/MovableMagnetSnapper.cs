@@ -14,8 +14,10 @@ public class MovableMagnetSnapper : MonoBehaviour
     public Transform snappingPoint;
     [Tooltip("Align snapped object to magnet snapper's rotation")]
     public bool alignRotation = true;
-    [Tooltip("Leave empty to accept all items")]
+    [Tooltip("Use to include objects. Leave empty to accept all items")]
     public string filterString;
+    [Tooltip("Use this to exclude objects. Leave empty to accept all items")]
+    public string excludFilterString;
     [Tooltip("Keep the snap area visible at runtime")]
     public bool visibleAtRuntime = true;
 
@@ -142,25 +144,43 @@ public class MovableMagnetSnapper : MonoBehaviour
             if (subject != null)
             {
                 if (subject.myMagnetSnapper == null)
-                { 
-                    if (filterString.Length > 0)
+                {
+                    if (filterString.Length > 0 || excludFilterString.Length > 0)
                     {
                         TriggerFilter tf = subject.GetComponent<TriggerFilter>();
 
-                        if (tf != null)
+                        if (excludFilterString.Length > 0)
                         {
-                            if (!tf.filterString.Equals(filterString))
+                            if (tf != null)
                             {
-                                subject = null;
-                                return;
+                                if (tf.Equals(excludFilterString))
+                                {
+                                    subject = null;
+                                    return;
+                                }
                             }
                         }
                         else
                         {
                             subject = null;
-                            return;
                         }
 
+                        if (filterString.Length > 0)
+                        {
+                            if (tf != null)
+                            {
+                                if (!tf.filterString.Equals(filterString))
+                                {
+                                    subject = null;
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                subject = null;
+                                return;
+                            }
+                        }
                     }
 
                     if (subject.myMagnetSnapper == null)

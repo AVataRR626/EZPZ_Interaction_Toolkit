@@ -268,8 +268,7 @@ public class RaycastInteractor : MonoBehaviour
         hitSubject = hit.collider.gameObject.GetComponent<InteractableGeneral>();
 
         if(hitSubject != null)
-        {
-            Debug.Log("RaycastInteraction: HIT:" +  hitSubject.name);
+        {   
             if (hitSubject.customTouchDistance <= 0)
             {
                 if (hit.distance <= touchDistanceDefault)
@@ -283,8 +282,7 @@ public class RaycastInteractor : MonoBehaviour
                 }
             }
             else
-            {
-                Debug.Log("CUSTOM TOUCH: " + hitSubject.customTouchDistance);
+            {   
                 if (hit.distance <= hitSubject.customTouchDistance)
                 {
                     ActivateTooFarIcon(false);
