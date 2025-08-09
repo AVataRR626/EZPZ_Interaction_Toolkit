@@ -56,6 +56,7 @@ public class RaycastInteractor : MonoBehaviour
     public EventSystem myEventSystem;
     public Transform previousMoveParent;
     public bool cameraCleanupOnStart = true;
+    public bool didHit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -232,7 +233,7 @@ public class RaycastInteractor : MonoBehaviour
     {
         RaycastHit hit;
 
-        bool didHit = Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, rayLength, layerMask);
+        didHit = Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, rayLength, layerMask);
 
         if (didHit)
         {
@@ -268,6 +269,7 @@ public class RaycastInteractor : MonoBehaviour
 
         if(hitSubject != null)
         {
+            Debug.Log("RaycastInteraction: HIT:" +  hitSubject.name);
             if (hitSubject.customTouchDistance <= 0)
             {
                 if (hit.distance <= touchDistanceDefault)
@@ -282,6 +284,7 @@ public class RaycastInteractor : MonoBehaviour
             }
             else
             {
+                Debug.Log("CUSTOM TOUCH: " + hitSubject.customTouchDistance);
                 if (hit.distance <= hitSubject.customTouchDistance)
                 {
                     ActivateTooFarIcon(false);

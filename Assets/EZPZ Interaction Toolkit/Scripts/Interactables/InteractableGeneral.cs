@@ -51,6 +51,8 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
             onHoverEnter.AddListener(RelayOnHoverEnter);
             onHoverExit.AddListener(RelayOnHoverExit);
             onFirstInteract.AddListener(RelayOnFirstInteract);
+            customTouchDistance = eventRelay.customTouchDistance;
+            customHoldDistance = eventRelay.customHoldDistance;
         }
     }
 

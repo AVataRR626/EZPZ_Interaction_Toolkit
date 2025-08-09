@@ -8,6 +8,8 @@ public class TextUtility : MonoBehaviour
 {
     public TextMeshPro textDisplay;
     public TextMeshProUGUI textDisplayPUGUI;
+    public string buffer = "";
+    public string cursorText = "_";
 
     void Start()
     {
@@ -20,11 +22,13 @@ public class TextUtility : MonoBehaviour
 
     public void Append(string t)
     {
-        if(textDisplay != null)
-            textDisplay.text += t;
+        buffer += t;
+
+        if (textDisplay != null)
+            textDisplay.text = buffer + cursorText;
 
         if (textDisplayPUGUI != null)
-            textDisplayPUGUI.text += t;
+            textDisplayPUGUI.text = buffer + cursorText;
     }
 
     public void Backspace()
