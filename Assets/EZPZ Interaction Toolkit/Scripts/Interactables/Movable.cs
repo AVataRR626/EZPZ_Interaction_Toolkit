@@ -25,6 +25,7 @@ public class Movable : InteractableGeneral
     public Collider myCollider;
     public MovableMagnetSnapper myMagnetSnapper;
     public RaycastInteractor myRayManipulator;
+    public bool originalUseGravity = true;
 
     private void Start()
     {
@@ -33,6 +34,11 @@ public class Movable : InteractableGeneral
 
         myCollider = GetComponent<Collider>();
         myRbody = GetComponent<Rigidbody>();
+
+        if(myRbody != null)
+        {
+            originalUseGravity = myRbody.useGravity;
+        }
 
         if(subCollliders.Length <= 0)
         {
@@ -75,6 +81,16 @@ public class Movable : InteractableGeneral
         if(freezeRotation)
         {
             transform.rotation = startingRotation;
+
+            
+        }
+
+        if (myMagnetSnapper != null)
+        {
+            if(myMagnetSnapper.subject != this)
+            {
+                ForceDrop();
+            }
         }
     }
 
@@ -155,7 +171,7 @@ public class Movable : InteractableGeneral
         if(myRbody != null)
         {
             myRbody.isKinematic = false;
-            myRbody.useGravity = true;
+            myRbody.useGravity = originalUseGravity;
         }
 
         Drop();

@@ -49,7 +49,7 @@ public class ParentItemTrigger : InteractableTrigger
 
     public override void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ParentItemTrigger.OnTriggerEnter()" + other.name);
+        //Debug.Log("ParentItemTrigger.OnTriggerEnter()" + other.name);
 
         base.OnTriggerEnter(other);
 

@@ -149,13 +149,15 @@ public class MovableMagnetSnapper : MonoBehaviour
                     {
                         TriggerFilter tf = subject.GetComponent<TriggerFilter>();
 
+
                         if (excludFilterString.Length > 0)
                         {
+                            Debug.Log("MovableMagnetSnapper: exculdeFilter: " + excludFilterString);
                             if (tf != null)
                             {
-                                if (tf.Equals(excludFilterString))
+                                if (tf.filterString.Equals(excludFilterString))
                                 {
-                                    subject = null;
+                                    subject = null;                                    
                                     return;
                                 }
                             }
@@ -171,13 +173,14 @@ public class MovableMagnetSnapper : MonoBehaviour
                             {
                                 if (!tf.filterString.Equals(filterString))
                                 {
-                                    subject = null;
+                                    subject = null;                                    
                                     return;
                                 }
                             }
                             else
                             {
                                 subject = null;
+                                snapFlag = false;
                                 return;
                             }
                         }
