@@ -92,7 +92,7 @@ public class ParentItemTrigger : InteractableTrigger
 
     public override void OnTriggerExit(Collider other)
     {
-        Debug.Log("ParentItemTrigger.OnTriggerExit()" + other.name);
+        //Debug.Log("ParentItemTrigger.OnTriggerExit()" + other.name);
 
         base.OnTriggerEnter(other);
 

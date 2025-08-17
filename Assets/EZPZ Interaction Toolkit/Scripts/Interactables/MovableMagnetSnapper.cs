@@ -152,7 +152,7 @@ public class MovableMagnetSnapper : MonoBehaviour
 
                         if (excludFilterString.Length > 0)
                         {
-                            Debug.Log("MovableMagnetSnapper: exculdeFilter: " + excludFilterString);
+                            //Debug.Log("MovableMagnetSnapper: exculdeFilter: " + excludFilterString);
                             if (tf != null)
                             {
                                 if (tf.filterString.Equals(excludFilterString))
@@ -164,24 +164,22 @@ public class MovableMagnetSnapper : MonoBehaviour
                         }
                         else
                         {
-                            subject = null;
-                        }
-
-                        if (filterString.Length > 0)
-                        {
-                            if (tf != null)
+                            if (filterString.Length > 0)
                             {
-                                if (!tf.filterString.Equals(filterString))
+                                if (tf != null)
                                 {
-                                    subject = null;                                    
+                                    if (!tf.filterString.Equals(filterString))
+                                    {
+                                        subject = null;
+                                        return;
+                                    }
+                                }
+                                else
+                                {
+                                    subject = null;
+                                    snapFlag = false;
                                     return;
                                 }
-                            }
-                            else
-                            {
-                                subject = null;
-                                snapFlag = false;
-                                return;
                             }
                         }
                     }
