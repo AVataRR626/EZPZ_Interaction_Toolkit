@@ -10,9 +10,17 @@ using UnityEngine.EventSystems;
 
 public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler //, , , IPointerClickHandler
 {
-    [Header("Interaction Events")]
+    [Header("Interaction Events - On Press")]
+    [Tooltip("In desktop mode: this is for when you press your mouse button (not release)")]
     public UnityEvent onPrimaryInteract;
+    [Tooltip("In desktop mode: this is for when you press [F] (not release)")]
     public UnityEvent onSecondaryInteract;
+
+    [Header("Interaction Events - On Lift (or release)")]
+    [Tooltip("In desktop mode: this is for when you press release mouse button")]
+    public UnityEvent onPrimaryInteractLift;
+    [Tooltip("In desktop mode: this is for when you release [F]")]
+    public UnityEvent onSecondaryInteractLift;
 
     [Header("Interaction Customisations")]
     [Tooltip("Set to 0 or less to use default set on RaycastInteractor.")]

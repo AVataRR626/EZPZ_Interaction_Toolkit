@@ -13,6 +13,8 @@ public class ItemSpawner : MonoBehaviour
     public GameObject lastObject;
     public Vector3 randomPositionOffset;
 
+    public bool parent2SpawnPoint = false;
+
     private void Start()
     {
         if (spawnPoint == null)
@@ -29,5 +31,18 @@ public class ItemSpawner : MonoBehaviour
             );
 
         lastObject = Instantiate(template, spawnPoint.position + offset, spawnPoint.rotation);
+
+        if(parent2SpawnPoint)
+        {
+            lastObject.transform.parent = spawnPoint;
+        }
+    }
+
+    public void DetatchSpawPointChildren()
+    {
+        foreach(Transform child in spawnPoint)
+        {
+            child.transform.parent = null;
+        }
     }
 }

@@ -11,11 +11,12 @@ public class Movable : InteractableGeneral
     public Transform attachPoint;
     public float throwForce = 0;
     public bool noCollideOnHold = true;
+    [Tooltip("Set to 'true' if you want the object to hug the environment.")]
     public bool groundPlace = false;
-    public Vector3 groundPlaceOffset;
-    public bool moving = false;
-    public bool freezeRotation = false;           
-    public Collider [] subCollliders;
+    [Tooltip("Set to 'true' if you want to automatically drop objects when you release the mouse button.")]
+    public bool dropOnKeyLift = false;
+    public Vector3 groundPlaceOffset;    
+    public bool freezeRotation = false;               
     public float snapSpeed = 20;
 
     [Header("System Stuff (Usually Don't Touch)")]
@@ -26,6 +27,8 @@ public class Movable : InteractableGeneral
     public MovableMagnetSnapper myMagnetSnapper;
     public RaycastInteractor myRayManipulator;
     public bool originalUseGravity = true;
+    public bool moving = false;
+    public Collider[] subCollliders;
 
     private void Start()
     {

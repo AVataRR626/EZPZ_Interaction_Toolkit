@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UseLift",
+                    "type": "Button",
+                    "id": "0781a5fd-f23b-46f7-8417-b3e641a654dc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -336,6 +345,17 @@
                     "processors": "",
                     "groups": ";KeyboardMouse",
                     "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5fab3e8b-43ff-482f-a0b4-a834afd80f39",
+                    "path": "<Keyboard>/f",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "UseLift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

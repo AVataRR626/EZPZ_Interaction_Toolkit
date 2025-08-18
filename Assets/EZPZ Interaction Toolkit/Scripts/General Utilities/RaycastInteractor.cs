@@ -163,13 +163,29 @@ public class RaycastInteractor : MonoBehaviour
     public void OnFireLift()
     {
         //Debug.Log("--FireLift");
+
+        if(subject != null)
+        {
+            subject.onPrimaryInteractLift.Invoke();
+        }
+
+        if(moveSubject != null)
+        {
+            if(moveSubject.dropOnKeyLift)
+                DropMovable();
+        }
     }
 
     public void OnUse()
     {
-        Debug.Log("--OnUse");
-
+        //Debug.Log("--OnUse");
         HandleSecondaryInteract();
+    }
+
+    public void OnUseLift()
+    {
+        //Debug.Log("--OnUseLift");
+        HandleSecondaryInteractLift();
     }
 
 
@@ -199,6 +215,37 @@ public class RaycastInteractor : MonoBehaviour
                     if (!moveSubject.isActiveAndEnabled)
                     {
                         //delink subject if it is disabled
+                        //(e.g. for when it is being used for an "eat" interaction)
+                        moveSubject = null;
+                        subject = null;
+                    }
+                }
+            }
+        }
+    }
+
+    public void HandleSecondaryInteractLift()
+    {
+        if (subject != null)
+        {
+            if (!subject.restrictSecondaryToHeldOnly)
+            {
+                subject.onSecondaryInteractLift.Invoke();
+            }
+            else
+            {
+                if (moveSubject != null)
+                {
+                    if (moveSubject.isActiveAndEnabled)
+                    {
+                        subject.onSecondaryInteractLift.Invoke();
+                    }
+
+                    //check if last event disabled the subject
+                    if (!moveSubject.isActiveAndEnabled)
+                    {
+                        //delink subject if it is disabled
+                        //(e.g. for when it is being used for an "eat" interaction)
                         moveSubject = null;
                         subject = null;
                     }
