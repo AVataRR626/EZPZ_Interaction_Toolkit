@@ -160,4 +160,9 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
         onHoverExit.Invoke();
         PulseDown();
     }
+
+    public void OpenURL(string url)
+    {
+        Application.OpenURL(url);
+    }
 }

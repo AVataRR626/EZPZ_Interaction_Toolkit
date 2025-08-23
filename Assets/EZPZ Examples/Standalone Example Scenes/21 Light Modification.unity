@@ -255,6 +255,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSource: {fileID: 0}
   colourDelta: {r: 0, g: 0, b: 0.039215688, a: 0}
+--- !u!1001 &231409245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 944986883048354261, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: onPrimaryInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://youtu.be/fdWDXzvSkjg?si=xPgXR0_GiUmh8m4i
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.965926
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.2588186
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462551, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_Name
+      value: EZPZ Button Interactable - Open URL Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
 --- !u!1001 &489804172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1622,7 +1683,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7196814450393770999, guid: df63664dbdd376b4298726771ab129fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19999981
+      value: 0.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7196814450393770999, guid: df63664dbdd376b4298726771ab129fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1938,3 +2003,4 @@ SceneRoots:
   - {fileID: 489804172}
   - {fileID: 2002566990}
   - {fileID: 1460211609}
+  - {fileID: 231409245}

@@ -227,6 +227,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &326357764
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 944986883048354261, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: onPrimaryInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://youtu.be/gOCohDdecEA?si=2R-TTNhsM--aF_p8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.342416
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.7366896
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8446236
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462548, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990616506083462551, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
+      propertyPath: m_Name
+      value: EZPZ Button Interactable - Open URL Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 21007548895049f42b0d22ee46fcf106, type: 3}
 --- !u!1 &642668509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1577,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1543604917}
   - {fileID: 1129437298}
+  - {fileID: 326357764}
   - {fileID: 1970036255}
   - {fileID: 1355144603}
   - {fileID: 930787236}

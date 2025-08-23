@@ -64,4 +64,9 @@ public class GenUtils : MonoBehaviour
 
         return result;
     }
+
+    public void OpenURL(string url)
+    {
+        Application.OpenURL(url);
+    }
 }

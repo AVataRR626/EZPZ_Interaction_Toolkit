@@ -689,4 +689,13 @@ public class RaycastInteractor : MonoBehaviour
             tooFarIcon.SetActive(mode);
         }
     }
+
+    public void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            subjectRbody = null;
+            subject = null;
+        }
+    }
 }
