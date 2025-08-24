@@ -17,7 +17,11 @@ public class ListWatcher : MonoBehaviour
     public UnityEvent onEmpty;
     public UnityEvent onFull;
     public UnityEvent onCountMatch;
-    public bool invokedFlag = false;
+
+    [Header("System Stuff (usually don't touch)")]
+    public bool invokedEmptyFlag = false;
+    public bool invokedFullFlag = false;
+    public bool invokedCountMatchFlag = false;
     public int activeCount = 0;
     // Start is called before the first frame update
 
@@ -52,7 +56,7 @@ public class ListWatcher : MonoBehaviour
 
     public bool CheckIfEmpty()
     {
-        if (invokeOnce && invokedFlag)
+        if (invokeOnce && invokedEmptyFlag)
             return false;
 
         CountActives();
@@ -61,8 +65,8 @@ public class ListWatcher : MonoBehaviour
         {
             if (invokeOnce)
             {
-                if (!invokedFlag)
-                    invokedFlag = true;
+                if (!invokedEmptyFlag)
+                    invokedEmptyFlag = true;
             }
 
             onEmpty.Invoke();
@@ -74,7 +78,7 @@ public class ListWatcher : MonoBehaviour
 
     public bool CheckIfFull()
     {
-        if (invokeOnce && invokedFlag)
+        if (invokeOnce && invokedFullFlag)
             return false;
 
         CountActives();
@@ -83,8 +87,8 @@ public class ListWatcher : MonoBehaviour
         {
             if (invokeOnce)
             {
-                if (!invokedFlag)
-                    invokedFlag = true;
+                if (!invokedFullFlag)
+                    invokedFullFlag = true;
             }
 
             onFull.Invoke();
@@ -96,7 +100,7 @@ public class ListWatcher : MonoBehaviour
 
     public bool CheckMatchCount(int test)
     {
-        if (invokeOnce && invokedFlag)
+        if (invokeOnce && invokedCountMatchFlag)
             return false;
 
         CountActives();
@@ -105,8 +109,8 @@ public class ListWatcher : MonoBehaviour
         {
             if (invokeOnce)
             {
-                if (!invokedFlag)
-                    invokedFlag = true;
+                if (!invokedCountMatchFlag)
+                    invokedCountMatchFlag = true;
             }
 
             onCountMatch.Invoke();
