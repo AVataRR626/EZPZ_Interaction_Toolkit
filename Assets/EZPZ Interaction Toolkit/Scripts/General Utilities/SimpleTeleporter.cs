@@ -2,8 +2,6 @@
 //by Matt Cabanag
 //created 26 Jul 2022
 
-using JetBrains.Annotations;
-using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

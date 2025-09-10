@@ -2,7 +2,6 @@
 //by Matt Cabanag
 //created 8 Apr 2022
 
-using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;

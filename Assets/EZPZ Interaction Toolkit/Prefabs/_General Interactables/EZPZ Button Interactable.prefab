@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 6666517854707564516}
   - component: {fileID: 7726521473011992395}
   - component: {fileID: 7544921598006190385}
+  - component: {fileID: 3416247268987379601}
   m_Layer: 0
   m_Name: InteractionBox
   m_TagString: Untagged
@@ -167,9 +168,16 @@ MonoBehaviour:
   onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
   customTouchDistance: -1
   customHoldDistance: -1
   restrictSecondaryToHeldOnly: 0
+  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -181,6 +189,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   eventRelay: {fileID: 66417939332589506}
+--- !u!114 &3416247268987379601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6480118751683919911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df61a9a13528fd4f9365c233cb23bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RaycastTriggerInteraction: 1
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 10
+  m_EventCamera: {fileID: 0}
 --- !u!1 &8157043945525016688
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,9 +499,16 @@ MonoBehaviour:
   onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
   customTouchDistance: -1
   customHoldDistance: -1
   restrictSecondaryToHeldOnly: 0
+  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
