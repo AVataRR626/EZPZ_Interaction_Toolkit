@@ -13,6 +13,12 @@ using UnityEngine.SceneManagement;
 
 public class GenUtils : MonoBehaviour
 {
+
+    public static void LoadSceneIndex(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+
     public static void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
