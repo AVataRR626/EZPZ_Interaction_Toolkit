@@ -104,7 +104,7 @@ public class ParentItemTrigger : InteractableTrigger
 
                 foreach(ParentTracker pt in originalParents)
                 {
-                    if(pt.subject == subject)
+                    if(pt.subject == other.gameObject)
                     {   
                         found = pt;
                     }

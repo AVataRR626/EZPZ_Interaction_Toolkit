@@ -1,0 +1,763 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7400175664698341540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7517650158913974113}
+  - component: {fileID: 3484727647845000034}
+  - component: {fileID: 8981128601137924850}
+  - component: {fileID: 2380846400266568671}
+  m_Layer: 0
+  m_Name: Central Ring
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7517650158913974113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400175664698341540}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.48146, y: 0.04543381, z: 0.48146}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797181976358603015}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!33 &3484727647845000034
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400175664698341540}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &8981128601137924850
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400175664698341540}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 6bd9a7e459d4d0244adccb218b50b595, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2380846400266568671
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400175664698341540}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &7485406214921300721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8797181976358603015}
+  - component: {fileID: 1068170322034123062}
+  - component: {fileID: 5208239431893287125}
+  - component: {fileID: 2512009754840652332}
+  m_Layer: 0
+  m_Name: Gear Rig - 8 Teeth - Heavy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8797181976358603015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485406214921300721}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.078, y: 1.486, z: -10.998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7517650158913974113}
+  - {fileID: 4063565930865379317}
+  - {fileID: 6101480803370854617}
+  - {fileID: 4562508268170365150}
+  - {fileID: 6995187852751380135}
+  - {fileID: 1976640558169445536}
+  - {fileID: 185552716478341459}
+  - {fileID: 1357803880048892791}
+  - {fileID: 5862213888755805007}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1068170322034123062
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485406214921300721}
+  serializedVersion: 4
+  m_Mass: 60
+  m_Drag: 0
+  m_AngularDrag: 0.025
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!59 &5208239431893287125
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485406214921300721}
+  serializedVersion: 3
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 0, y: 0, z: 1}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 0
+  m_ExtendedLimits: 0
+  m_UseAcceleration: 0
+  m_Limits:
+    min: 0
+    max: 0
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!114 &2512009754840652332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485406214921300721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8586c548c58321043b0faaf295bf7f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rBody: {fileID: 1068170322034123062}
+  forceFactor: 10
+  randomComponent: 0
+--- !u!1001 &59565534251248464
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8797181976358603015}
+    m_Modifications:
+    - target: {fileID: 1388814549976973745, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_Name
+      value: Gear Tooth Rig (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.38268006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.923881
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -225
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198388972921538041, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bd9a7e459d4d0244adccb218b50b595, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7599eb295417244996ac35ac80616af, type: 3}
+--- !u!4 &6995187852751380135 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+  m_PrefabInstance: {fileID: 59565534251248464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3502319173275475640
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8797181976358603015}
+    m_Modifications:
+    - target: {fileID: 1388814549976973745, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_Name
+      value: Gear Tooth Rig (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.923881
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.38268006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198388972921538041, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bd9a7e459d4d0244adccb218b50b595, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7599eb295417244996ac35ac80616af, type: 3}
+--- !u!4 &5862213888755805007 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+  m_PrefabInstance: {fileID: 3502319173275475640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3849637277398572334
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8797181976358603015}
+    m_Modifications:
+    - target: {fileID: 1388814549976973745, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_Name
+      value: Gear Tooth Rig (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710784
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198388972921538041, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bd9a7e459d4d0244adccb218b50b595, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7599eb295417244996ac35ac80616af, type: 3}
+--- !u!4 &6101480803370854617 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+  m_PrefabInstance: {fileID: 3849637277398572334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6459524627216806402
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8797181976358603015}
+    m_Modifications:
+    - target: {fileID: 1388814549976973745, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_Name
+      value: Gear Tooth Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198388972921538041, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bd9a7e459d4d0244adccb218b50b595, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7599eb295417244996ac35ac80616af, type: 3}
+--- !u!4 &4063565930865379317 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+  m_PrefabInstance: {fileID: 6459524627216806402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6814282529209236777
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8797181976358603015}
+    m_Modifications:
+    - target: {fileID: 1388814549976973745, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_Name
+      value: Gear Tooth Rig (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38268548
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.92387867
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -135
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198388972921538041, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bd9a7e459d4d0244adccb218b50b595, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7599eb295417244996ac35ac80616af, type: 3}
+--- !u!4 &4562508268170365150 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+  m_PrefabInstance: {fileID: 6814282529209236777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7157152150692664484
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8797181976358603015}
+    m_Modifications:
+    - target: {fileID: 1388814549976973745, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_Name
+      value: Gear Tooth Rig (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70710784
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198388972921538041, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bd9a7e459d4d0244adccb218b50b595, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7599eb295417244996ac35ac80616af, type: 3}
+--- !u!4 &185552716478341459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+  m_PrefabInstance: {fileID: 7157152150692664484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8293268405240163968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8797181976358603015}
+    m_Modifications:
+    - target: {fileID: 1388814549976973745, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_Name
+      value: Gear Tooth Rig (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387867
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.38268548
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198388972921538041, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bd9a7e459d4d0244adccb218b50b595, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7599eb295417244996ac35ac80616af, type: 3}
+--- !u!4 &1357803880048892791 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+  m_PrefabInstance: {fileID: 8293268405240163968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8840012872444059991
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8797181976358603015}
+    m_Modifications:
+    - target: {fileID: 1388814549976973745, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_Name
+      value: Gear Tooth Rig (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198388972921538041, guid: b7599eb295417244996ac35ac80616af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bd9a7e459d4d0244adccb218b50b595, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7599eb295417244996ac35ac80616af, type: 3}
+--- !u!4 &1976640558169445536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7043762598566262263, guid: b7599eb295417244996ac35ac80616af, type: 3}
+  m_PrefabInstance: {fileID: 8840012872444059991}
+  m_PrefabAsset: {fileID: 0}

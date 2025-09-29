@@ -491,8 +491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 4
-  SprintSpeed: 6
+  MoveSpeed: 3
+  SprintSpeed: 7
   RotationSpeed: 2
   SpeedChangeRate: 10
   JumpHeight: 1.2
@@ -662,12 +662,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rayLength: 100
-  touchDistanceDefault: 5
-  holdingDistanceDefault: 1.5
-  hoverTextRig: {fileID: 5944605577564912931}
-  hoverTextDisplay: {fileID: 998904273805121170}
-  useKeyTag: '%USE_KEY%'
-  useKeyString: '[F]'
+  touchDistance: 5
+  holdingDistance: 1.5
   clickableIndicator: {fileID: 8083486867239521812}
   aimingCrosshair: {fileID: 3052569639275739935}
   keyboardFreezeIcon: {fileID: 5652342127101919466}
@@ -689,7 +685,6 @@ MonoBehaviour:
   myEventSystem: {fileID: 8438739614652577098}
   previousMoveParent: {fileID: 0}
   cameraCleanupOnStart: 1
-  didHit: 0
 --- !u!114 &4731424083571104669
 MonoBehaviour:
   m_ObjectHideFlags: 0
