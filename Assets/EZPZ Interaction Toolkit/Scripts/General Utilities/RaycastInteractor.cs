@@ -2,6 +2,7 @@
 //by Matt Cabanag
 //created 8 Apr 2022
 
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
@@ -10,18 +11,27 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class RaycastInteractor : MonoBehaviour
 {
+
+
     [Header("Primary Settings")]
     public Transform rayPointer;
     public LayerMask layerMask;
     public LayerMask environmentLayer;
     public float rayLength = 15;
-    public float touchDistance = 5;
-    public float holdingDistance = 1.5f;
+    public float touchDistanceDefault = 5;
+    public float holdingDistanceDefault = 1.5f;
 
-    [Header("User Feedback")]
+    [Header("Hover Text Settings")]
+    public GameObject hoverTextRig;
+    public TextMeshProUGUI hoverTextDisplay;
+    public string useKeyTag = "%USE_KEY%";
+    public string useKeyString = "[F]";
+
+    [Header("General User Feedback")]
     public GameObject clickableIndicator;
     public GameObject aimingCrosshair;
     public GameObject keyboardFreezeIcon;
@@ -29,7 +39,7 @@ public class RaycastInteractor : MonoBehaviour
     public Transform environmentHit;
     public Transform generalHit;
 
-    [Header("System Stuff (do not touch, usually)")]
+    [Header("System Stuff (usually do not touch)")]
     public InteractableGeneral subject;
     public InteractableGeneral prevHitSubject;
     public InteractableGeneral hitSubject;
@@ -46,6 +56,7 @@ public class RaycastInteractor : MonoBehaviour
     public EventSystem myEventSystem;
     public Transform previousMoveParent;
     public bool cameraCleanupOnStart = true;
+    public bool didHit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,12 +73,12 @@ public class RaycastInteractor : MonoBehaviour
             environmentHitIndicatorRenderer = environmentHit.GetComponent<Renderer>();
         }
 
-        if(generalHit != null)
+        if (generalHit != null)
         {
             generalHitIndicatorRenderer = generalHit.GetComponent<Renderer>();
         }
 
-        if(tooFarIcon != null)
+        if (tooFarIcon != null)
         {
             tooFarIcon.SetActive(false);
         }
@@ -106,8 +117,6 @@ public class RaycastInteractor : MonoBehaviour
 
             if (mainCam != null)
             {
-
-
 
                 Camera[] allCams = FindObjectsByType<Camera>(FindObjectsSortMode.None);
 
@@ -154,12 +163,95 @@ public class RaycastInteractor : MonoBehaviour
     public void OnFireLift()
     {
         //Debug.Log("--FireLift");
+
+        if (subject != null)
+        {
+            subject.onPrimaryInteractLift.Invoke();
+        }
+
+        if (moveSubject != null)
+        {
+            if (moveSubject.dropOnKeyLift)
+                DropMovable();
+        }
+    }
+
+    public void OnUse()
+    {
+        //Debug.Log("--OnUse");
+        HandleSecondaryInteract();
+    }
+
+    public void OnUseLift()
+    {
+        //Debug.Log("--OnUseLift");
+        HandleSecondaryInteractLift();
     }
 
 
     public void ForceInteract()
     {
         interactState = true;
+    }
+
+    public void HandleSecondaryInteract()
+    {
+        if (subject != null)
+        {
+            if (!subject.restrictSecondaryToHeldOnly)
+            {
+                subject.onSecondaryInteract.Invoke();
+            }
+            else
+            {
+                if (moveSubject != null)
+                {
+                    if (moveSubject.isActiveAndEnabled)
+                    {
+                        subject.onSecondaryInteract.Invoke();
+                    }
+
+                    //check if last event disabled the subject
+                    if (!moveSubject.isActiveAndEnabled)
+                    {
+                        //delink subject if it is disabled
+                        //(e.g. for when it is being used for an "eat" interaction)
+                        moveSubject = null;
+                        subject = null;
+                    }
+                }
+            }
+        }
+    }
+
+    public void HandleSecondaryInteractLift()
+    {
+        if (subject != null)
+        {
+            if (!subject.restrictSecondaryToHeldOnly)
+            {
+                subject.onSecondaryInteractLift.Invoke();
+            }
+            else
+            {
+                if (moveSubject != null)
+                {
+                    if (moveSubject.isActiveAndEnabled)
+                    {
+                        subject.onSecondaryInteractLift.Invoke();
+                    }
+
+                    //check if last event disabled the subject
+                    if (!moveSubject.isActiveAndEnabled)
+                    {
+                        //delink subject if it is disabled
+                        //(e.g. for when it is being used for an "eat" interaction)
+                        moveSubject = null;
+                        subject = null;
+                    }
+                }
+            }
+        }
     }
 
     public void HandleEnvironmentRaycast()
@@ -188,13 +280,13 @@ public class RaycastInteractor : MonoBehaviour
     {
         RaycastHit hit;
 
-        bool didHit = Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, rayLength, layerMask);
+        didHit = Physics.Raycast(rayPointer.position, rayPointer.TransformDirection(Vector3.forward), out hit, rayLength, layerMask);
 
         if (didHit)
         {
             Debug.DrawRay(rayPointer.position, rayPointer.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
-            if(generalHit != null)
+            if (generalHit != null)
             {
                 generalHit.gameObject.SetActive(true);
                 generalHit.position = hit.point;
@@ -222,16 +314,31 @@ public class RaycastInteractor : MonoBehaviour
     {
         hitSubject = hit.collider.gameObject.GetComponent<InteractableGeneral>();
 
-        if(hitSubject != null)
+        if (hitSubject != null)
         {
-            if(hit.distance <= touchDistance)
+            if (hitSubject.customTouchDistance <= 0)
             {
-                ActivateTooFarIcon(false);
+                if (hit.distance <= touchDistanceDefault)
+                {
+                    ActivateTooFarIcon(false);
+                }
+                else
+                {
+                    ActivateTooFarIcon(true);
+                    hitSubject = null;
+                }
             }
             else
             {
-                ActivateTooFarIcon(true);
-                hitSubject = null;
+                if (hit.distance <= hitSubject.customTouchDistance)
+                {
+                    ActivateTooFarIcon(false);
+                }
+                else
+                {
+                    ActivateTooFarIcon(true);
+                    hitSubject = null;
+                }
             }
         }
         else
@@ -243,6 +350,7 @@ public class RaycastInteractor : MonoBehaviour
         if (hitSubject != null)
         {
             subject = hitSubject;
+
             OnClickableHover();
 
             if (subject != prevHitSubject)
@@ -250,7 +358,10 @@ public class RaycastInteractor : MonoBehaviour
                 subject.onHoverEnter.Invoke();
 
                 if (prevHitSubject != null)
+                {
                     prevHitSubject.onHoverExit.Invoke();
+                }
+
             }
 
             if (interactState && !prevInteractState)
@@ -260,7 +371,6 @@ public class RaycastInteractor : MonoBehaviour
                 //legacy-----
                 subject.onFirstInteract.Invoke();
                 //legacy-----
-
 
                 HandleMovables(subject);
                 HandleTypables(subject);
@@ -272,20 +382,62 @@ public class RaycastInteractor : MonoBehaviour
         }
     }
 
+    public void SyncHoverText(string newText)
+    {
+        if (newText.Length > 0)
+        {
+            if (hoverTextDisplay != null)
+            {
+                hoverTextDisplay.text = newText.Replace(useKeyTag, useKeyString);
+            }
+        }
+        else
+        {
+            if (hoverTextRig != null)
+                hoverTextRig.SetActive(false);
+
+        }
+    }
+
+    public void HandleHoverText(bool mode)
+    {
+        if (hoverTextRig != null)
+        {
+            if (mode)
+            {
+                hoverTextRig.SetActive(true);
+                if (moveSubject == null)
+                    SyncHoverText(subject.hoverText);
+                else
+                {
+                    if (moveSubject.heldText.Length > 0)
+                        SyncHoverText(subject.heldText);
+                    else
+                        SyncHoverText(subject.hoverText);
+                }
+            }
+            else
+            {
+                hoverTextRig.SetActive(false);
+            }
+
+        }
+    }
+
     void HandleUnityButton(RaycastHit hit)
     {
 
         //Debug.Log("HandleUnityButton - before");
         Button b = hit.collider.gameObject.GetComponent<Button>();
 
-        if(b != null)
+        if (b != null)
         {
             if (interactState)
             {
                 b.onClick.Invoke();
             }
         }
-      
+
     }
 
     void HandleMovables(InteractableGeneral hitSubject)
@@ -297,7 +449,7 @@ public class RaycastInteractor : MonoBehaviour
         }
         else
         {
-            Debug.Log("Pre-existing object!");
+            //Debug.Log("Pre-existing object!");
             DropMovable();
         }
 
@@ -344,7 +496,17 @@ public class RaycastInteractor : MonoBehaviour
         }
         else
         {
-            Vector3 attachPos = rayPointer.position + rayPointer.forward * holdingDistance;
+            Vector3 attachPos = rayPointer.position;
+
+            if (moveSubject.customHoldDistance <= 0)
+            {
+                attachPos += rayPointer.forward * holdingDistanceDefault;
+            }
+            else
+            {
+                attachPos += rayPointer.forward * moveSubject.customHoldDistance;
+            }
+
 
             if (moveSubject.attachPoint != null)
             {
@@ -474,6 +636,8 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnNoClickable()
     {
+        HandleHoverText(false);
+
         if (clickableIndicator != null)
             clickableIndicator.SetActive(false);
 
@@ -505,6 +669,7 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnClickableHover()
     {
+        HandleHoverText(true);
 
         if (clickableIndicator != null)
             clickableIndicator.SetActive(true);
@@ -519,9 +684,18 @@ public class RaycastInteractor : MonoBehaviour
 
     public void ActivateTooFarIcon(bool mode)
     {
-        if(tooFarIcon != null)
+        if (tooFarIcon != null)
         {
             tooFarIcon.SetActive(mode);
+        }
+    }
+
+    public void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            subjectRbody = null;
+            subject = null;
         }
     }
 }
