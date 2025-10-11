@@ -14,6 +14,7 @@ public class InteractableTrigger : MonoBehaviour
     [Header("Filter Settings")]
     public string filterString = "";
     public bool allowUnfiltered = true;
+    [Tooltip("")]
     public bool excludeMode = false;
 
     [Header("Event Handling")]

@@ -29,9 +29,9 @@ public class ParentItemTrigger : InteractableTrigger
         if(newParent == null)
             newParent = transform;
 
-        if(transform.localScale != Vector3.one)
+        if(newParent.localScale != Vector3.one)
         {
-            Debug.LogError("--WARNING:" + name + " :ParentItemTrigger local scale is not set to ( 1, 1, 1). You might introduce unstable behaviour.");
+            Debug.LogError("--WARNING:" + name + " : newParent local scale is not set to ( 1, 1, 1). You might introduce unstable behaviour.");
         }
     }
 

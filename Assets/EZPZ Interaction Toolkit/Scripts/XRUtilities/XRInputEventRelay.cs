@@ -16,6 +16,7 @@ public class XRInputEventRelay : MonoBehaviour
     public float pressValue;
     public float pressThreshold = 0.1f;
     public UnityEvent OnPress;
+    public UnityEvent OnRelease;
 
     public ValueRelayFloat pressValueRelay;
 
@@ -117,6 +118,11 @@ public class XRInputEventRelay : MonoBehaviour
                 }
                 else
                 {
+
+                    if(pressOnceFlag)
+                    {
+                        OnRelease.Invoke();
+                    }
                     pressOnceFlag = false;
                 }
             }
