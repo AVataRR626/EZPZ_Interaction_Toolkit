@@ -28,6 +28,11 @@ public class ParentItemTrigger : InteractableTrigger
     {
         if(newParent == null)
             newParent = transform;
+
+        if(transform.localScale != Vector3.one)
+        {
+            Debug.LogError("--WARNING:" + name + " ParentItemTrigger local scale is not set to 1. You might introduce unstable behaviour.");
+        }
     }
 
     public void ParentSubject()
