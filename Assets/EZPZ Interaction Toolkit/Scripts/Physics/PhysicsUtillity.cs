@@ -16,7 +16,8 @@ public class PhysicsUtillity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rBody = GetComponent<Rigidbody>();
+        if(rBody == null)
+            rBody = GetComponent<Rigidbody>();
     }
 
     public void SpinAxis(Vector3 axis, float force)
