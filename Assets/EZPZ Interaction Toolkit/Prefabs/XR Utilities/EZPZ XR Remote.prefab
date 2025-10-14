@@ -99,6 +99,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5900192088395368393}
+        m_TargetAssemblyTypeName: RaycastInteractor, Assembly-CSharp
+        m_MethodName: OnFireLift
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   pressValueRelay: {fileID: 0}
   pressOnceFlag: 0
 --- !u!114 &2597428053783729685
@@ -168,6 +183,8 @@ LineRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -189,12 +206,13 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0.78, y: 1.411855, z: 1.64}
-  - {x: 0.78, y: 1.411855, z: 0.72999996}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0.91}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -456,6 +474,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -477,6 +497,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -543,8 +564,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rayLength: 100
-  touchDistance: 3
-  holdingDistance: 0.5
+  touchDistanceDefault: 5
+  holdingDistanceDefault: 1.5
+  hoverTextRig: {fileID: 0}
+  hoverTextDisplay: {fileID: 0}
+  useKeyTag: '%USE_KEY%'
+  useKeyString: '[F]'
   clickableIndicator: {fileID: 0}
   aimingCrosshair: {fileID: 0}
   keyboardFreezeIcon: {fileID: 0}
@@ -566,6 +591,7 @@ MonoBehaviour:
   myEventSystem: {fileID: 0}
   previousMoveParent: {fileID: 0}
   cameraCleanupOnStart: 1
+  didHit: 0
 --- !u!1 &9156337222755335246
 GameObject:
   m_ObjectHideFlags: 0

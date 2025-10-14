@@ -14,6 +14,8 @@ public class InteractableTrigger : MonoBehaviour
     [Header("Filter Settings")]
     public string filterString = "";
     public bool allowUnfiltered = true;
+    [Tooltip("")]
+    public bool excludeMode = false;
 
     [Header("Event Handling")]
     public UnityEvent onTriggerEnter;
@@ -147,29 +149,34 @@ public class InteractableTrigger : MonoBehaviour
     public bool CheckFilter(Collider other)
     {
         TriggerFilter tf = other.GetComponent<TriggerFilter>();
+        bool result = false;
 
         if(tf != null)
         {
             if(filterString.Length == 0)
             {
                 //allow any filter text when filter string is not set
-                return true;
+                result = true;
             }
             else
             {
                 //otherwise, check if the filter strings match
-                return (filterString.Equals(tf.filterString));                    
+                result = (filterString.Equals(tf.filterString));                    
             }
+
+            if (excludeMode)
+                result = !result;
         }
         else
         {
+            //when allowing unfiltered objects,
             //objects without trigger filters can trigger events regardless
             if (allowUnfiltered)
-                return true;
+                result = true;
         }
 
-        //otherwise - don't trigger events
-        return false;
+        //invert result if exclude mode is active
+        return result;
     }
 
     public void LoadScene(string newScene)
