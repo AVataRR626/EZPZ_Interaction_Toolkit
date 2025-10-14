@@ -56,11 +56,22 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
         if (eventRelay != null)
         {
             onPrimaryInteract.AddListener(RelayOnPrimaryInteract);
+            onPrimaryInteractLift.AddListener(RelayOnPrimaryInteractLift);
+
+            onSecondaryInteract.AddListener(RelayOnSecondaryInteract);
+            onSecondaryInteractLift.AddListener(RelayOnSecondaryInteractLift);
+
             onHoverEnter.AddListener(RelayOnHoverEnter);
             onHoverExit.AddListener(RelayOnHoverExit);
+
+
             onFirstInteract.AddListener(RelayOnFirstInteract);
+
             customTouchDistance = eventRelay.customTouchDistance;
             customHoldDistance = eventRelay.customHoldDistance;
+
+            hoverText = eventRelay.hoverText;
+            heldText = eventRelay.heldText;
         }
     }
 
@@ -121,6 +132,24 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
     {
         if (eventRelay != null)
             eventRelay.onPrimaryInteract.Invoke();
+    }
+
+    public void RelayOnPrimaryInteractLift()
+    {
+        if (eventRelay != null)
+            eventRelay.onPrimaryInteractLift.Invoke();
+    }
+
+    public void RelayOnSecondaryInteract()
+    {
+        if(eventRelay != null)
+            eventRelay.onSecondaryInteract.Invoke();
+    }
+
+    public void RelayOnSecondaryInteractLift()
+    {
+        if (eventRelay != null)
+            eventRelay.onSecondaryInteractLift.Invoke();
     }
 
     public void RelayOnFirstInteract()
