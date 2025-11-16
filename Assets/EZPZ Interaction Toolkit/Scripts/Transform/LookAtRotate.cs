@@ -30,8 +30,6 @@ public class LookAtRotate : MonoBehaviour
             startRotation = transform.rotation;
         else
             startRotation = subject.rotation;
-    
-    
     }
 
     // Update is called once per frame
