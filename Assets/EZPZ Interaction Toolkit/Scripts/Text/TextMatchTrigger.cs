@@ -7,15 +7,16 @@ using UnityEngine.Events;
 public class TextMatchTrigger : MonoBehaviour
 {   
     public List<string> matchText =  new List<string>();
-    public TextMeshProUGUI textReference;
+    public TextMeshProUGUI textReferenceTMPG;
+    public TextMeshPro textReference;
     public bool strictMatch = false;
     public UnityEvent onTextMatch;
 
-    public void CheckMatch()
+    public void CheckMatchTMPG()
     {
         bool match = false;
 
-        if(strictMatch)
+        if (strictMatch)
         {
             match = true;
 
@@ -35,8 +36,8 @@ public class TextMatchTrigger : MonoBehaviour
                     }
                 }
             }
-                
-            if(match)   
+
+            if (match)
                 onTextMatch.Invoke();
         }
         else
@@ -54,6 +55,60 @@ public class TextMatchTrigger : MonoBehaviour
                 onTextMatch.Invoke();
 
         }
+    }
+
+    public void CheckMatchTMP()
+    {
+        bool match = false;
+
+        if (strictMatch)
+        {
+            match = true;
+
+
+            if (matchText.Count == 1)
+            {
+                if (textReference.text.Equals(matchText))
+                    match = true;
+            }
+            else
+            {
+                foreach (string s in matchText)
+                {
+                    if (!textReference.text.Contains(s))
+                    {
+                        match = false;
+                    }
+                }
+            }
+
+            if (match)
+                onTextMatch.Invoke();
+        }
+        else
+        {
+            foreach (string s in matchText)
+            {
+                if (textReference.text.Contains(s))
+                {
+                    match = true;
+                }
+            }
+
+
+            if (match)
+                onTextMatch.Invoke();
+
+        }
+    }
+
+    public void CheckMatch()
+    {
+        if (textReference != null)
+            CheckMatchTMP();
+
+        if (textReferenceTMPG != null)
+            CheckMatchTMPG();
     }
 
 }

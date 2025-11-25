@@ -29,20 +29,31 @@ public class TextSync : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //check for source text
+        if (sourceDisplay != null)
+        {
+            text = sourceDisplay.text;
+        }
+
+        //prioritise TMPG
+        if (sourceDisplayTMPG != null)
+        {
+            
+            text = sourceDisplayTMPG.text;
+            //text = "New String";
+            Debug.Log("TextSync: " + sourceDisplayTMPG.text + " | " + text);
+        }
+
+        //sync to displays
         if (textDisplay != null)
         {
-            if (sourceDisplay != null)
-                textDisplay.text = sourceDisplay.text;
-            else
-                textDisplay.text = text;
+            textDisplay.text = text;
         }
 
         if (textDisplayTMPG != null)
         {
-            if (sourceDisplayTMPG != null)
-                textDisplayTMPG.text = sourceDisplayTMPG.text;
-            else
-                textDisplayTMPG.text = text;
+
+            textDisplayTMPG.text = text;
         }
     }
 

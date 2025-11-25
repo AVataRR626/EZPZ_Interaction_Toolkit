@@ -342,7 +342,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5a512d21191425243859e4e94aee7263, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 5a512d21191425243859e4e94aee7263, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -443,7 +443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchText:
   - kenobi
-  textReference: {fileID: 1035234314}
+  textReferenceTMPG: {fileID: 0}
+  textReference: {fileID: 0}
   strictMatch: 0
   onTextMatch:
     m_PersistentCalls:
@@ -515,7 +516,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5a512d21191425243859e4e94aee7263, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 5a512d21191425243859e4e94aee7263, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -617,7 +618,8 @@ MonoBehaviour:
   matchText:
   - what
   - nihongo
-  textReference: {fileID: 1035234314}
+  textReferenceTMPG: {fileID: 0}
+  textReference: {fileID: 0}
   strictMatch: 0
   onTextMatch:
     m_PersistentCalls:
@@ -908,11 +910,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.9034
+      value: -1.82
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_LocalRotation.x
@@ -920,7 +922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_LocalRotation.z
@@ -940,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -977,19 +979,8 @@ MonoBehaviour:
   text: 
   textDisplayTMPG: {fileID: 0}
   sourceDisplayTMPG: {fileID: 876751771}
-  textDisplay: {fileID: 0}
+  textDisplay: {fileID: 2050386963}
   sourceDisplay: {fileID: 0}
---- !u!114 &1035234314 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6715278842576484253, guid: f855d413b6c60524990a15ff8e6ed35d, type: 3}
-  m_PrefabInstance: {fileID: 1370132940}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1093954365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1134,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1164,6 +1157,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1419,6 +1413,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.19999981
       objectReference: {fileID: 0}
+    - target: {fileID: 7196814450393770999, guid: df63664dbdd376b4298726771ab129fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5999999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1471,7 +1469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchText:
   - hello
-  textReference: {fileID: 1035234314}
+  textReferenceTMPG: {fileID: 0}
+  textReference: {fileID: 0}
   strictMatch: 0
   onTextMatch:
     m_PersistentCalls:
@@ -1510,7 +1509,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c8c5f9ff7fee8194a8fcca7e67a85396, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: c8c5f9ff7fee8194a8fcca7e67a85396, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1640,7 +1639,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 372e7b54f9d3a3d45abfc429b43c54ee, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 372e7b54f9d3a3d45abfc429b43c54ee, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1741,7 +1740,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchText:
   - general
-  textReference: {fileID: 1035234314}
+  textReferenceTMPG: {fileID: 0}
+  textReference: {fileID: 0}
   strictMatch: 0
   onTextMatch:
     m_PersistentCalls:
@@ -1813,7 +1813,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b3456cd939ec07844b4ffaab7446487a, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b3456cd939ec07844b4ffaab7446487a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1914,7 +1914,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchText:
   - there
-  textReference: {fileID: 1035234314}
+  textReferenceTMPG: {fileID: 0}
+  textReference: {fileID: 0}
   strictMatch: 0
   onTextMatch:
     m_PersistentCalls:
@@ -1943,6 +1944,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2050386963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 525274506826451584, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
+  m_PrefabInstance: {fileID: 914406313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2116745979
 PrefabInstance:
   m_ObjectHideFlags: 0
