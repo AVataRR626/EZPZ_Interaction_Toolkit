@@ -1268,6 +1268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EZPZ_Player Type A (Non Variant)
       objectReference: {fileID: 0}
+    - target: {fileID: 1986086630925795676, guid: df63664dbdd376b4298726771ab129fa, type: 3}
+      propertyPath: m_Name
+      value: PlayerFollowCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 3172963696046220158, guid: df63664dbdd376b4298726771ab129fa, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1324,7 +1328,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6489641637775956563, guid: df63664dbdd376b4298726771ab129fa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2174,7 +2179,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 5742a6e14c097e546a19758d531ba607, type: 2}
   m_BuildHeightMesh: 0

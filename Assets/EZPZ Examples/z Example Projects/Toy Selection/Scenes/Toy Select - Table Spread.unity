@@ -194,6 +194,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -215,6 +217,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -304,6 +307,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -325,6 +330,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -344,10 +350,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93546358}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -382,9 +388,16 @@ MonoBehaviour:
   onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
   customTouchDistance: -1
   customHoldDistance: -1
   restrictSecondaryToHeldOnly: 0
+  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -403,10 +416,9 @@ MonoBehaviour:
   throwForce: 0
   noCollideOnHold: 1
   groundPlace: 0
+  dropOnKeyLift: 0
   groundPlaceOffset: {x: 0, y: 0, z: 0}
-  moving: 0
   freezeRotation: 0
-  subCollliders: []
   snapSpeed: 20
   startingPosition: {x: 0, y: 0, z: 0}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -414,6 +426,9 @@ MonoBehaviour:
   myCollider: {fileID: 0}
   myMagnetSnapper: {fileID: 0}
   myRayManipulator: {fileID: 0}
+  originalUseGravity: 1
+  moving: 0
+  subCollliders: []
 --- !u!1 &134254920
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +491,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -497,6 +514,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -531,10 +549,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134254920}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -569,9 +587,16 @@ MonoBehaviour:
   onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
   customTouchDistance: -1
   customHoldDistance: -1
   restrictSecondaryToHeldOnly: 0
+  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -590,10 +615,9 @@ MonoBehaviour:
   throwForce: 0
   noCollideOnHold: 1
   groundPlace: 0
+  dropOnKeyLift: 0
   groundPlaceOffset: {x: 0, y: 0, z: 0}
-  moving: 0
   freezeRotation: 0
-  subCollliders: []
   snapSpeed: 20
   startingPosition: {x: 0, y: 0, z: 0}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -601,6 +625,9 @@ MonoBehaviour:
   myCollider: {fileID: 0}
   myMagnetSnapper: {fileID: 0}
   myRayManipulator: {fileID: 0}
+  originalUseGravity: 1
+  moving: 0
+  subCollliders: []
 --- !u!1 &284461962
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +703,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -697,6 +726,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -849,6 +879,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -870,6 +902,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -944,6 +977,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -965,6 +1000,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -999,10 +1035,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787604707}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1037,9 +1073,16 @@ MonoBehaviour:
   onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
   customTouchDistance: -1
   customHoldDistance: -1
   restrictSecondaryToHeldOnly: 0
+  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -1058,10 +1101,9 @@ MonoBehaviour:
   throwForce: 0
   noCollideOnHold: 1
   groundPlace: 0
+  dropOnKeyLift: 0
   groundPlaceOffset: {x: 0, y: 0, z: 0}
-  moving: 0
   freezeRotation: 0
-  subCollliders: []
   snapSpeed: 20
   startingPosition: {x: 0, y: 0, z: 0}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -1069,6 +1111,9 @@ MonoBehaviour:
   myCollider: {fileID: 0}
   myMagnetSnapper: {fileID: 0}
   myRayManipulator: {fileID: 0}
+  originalUseGravity: 1
+  moving: 0
+  subCollliders: []
 --- !u!1 &821046616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1548,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1524,6 +1571,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1598,6 +1646,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1619,6 +1669,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1653,10 +1704,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960099084}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1691,9 +1742,16 @@ MonoBehaviour:
   onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
   customTouchDistance: -1
   customHoldDistance: -1
   restrictSecondaryToHeldOnly: 0
+  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -1712,10 +1770,9 @@ MonoBehaviour:
   throwForce: 0
   noCollideOnHold: 1
   groundPlace: 0
+  dropOnKeyLift: 0
   groundPlaceOffset: {x: 0, y: 0, z: 0}
-  moving: 0
   freezeRotation: 0
-  subCollliders: []
   snapSpeed: 20
   startingPosition: {x: 0, y: 0, z: 0}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -1723,6 +1780,9 @@ MonoBehaviour:
   myCollider: {fileID: 0}
   myMagnetSnapper: {fileID: 0}
   myRayManipulator: {fileID: 0}
+  originalUseGravity: 1
+  moving: 0
+  subCollliders: []
 --- !u!1 &1028513131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,6 +1910,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1871,6 +1933,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1905,10 +1968,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149609742}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1943,9 +2006,16 @@ MonoBehaviour:
   onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
   customTouchDistance: -1
   customHoldDistance: -1
   restrictSecondaryToHeldOnly: 0
+  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -1964,10 +2034,9 @@ MonoBehaviour:
   throwForce: 0
   noCollideOnHold: 1
   groundPlace: 0
+  dropOnKeyLift: 0
   groundPlaceOffset: {x: 0, y: 0, z: 0}
-  moving: 0
   freezeRotation: 0
-  subCollliders: []
   snapSpeed: 20
   startingPosition: {x: 0, y: 0, z: 0}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -1975,6 +2044,9 @@ MonoBehaviour:
   myCollider: {fileID: 0}
   myMagnetSnapper: {fileID: 0}
   myRayManipulator: {fileID: 0}
+  originalUseGravity: 1
+  moving: 0
+  subCollliders: []
 --- !u!1 &1205102310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2037,6 +2109,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2058,6 +2132,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -2092,10 +2167,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205102310}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2130,9 +2205,16 @@ MonoBehaviour:
   onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
   customTouchDistance: -1
   customHoldDistance: -1
   restrictSecondaryToHeldOnly: 0
+  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -2151,10 +2233,9 @@ MonoBehaviour:
   throwForce: 0
   noCollideOnHold: 1
   groundPlace: 0
+  dropOnKeyLift: 0
   groundPlaceOffset: {x: 0, y: 0, z: 0}
-  moving: 0
   freezeRotation: 0
-  subCollliders: []
   snapSpeed: 20
   startingPosition: {x: 0, y: 0, z: 0}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -2162,6 +2243,9 @@ MonoBehaviour:
   myCollider: {fileID: 0}
   myMagnetSnapper: {fileID: 0}
   myRayManipulator: {fileID: 0}
+  originalUseGravity: 1
+  moving: 0
+  subCollliders: []
 --- !u!1 &1222723040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2308,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2245,6 +2331,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -2279,10 +2366,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222723040}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2317,9 +2404,16 @@ MonoBehaviour:
   onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
   customTouchDistance: -1
   customHoldDistance: -1
   restrictSecondaryToHeldOnly: 0
+  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -2338,10 +2432,9 @@ MonoBehaviour:
   throwForce: 0
   noCollideOnHold: 1
   groundPlace: 0
+  dropOnKeyLift: 0
   groundPlaceOffset: {x: 0, y: 0, z: 0}
-  moving: 0
   freezeRotation: 0
-  subCollliders: []
   snapSpeed: 20
   startingPosition: {x: 0, y: 0, z: 0}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -2349,6 +2442,9 @@ MonoBehaviour:
   myCollider: {fileID: 0}
   myMagnetSnapper: {fileID: 0}
   myRayManipulator: {fileID: 0}
+  originalUseGravity: 1
+  moving: 0
+  subCollliders: []
 --- !u!1 &1620016093
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,6 +2522,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2447,6 +2545,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -2466,10 +2565,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620016093}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2504,9 +2603,16 @@ MonoBehaviour:
   onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
   customTouchDistance: -1
   customHoldDistance: -1
   restrictSecondaryToHeldOnly: 0
+  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -2525,10 +2631,9 @@ MonoBehaviour:
   throwForce: 0
   noCollideOnHold: 1
   groundPlace: 0
+  dropOnKeyLift: 0
   groundPlaceOffset: {x: 0, y: 0, z: 0}
-  moving: 0
   freezeRotation: 0
-  subCollliders: []
   snapSpeed: 20
   startingPosition: {x: 0, y: 0, z: 0}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -2536,6 +2641,9 @@ MonoBehaviour:
   myCollider: {fileID: 0}
   myMagnetSnapper: {fileID: 0}
   myRayManipulator: {fileID: 0}
+  originalUseGravity: 1
+  moving: 0
+  subCollliders: []
 --- !u!1 &1764214107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,6 +2721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EZPZ_Player Type A (Non Variant)
       objectReference: {fileID: 0}
+    - target: {fileID: 1986086630925795676, guid: df63664dbdd376b4298726771ab129fa, type: 3}
+      propertyPath: m_Name
+      value: PlayerFollowCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 5477663902695651912, guid: df63664dbdd376b4298726771ab129fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.47989225
@@ -2653,7 +2765,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6489641637775956563, guid: df63664dbdd376b4298726771ab129fa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2718,6 +2831,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2739,6 +2854,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -3093,17 +3209,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &2863206532454997684
 GameObject:
   m_ObjectHideFlags: 0
