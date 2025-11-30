@@ -11,13 +11,16 @@ public class TextSync : MonoBehaviour
 {
     public string text;
 
-    [Header("TextMeshProGUI")]
-    public TextMeshProUGUI textDisplayTMPG;
-    public TextMeshProUGUI sourceDisplayTMPG;
-
-    [Header("TextMeshPro")]
-    public TextMeshPro textDisplay;    
+    [Header("Source Display")]
+    public TextMeshProUGUI sourceDisplayUGUI;
     public TextMeshPro sourceDisplay;
+    
+
+    [Header("Sync Display")]
+    public TextMeshProUGUI textDisplayUGUI;
+    public TextMeshPro textDisplay;
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +39,10 @@ public class TextSync : MonoBehaviour
         }
 
         //prioritise TMPG
-        if (sourceDisplayTMPG != null)
+        if (sourceDisplayUGUI != null)
         {
             
-            text = sourceDisplayTMPG.text;
+            text = sourceDisplayUGUI.text;
             //text = "New String";
             //Debug.Log("TextSync: " + sourceDisplayTMPG.text + " | " + text);
         }
@@ -50,10 +53,10 @@ public class TextSync : MonoBehaviour
             textDisplay.text = text;
         }
 
-        if (textDisplayTMPG != null)
+        if (textDisplayUGUI != null)
         {
 
-            textDisplayTMPG.text = text;
+            textDisplayUGUI.text = text;
         }
     }
 

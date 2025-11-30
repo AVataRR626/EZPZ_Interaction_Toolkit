@@ -10,14 +10,18 @@ using System;
 
 public class Typable : InteractableGeneral
 {
-    [Header("Typing Interaction Settings")]
-    public UnityEvent onTextMatch;
-    public UnityEvent onReleaseTyping;
-    public UnityEvent onEnterKeyNotForWebGL;
-    public TextMatchRelay textMatchRelay;
-    public string matchText;
+    [Header("Basic Typing Settings")]
     public string cursorText = "_";
     public bool releaseOnEnterKey = true;    
+    public UnityEvent onReleaseTyping;
+    public UnityEvent onEnterKeyNotForWebGL;
+    public UnityEvent onTextInput;
+
+    [Header("Text Matching")]
+    public string matchText;
+    public UnityEvent onTextMatch;
+    public TextMatchRelay textMatchRelay;
+    
 
 
     [Header("System Stuff - Usually Don't Touch")]
@@ -81,6 +85,7 @@ public class Typable : InteractableGeneral
             }
 
             SyncText();
+            onTextInput.Invoke();
         }
     }
 

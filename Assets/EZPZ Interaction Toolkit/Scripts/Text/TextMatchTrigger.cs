@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class TextMatchTrigger : MonoBehaviour
 {   
     public List<string> matchText =  new List<string>();
-    public TextMeshProUGUI textReferenceTMPG;
+    public TextMeshProUGUI textReferenceUGUI;
     public TextMeshPro textReference;
     public bool strictMatch = false;
     public UnityEvent onTextMatch;
@@ -24,14 +24,14 @@ public class TextMatchTrigger : MonoBehaviour
 
             if (matchText.Count == 1)
             {
-                if (textReferenceTMPG.text.Equals(matchText))
+                if (textReferenceUGUI.text.Equals(matchText))
                     match = true;
             }
             else
             {
                 foreach (string s in matchText)
                 {
-                    if (!textReferenceTMPG.text.Contains(s))
+                    if (!textReferenceUGUI.text.Contains(s))
                     {
                         match = false;
                     }
@@ -47,7 +47,7 @@ public class TextMatchTrigger : MonoBehaviour
         {
             foreach (string s in matchText)
             {
-                if (textReference.text.Contains(s))
+                if (textReferenceUGUI.text.Contains(s))
                 {
                     match = true;
                 }
@@ -116,7 +116,7 @@ public class TextMatchTrigger : MonoBehaviour
         if (textReference != null)
             CheckMatchTMP();
 
-        if (textReferenceTMPG != null)
+        if (textReferenceUGUI != null)
             CheckMatchTMPG();
     }
 
