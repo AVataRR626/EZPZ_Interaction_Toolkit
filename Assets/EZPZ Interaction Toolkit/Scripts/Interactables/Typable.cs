@@ -102,6 +102,8 @@ public class Typable : InteractableGeneral
 
     public void SyncText()
     {
+        Debug.Log(name + " SyncText() " + typeTextBuffer);
+
         if (typeCapture)
         {
             textDisplay.text = typeTextBuffer + cursorText;

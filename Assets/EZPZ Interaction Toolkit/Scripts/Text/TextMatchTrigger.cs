@@ -11,6 +11,7 @@ public class TextMatchTrigger : MonoBehaviour
     public TextMeshPro textReference;
     public bool strictMatch = false;
     public UnityEvent onTextMatch;
+    public UnityEvent onTextNotMatch;
 
     public void CheckMatchTMPG()
     {
@@ -23,14 +24,14 @@ public class TextMatchTrigger : MonoBehaviour
 
             if (matchText.Count == 1)
             {
-                if (textReference.text.Equals(matchText))
+                if (textReferenceTMPG.text.Equals(matchText))
                     match = true;
             }
             else
             {
                 foreach (string s in matchText)
                 {
-                    if (!textReference.text.Contains(s))
+                    if (!textReferenceTMPG.text.Contains(s))
                     {
                         match = false;
                     }
@@ -39,6 +40,8 @@ public class TextMatchTrigger : MonoBehaviour
 
             if (match)
                 onTextMatch.Invoke();
+            else
+                onTextNotMatch.Invoke();
         }
         else
         {
@@ -53,6 +56,8 @@ public class TextMatchTrigger : MonoBehaviour
 
             if (match)
                 onTextMatch.Invoke();
+            else
+                onTextNotMatch.Invoke();
 
         }
     }
@@ -84,6 +89,8 @@ public class TextMatchTrigger : MonoBehaviour
 
             if (match)
                 onTextMatch.Invoke();
+            else
+                onTextNotMatch.Invoke();
         }
         else
         {
@@ -98,6 +105,8 @@ public class TextMatchTrigger : MonoBehaviour
 
             if (match)
                 onTextMatch.Invoke();
+            else
+                onTextNotMatch.Invoke();
 
         }
     }

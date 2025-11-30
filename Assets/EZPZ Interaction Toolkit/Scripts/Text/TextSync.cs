@@ -41,7 +41,7 @@ public class TextSync : MonoBehaviour
             
             text = sourceDisplayTMPG.text;
             //text = "New String";
-            Debug.Log("TextSync: " + sourceDisplayTMPG.text + " | " + text);
+            //Debug.Log("TextSync: " + sourceDisplayTMPG.text + " | " + text);
         }
 
         //sync to displays

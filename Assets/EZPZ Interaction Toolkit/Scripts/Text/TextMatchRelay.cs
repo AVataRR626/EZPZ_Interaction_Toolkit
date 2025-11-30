@@ -23,6 +23,8 @@ public class TextMatchRelay : MonoBehaviour
 
     public void CheckMatch()
     {
+        Debug.Log(name + " CheckMatch()");
+
         foreach (TextMatchTrigger t in relayList)
             t.CheckMatch();
     }
