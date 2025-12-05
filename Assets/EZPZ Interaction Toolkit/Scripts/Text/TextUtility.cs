@@ -33,7 +33,8 @@ public class TextUtility : MonoBehaviour
 
     public void Backspace()
     {
-        buffer = buffer.Substring(0, buffer.Length - 1);
+        if(buffer.Length > 0)
+            buffer = buffer.Substring(0, buffer.Length - 1);
 
         if (textDisplay != null)
             textDisplay.text = buffer + cursorText;

@@ -32,7 +32,8 @@ public class RaycastInteractor : MonoBehaviour
     public string useKeyString = "[F]";
 
     [Header("General User Feedback")]
-    public GameObject clickableIndicator;
+    public GameObject interactableIndicator;
+    public GameObject interactingIndicator;
     public GameObject aimingCrosshair;
     public GameObject keyboardFreezeIcon;
     public GameObject tooFarIcon;
@@ -57,6 +58,7 @@ public class RaycastInteractor : MonoBehaviour
     public Transform previousMoveParent;
     public bool cameraCleanupOnStart = true;
     public bool didHit = false;
+    public bool primaryLiftFlag = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -158,11 +160,16 @@ public class RaycastInteractor : MonoBehaviour
     {
         //Debug.Log("OnFire");
         ForceInteract();
+
+        primaryLiftFlag = false;
+
     }
 
     public void OnFireLift()
     {
         //Debug.Log("--FireLift");
+
+        primaryLiftFlag = true;
 
         if (subject != null)
         {
@@ -638,8 +645,11 @@ public class RaycastInteractor : MonoBehaviour
     {
         HandleHoverText(false);
 
-        if (clickableIndicator != null)
-            clickableIndicator.SetActive(false);
+        if (interactableIndicator != null)
+            interactableIndicator.SetActive(false);
+
+        if(interactingIndicator != null)
+            interactingIndicator.SetActive(false);
 
         if (rayLength > 0)
         {
@@ -671,8 +681,24 @@ public class RaycastInteractor : MonoBehaviour
     {
         HandleHoverText(true);
 
-        if (clickableIndicator != null)
-            clickableIndicator.SetActive(true);
+        if (primaryLiftFlag)
+        {
+            if (interactableIndicator != null)            
+                interactableIndicator.SetActive(true);
+
+            if (interactingIndicator != null)
+                interactingIndicator.SetActive(false);    
+        }
+        else
+        {
+            if (interactableIndicator != null)
+                interactableIndicator.SetActive(false);
+
+            if (interactingIndicator != null)
+                interactingIndicator.SetActive(true);
+        }
+
+
 
         if (aimingCrosshair != null)
             aimingCrosshair.SetActive(false);

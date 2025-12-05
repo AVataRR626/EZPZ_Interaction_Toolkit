@@ -47,11 +47,10 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
 
     private void Start()
     {
-        onPrimaryInteract.AddListener(ParentPulse);
-        onHoverEnter.AddListener(ParentPulseUp);
-        onHoverExit.AddListener(ParentPulseDown);
-
-        onFirstInteract.AddListener(ParentPulse);
+        //onPrimaryInteract.AddListener(ParentPulse);
+        //onHoverEnter.AddListener(ParentPulseUp);
+        //onHoverExit.AddListener(ParentPulseDown);
+        //onFirstInteract.AddListener(ParentPulse);
 
         if (eventRelay != null)
         {
