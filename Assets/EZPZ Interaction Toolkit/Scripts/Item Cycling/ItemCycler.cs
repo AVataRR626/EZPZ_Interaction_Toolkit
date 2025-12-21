@@ -14,14 +14,15 @@ public class ItemCycler : MonoBehaviour
     public GameObject currentItem;
     public GameObject[] items;
 
-    [Header("Synchronisation")]
-    public bool autoSync = false;
-    public NumberHolder indexSynchroniser;
-
     [Header("List Modes")]
     public bool loopCycle = true;
     public bool exclusiveMode = true;
     public bool cascadeMode = false;
+
+    [Header("Synchronisation Settings")]
+    public bool autoSync = false;
+    public NumberHolder indexSynchroniser;
+    public ItemCycler indexReference;
 
     [Header("Event Management")]
     public UnityEvent onNextItem;
@@ -48,6 +49,11 @@ public class ItemCycler : MonoBehaviour
             if (indexSynchroniser != null)
             {
                 ActivateItem(indexSynchroniser.GetIntValue());
+            }
+
+            if(indexReference != null)
+            {
+                ActivateItem(indexReference.itemIndex);
             }
         }
 
@@ -131,7 +137,17 @@ public class ItemCycler : MonoBehaviour
 
     public void NextItem()
     {
-        itemIndex++;
+
+        if (indexReference != null)
+        {
+            indexReference.NextItem();
+            itemIndex = indexReference.itemIndex;
+        }
+        else
+        {
+            itemIndex++;
+        }
+        
         if (itemIndex >= items.Length)
         {
             if (loopCycle)
@@ -158,10 +174,20 @@ public class ItemCycler : MonoBehaviour
 
     public void PrevItem()
     {
-        itemIndex--;
+        if(indexReference != null)
+        {
+            indexReference.PrevItem();
+            itemIndex = indexReference.itemIndex;
+        }
+        else
+        {
+            itemIndex--;
+        }
+
+
         if (itemIndex < 0)
         {
-            if(loopCycle)
+            if (loopCycle)
                 itemIndex = items.Length - 1;
             else
             {
@@ -170,7 +196,7 @@ public class ItemCycler : MonoBehaviour
                 onOverflow.Invoke();
             }
         }
-        else if(itemIndex == 0)
+        else if (itemIndex == 0)
         {
             onFirstItem.Invoke();
         }
