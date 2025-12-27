@@ -22,7 +22,6 @@ public class ItemCycler : MonoBehaviour
     [Header("Synchronisation Settings")]
     public bool autoSync = false;
     public NumberHolder indexSynchroniser;
-    public ItemCycler indexReference;
 
     [Header("Event Management")]
     public UnityEvent onNextItem;
@@ -33,6 +32,9 @@ public class ItemCycler : MonoBehaviour
     public UnityEvent onFirstOverflow;
     public UnityEvent onLastOverflow;
     public UnityEvent onOverflow;
+
+    [Header("System Stuff (usually don't touch)")]
+    public int prevItemIndex = -1;
 
 
     // Start is called before the first frame update
@@ -48,15 +50,16 @@ public class ItemCycler : MonoBehaviour
         {
             if (indexSynchroniser != null)
             {
-                ActivateItem(indexSynchroniser.GetIntValue());
-            }
-
-            if(indexReference != null)
-            {
-                ActivateItem(indexReference.itemIndex);
+                itemIndex = indexSynchroniser.GetIntValue();
+                //Debug.Log("AutoSync...");
+                if (prevItemIndex != itemIndex)
+                {
+                    ActivateCurrentItem();
+                }
             }
         }
 
+        prevItemIndex = itemIndex;
     }
 
     public void CullNulls()
@@ -74,8 +77,13 @@ public class ItemCycler : MonoBehaviour
 
     public void DisableAllItems()
     {
+        Debug.Log("DisableAllItems: " + itemIndex);
+
         foreach (GameObject g in items)
+        {
+            Debug.Log("Disabling: " + g.name);
             g.SetActive(false);
+        }
     }
 
     public void AutoSync(bool newMode)
@@ -85,6 +93,7 @@ public class ItemCycler : MonoBehaviour
 
     public void ActivateCurrentItem()
     {
+        Debug.Log("ActivateCurrentItem()....");
         itemIndex = Mathf.Clamp(itemIndex, 0, items.Length - 1);
         ActivateItem(itemIndex);
     }
@@ -101,6 +110,8 @@ public class ItemCycler : MonoBehaviour
 
     public void ActivateItem(int index)
     {
+        Debug.Log("ActivateCurrentItem: " +  index);
+
         itemIndex = index;
 
         if(exclusiveMode)
@@ -108,7 +119,6 @@ public class ItemCycler : MonoBehaviour
 
         if (cascadeMode)
         {
-            
             DisableAllItems();
 
             Debug.Log("cascadeMode");
@@ -119,8 +129,8 @@ public class ItemCycler : MonoBehaviour
                     items[i].SetActive(true);
             }
         }
-    
 
+        Debug.Log("Activating: " + items[itemIndex].name);
         items[index].SetActive(true);
         currentItem = items[index];
     }
@@ -137,17 +147,8 @@ public class ItemCycler : MonoBehaviour
 
     public void NextItem()
     {
+        itemIndex++;
 
-        if (indexReference != null)
-        {
-            indexReference.NextItem();
-            itemIndex = indexReference.itemIndex;
-        }
-        else
-        {
-            itemIndex++;
-        }
-        
         if (itemIndex >= items.Length)
         {
             if (loopCycle)
@@ -174,16 +175,7 @@ public class ItemCycler : MonoBehaviour
 
     public void PrevItem()
     {
-        if(indexReference != null)
-        {
-            indexReference.PrevItem();
-            itemIndex = indexReference.itemIndex;
-        }
-        else
-        {
-            itemIndex--;
-        }
-
+        itemIndex--;
 
         if (itemIndex < 0)
         {
