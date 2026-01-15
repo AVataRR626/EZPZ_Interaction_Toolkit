@@ -19,13 +19,15 @@ public class InteractableTrigger : MonoBehaviour
 
     [Header("Event Handling")]
     public UnityEvent onTriggerEnter;
+    [Tooltip("Contacts will be deleted if set to true")]
+    public bool deleteOnEnter = false;
+    [Tooltip("Contacts will be disabled if set to true")]
+    public bool disableOnEnter = false;
     public UnityEvent onTriggerExit;
     public UnityEvent onTriggerStay;
-    public bool deleteOnEnter = false;
-    public bool disableOnEnter = false;
-    public GameObject subject;
 
     [Header("System Stuff - Usually Dont Touch")]
+    public GameObject subject;
     public bool triggerActive = true;
     public Renderer myRenderer;
     public List<GameObject> contactList = new List<GameObject>();

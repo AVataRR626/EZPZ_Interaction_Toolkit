@@ -44,8 +44,8 @@ public class RaycastInteractor : MonoBehaviour
     public InteractableGeneral subject;
     public InteractableGeneral prevHitSubject;
     public InteractableGeneral hitSubject;
-    public Movable moveSubject;
-    public Movable prevMoveSubject;
+    public Holdable moveSubject;
+    public Holdable prevMoveSubject;
     public Typable typeSubject;
     public bool interactState = false;
     public bool prevInteractState = false;
@@ -452,7 +452,7 @@ public class RaycastInteractor : MonoBehaviour
 
         if (moveSubject == null)
         {
-            moveSubject = hitSubject.GetComponent<Movable>();
+            moveSubject = hitSubject.GetComponent<Holdable>();
         }
         else
         {
@@ -474,7 +474,7 @@ public class RaycastInteractor : MonoBehaviour
                 }
                 else
                 {
-                    Movable newGrab = moveSubject;
+                    Holdable newGrab = moveSubject;
                     moveSubject.myRayManipulator.DropMovable();
 
                     moveSubject = newGrab;
@@ -493,7 +493,7 @@ public class RaycastInteractor : MonoBehaviour
 
         if (moveSubject.noCollideOnHold)
         {
-            Movable.SetColliderIsTrigger(moveSubject, true);
+            Holdable.SetColliderIsTrigger(moveSubject, true);
         }
 
         if (moveSubject.groundPlace)
@@ -554,7 +554,7 @@ public class RaycastInteractor : MonoBehaviour
 
             if (moveSubject.noCollideOnHold)
             {
-                Movable.SetColliderIsTrigger(moveSubject, false);
+                Holdable.SetColliderIsTrigger(moveSubject, false);
             }
 
             if (subjectRbody != null)

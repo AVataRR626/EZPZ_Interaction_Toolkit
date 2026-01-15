@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 241148944}
   - component: {fileID: 241148943}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Collar Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -644,24 +644,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6055668534160416037, guid: 815976abe225a8b45bd181f927c9c927, type: 3}
   m_PrefabInstance: {fileID: 303769057}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &398644516 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4289929067209188016, guid: 9b0ad31c640527841a7df021ff1c5f5e, type: 3}
-  m_PrefabInstance: {fileID: 5769188604402964697}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &398644517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398644516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b119334618facb542986064956c3d4b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  freezeAngle: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &406863130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 331554805834479190, guid: cc979301ead36a64bad5cf0ad5a0d78d, type: 3}
@@ -859,7 +841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7178816739804705237, guid: 0ce88f7f773d81549acb3a78c0c3311c, type: 3}
       propertyPath: m_Name
-      value: Movable Cookable - Throw (1)
+      value: Holdable Cookable - Throw (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1034,7 +1016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 331554805834479197, guid: cc979301ead36a64bad5cf0ad5a0d78d, type: 3}
       propertyPath: m_Name
-      value: Gravity Movable - Throw - Collar
+      value: Holdable Gravity - Throw - Collar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1070,7 +1052,7 @@ GameObject:
   - component: {fileID: 643130614}
   - component: {fileID: 643130613}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Collar Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1475,7 +1457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7178816739804705237, guid: 0ce88f7f773d81549acb3a78c0c3311c, type: 3}
       propertyPath: m_Name
-      value: Movable Cookable - Throw (2)
+      value: Holdable Cookable - Throw (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1634,7 +1616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1129437298}
   m_Layer: 0
-  m_Name: ====ENVIRONMENT====
+  m_Name: ==== ENVIRONMENT ====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2207,7 +2189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 331554805834479197, guid: cc979301ead36a64bad5cf0ad5a0d78d, type: 3}
       propertyPath: m_Name
-      value: Gravity Movable - Throw - Green
+      value: Holdable Gravity - Throw - Green
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2227,7 +2209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1235920152}
   m_Layer: 0
-  m_Name: ====MOVABLES====
+  m_Name: ==== HOLDABLES ====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2858,7 +2840,7 @@ GameObject:
   - component: {fileID: 1686393082}
   - component: {fileID: 1686393081}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Collar Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3713,7 +3695,7 @@ GameObject:
   - component: {fileID: 2109045451}
   - component: {fileID: 2109045450}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Collar Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3963,7 +3945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5063717709403955231, guid: 394f4f12697e2874bbdd80bec582bea7, type: 3}
       propertyPath: m_Name
-      value: Movable Gravity - Carry and Drop
+      value: Holdable Gravity - Carry and Drop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4082,6 +4064,10 @@ PrefabInstance:
       propertyPath: excludFilterString
       value: trolley
       objectReference: {fileID: 0}
+    - target: {fileID: 7824821090449334166, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
+      propertyPath: freezeRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7848846606842406490, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4096,7 +4082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8388080559984398390, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
       propertyPath: m_Name
-      value: Movable Snap Tray
+      value: Holdable Snap Tray
       objectReference: {fileID: 0}
     - target: {fileID: 8388703582498098460, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
       propertyPath: m_Name
@@ -4142,7 +4128,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 879580632770164855, guid: aa408c2805d37c84f8841a2b04e7a408, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4359,7 +4346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 331554805834479197, guid: cc979301ead36a64bad5cf0ad5a0d78d, type: 3}
       propertyPath: m_Name
-      value: Gravity Movable - Throw - Brown
+      value: Holdable Gravity - Throw - Brown
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4374,7 +4361,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefea2dc44ab577428bd17825ce28f70, type: 3}
+  m_Script: {fileID: 11500000, guid: 46af44fc27f29524da026e4f9f3da44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5140043200198991097
@@ -4444,7 +4431,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 357914844836156923, guid: 1ca29a362e453af4590f3cd5067eefc8, type: 3}
       propertyPath: m_Name
-      value: Movable Gravity - Custom Attach Point
+      value: Holdable Gravity - Custom Attach Point
       objectReference: {fileID: 0}
     - target: {fileID: 6965561290231426555, guid: 1ca29a362e453af4590f3cd5067eefc8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4501,7 +4488,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4289929067209188016, guid: 9b0ad31c640527841a7df021ff1c5f5e, type: 3}
       propertyPath: m_Name
-      value: Basic Movable - Carry
+      value: Basic Hodable - Carry
       objectReference: {fileID: 0}
     - target: {fileID: 4289929067209188027, guid: 9b0ad31c640527841a7df021ff1c5f5e, type: 3}
       propertyPath: m_RootOrder
@@ -4550,10 +4537,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4289929067209188016, guid: 9b0ad31c640527841a7df021ff1c5f5e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 398644517}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b0ad31c640527841a7df021ff1c5f5e, type: 3}
 --- !u!1001 &7457159945624359001
 PrefabInstance:
@@ -4622,7 +4606,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7753128975706630855, guid: 9c0f8ffda3cf2254ebbbc890acc7419b, type: 3}
       propertyPath: m_Name
-      value: Basic Movable - Ground Place
+      value: Basic Holdable - Ground Place
       objectReference: {fileID: 0}
     - target: {fileID: 7753128975706630860, guid: 9c0f8ffda3cf2254ebbbc890acc7419b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4677,7 +4661,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444908348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefea2dc44ab577428bd17825ce28f70, type: 3}
+  m_Script: {fileID: 11500000, guid: 46af44fc27f29524da026e4f9f3da44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7755260542540449732
@@ -4787,7 +4771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7178816739804705237, guid: 0ce88f7f773d81549acb3a78c0c3311c, type: 3}
       propertyPath: m_Name
-      value: Movable Cookable - Throw
+      value: Holdable Cookable - Throw
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

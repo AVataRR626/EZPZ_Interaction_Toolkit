@@ -88,6 +88,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3824293481672795564
 GameObject:
@@ -177,6 +178,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6512429341278321896
 GameObject:
@@ -266,6 +268,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6751922006659825679
 GameObject:
@@ -338,7 +341,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6751922006659825679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefea2dc44ab577428bd17825ce28f70, type: 3}
+  m_Script: {fileID: 11500000, guid: 46af44fc27f29524da026e4f9f3da44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onPrimaryInteract:
@@ -353,10 +356,6 @@ MonoBehaviour:
   onSecondaryInteractLift:
     m_PersistentCalls:
       m_Calls: []
-  customTouchDistance: -1
-  customHoldDistance: -1
-  restrictSecondaryToHeldOnly: 0
-  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -364,6 +363,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   hoverText: 
+  customTouchDistance: -1
+  restrictSecondaryToHeldOnly: 0
+  customHoldDistance: -1
+  heldText: 
   onFirstInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -378,7 +381,6 @@ MonoBehaviour:
   dropOnKeyLift: 0
   groundPlaceOffset: {x: 0, y: 0, z: 0}
   freezeRotation: 0
-  snapSpeed: 20
   startingPosition: {x: 0, y: 0, z: 0}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
   myRbody: {fileID: 0}
@@ -489,6 +491,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7579425905570052552
 GameObject:
@@ -578,6 +581,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8046819208535318944
 GameObject:
@@ -667,6 +671,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &9164104946316641788
 GameObject:

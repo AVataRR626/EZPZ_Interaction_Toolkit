@@ -63,12 +63,12 @@ public class ParentItemTrigger : InteractableTrigger
             if(CheckFilter(other))
             {
                 //don't parent magnet snappers!
-                MovableMagnetSnapper mSnap = subject.GetComponent<MovableMagnetSnapper>();
+                HoldableMagnetSnapper mSnap = subject.GetComponent<HoldableMagnetSnapper>();
                 if (mSnap != null)
                     return;
 
                 
-                Movable movable = subject.GetComponent<Movable>();
+                Holdable movable = subject.GetComponent<Holdable>();
                 if (movable != null)
                 {   //don't parent held objects
                     if(!movable.moving)

@@ -22,20 +22,22 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
     [Tooltip("In desktop mode: this is for when you release [F]")]
     public UnityEvent onSecondaryInteractLift;
 
-    [Header("Interaction Customisations")]
-    [Tooltip("Set to 0 or less to use default set on RaycastInteractor.")]
-    public float customTouchDistance = -1;
-    [Tooltip("Set to 0 or less to use default set on RaycastInteractor")]
-    public float customHoldDistance = -1;
-    [Tooltip("Block secondary events unless item is being held. Good for 'eating' type interactions.")]
-    public bool restrictSecondaryToHeldOnly;
-    public string heldText;
-
     [Header("Hover Settings")]
     public UnityEvent onHoverEnter;
     public UnityEvent onHoverExit;
     //public UnityEvent onHoldInteract;
+    [Tooltip("Text to show when user is 'mouse hovering' on the object.")]
     public string hoverText;
+    [Tooltip("Set to 0 or less to use default set on RaycastInteractor.")]
+    public float customTouchDistance = -1;
+
+    [Header("Held Object Customisations")]
+    [Tooltip("Text to show when object is being held.")]
+    public string heldText;
+    [Tooltip("Block secondary events unless item is being held. Good for 'eating' type interactions.")]
+    public bool restrictSecondaryToHeldOnly;
+    [Tooltip("Set to 0 or less to use default set on RaycastInteractor")]
+    public float customHoldDistance = -1;
 
     [Header("For Legacy Compatibility")]
     [Tooltip("This event is the same as onPrimaryInteract. Use that instead. This is only here to keep old things from breaking.")]
