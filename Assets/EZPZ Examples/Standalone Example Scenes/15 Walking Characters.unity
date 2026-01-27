@@ -2670,16 +2670,12 @@ PrefabInstance:
       value: Moving Character - Run Away
       objectReference: {fileID: 0}
     - target: {fileID: 7343946581797828699, guid: 8c69a23e51d16d242930a94173d27c5e, type: 3}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343946581797828699, guid: 8c69a23e51d16d242930a94173d27c5e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.6800003
       objectReference: {fileID: 0}
     - target: {fileID: 7343946581797828699, guid: 8c69a23e51d16d242930a94173d27c5e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02699995
+      value: 0.239
       objectReference: {fileID: 0}
     - target: {fileID: 7343946581797828699, guid: 8c69a23e51d16d242930a94173d27c5e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3078,7 +3074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7850268537504155313, guid: 96ebdd049f7c20a409cedd9da71fb0e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02699995
+      value: 0.173
       objectReference: {fileID: 0}
     - target: {fileID: 7850268537504155313, guid: 96ebdd049f7c20a409cedd9da71fb0e8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3181,6 +3177,38 @@ PrefabInstance:
       propertyPath: 'altDestinations.Array.data[2]'
       value: 
       objectReference: {fileID: 1078418364}
+    - target: {fileID: 8642068644441040343, guid: 79b38a5e92862a244a569e4deb401120, type: 3}
+      propertyPath: onSnap.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642068644441040343, guid: 79b38a5e92862a244a569e4deb401120, type: 3}
+      propertyPath: onSnap.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642068644441040343, guid: 79b38a5e92862a244a569e4deb401120, type: 3}
+      propertyPath: onSnap.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1672708657}
+    - target: {fileID: 8642068644441040343, guid: 79b38a5e92862a244a569e4deb401120, type: 3}
+      propertyPath: onSnap.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642068644441040343, guid: 79b38a5e92862a244a569e4deb401120, type: 3}
+      propertyPath: onSnap.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetDestination
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642068644441040343, guid: 79b38a5e92862a244a569e4deb401120, type: 3}
+      propertyPath: onSnap.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NMAWalkTowards, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642068644441040343, guid: 79b38a5e92862a244a569e4deb401120, type: 3}
+      propertyPath: onSnap.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642068644441040343, guid: 79b38a5e92862a244a569e4deb401120, type: 3}
+      propertyPath: onSnap.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8658980009717904334, guid: 79b38a5e92862a244a569e4deb401120, type: 3}
       propertyPath: m_Name
       value: Moving Character - Doggo Feedable Stickplay Animated

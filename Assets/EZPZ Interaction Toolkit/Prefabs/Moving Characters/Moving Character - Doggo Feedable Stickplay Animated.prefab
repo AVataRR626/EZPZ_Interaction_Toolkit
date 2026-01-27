@@ -128,43 +128,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1658052696917489272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de63f2c5029462d4b86b919ff55f91f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2699464e9b745d74e9d7f6bcec6e60cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   snappingPoint: {fileID: 5363453329800578397}
   alignRotation: 1
   filterString: 
+  excludFilterString: 
   visibleAtRuntime: 0
   onSnap:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2357945665463234345}
-        m_TargetAssemblyTypeName: NMAWalkTowards, Assembly-CSharp
-        m_MethodName: SetDestination
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onRelease:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2357945665463234345}
-        m_TargetAssemblyTypeName: NMAWalkTowards, Assembly-CSharp
-        m_MethodName: SetDestination
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -206,6 +183,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -227,9 +206,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7453570134992265946
 BoxCollider:
@@ -482,6 +463,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -503,9 +486,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7652450832497041453
 BoxCollider:
@@ -543,6 +528,7 @@ MonoBehaviour:
   visibleAtRuntime: 0
   filterString: food
   allowUnfiltered: 0
+  excludeMode: 0
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
@@ -558,17 +544,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  deleteOnEnter: 1
+  disableOnEnter: 0
   onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
   onTriggerStay:
     m_PersistentCalls:
       m_Calls: []
-  deleteOnEnter: 1
-  disableOnEnter: 0
   subject: {fileID: 0}
   triggerActive: 1
   myRenderer: {fileID: 0}
+  contactList: []
 --- !u!1001 &4757248547220270058
 PrefabInstance:
   m_ObjectHideFlags: 0
