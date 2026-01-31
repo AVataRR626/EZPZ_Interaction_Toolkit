@@ -138,9 +138,16 @@ public class ItemCycler : MonoBehaviour
     public void ActivateItemRandom()
     {
         int rSelect = itemIndex;
-            
-        while(rSelect == itemIndex)
+
+        if (items.Length > 2)
+        {
+            while (rSelect == itemIndex)
+                rSelect = Random.Range(0, items.Length);
+        }
+        else
+        {
             rSelect = Random.Range(0, items.Length);
+        }
 
         ActivateItem(rSelect);
     }

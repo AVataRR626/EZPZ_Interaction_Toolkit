@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 656172207931260890}
-  - component: {fileID: 656172207931260839}
   - component: {fileID: 656172207931260836}
   - component: {fileID: 656172207931260837}
   m_Layer: 0
@@ -36,19 +35,6 @@ Transform:
   - {fileID: 656172208901953447}
   m_Father: {fileID: 7343946581797828699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &656172207931260839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656172207931260891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31b5522546e193745bb5ec60f075233d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resetScale: 0
 --- !u!114 &656172207931260836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +175,7 @@ GameObject:
   - component: {fileID: 7343946581797828696}
   - component: {fileID: 7343946581797828698}
   m_Layer: 0
-  m_Name: Moving Character - Run Away
+  m_Name: Walking Character - Run Away
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,7 +260,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 861110927101218661, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
       propertyPath: m_Name
-      value: EZPZ_Trigger (1)
+      value: Player Detector
       objectReference: {fileID: 0}
     - target: {fileID: 2094408382421972447, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
       propertyPath: m_Enabled
@@ -302,11 +288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6953476617054683852, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.259
       objectReference: {fileID: 0}
     - target: {fileID: 6953476617054683852, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.657
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: 6953476617054683852, guid: 8fedd5b0825719b4ca51c693db71c38d, type: 3}
       propertyPath: m_LocalRotation.w

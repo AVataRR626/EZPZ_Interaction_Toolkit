@@ -50,7 +50,7 @@ public class LookAtRotate : MonoBehaviour
 
             if (yLookOnly)
             {
-                transform.rotation = startRotation;
+                transform.rotation = Quaternion.identity;
                 transform.Rotate(0, yRotation, 0);
             }
 
