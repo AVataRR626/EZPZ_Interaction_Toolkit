@@ -274,6 +274,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1163333498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7318715267562498565, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+  m_PrefabInstance: {fileID: 2693725393120815895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1163333505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163333498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46af44fc27f29524da026e4f9f3da44d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Holdable
+  onPrimaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
+  hoverText: 
+  customTouchDistance: -1
+  heldText: 
+  restrictSecondaryToHeldOnly: 0
+  customHoldDistance: -1
+  onFirstInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  eventRelay: {fileID: 0}
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
+  attachPoint: {fileID: 0}
+  throwForce: 0
+  noCollideOnHold: 1
+  groundPlace: 0
+  dropOnKeyLift: 0
+  groundPlaceOffset: {x: 0, y: 0, z: 0}
+  freezeRotation: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  startingRotation: {x: 0, y: 0, z: 0, w: 0}
+  myRbody: {fileID: 0}
+  myCollider: {fileID: 0}
+  myMagnetSnapper: {fileID: 0}
+  myRayManipulator: {fileID: 0}
+  originalUseGravity: 1
+  moving: 0
+  subCollliders: []
 --- !u!1 &1235920151
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +455,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1355144602
 MeshFilter:
@@ -518,6 +582,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1423739297
 MeshFilter:
@@ -591,7 +656,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.856
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 789192283622064688, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 3054602277465545548, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 2749008517325676980, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 6526291992734900579, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 8000410730741430561, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 5331157647631956393, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 272151708761856153, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 4375847454338898709, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 7442382270431181997, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 7695237827579510143, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 75349933652977781, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 7195268405926807790, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 2056049512631622219, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 1706353799999702118, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 5296031782795973608, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 7473787377178630498, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 4375055115403731733, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 7094242506824414431, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+    - {fileID: 2016490179228334178, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -619,6 +703,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4288939595378976056, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7318715267562498565, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1163333505}
   m_SourcePrefab: {fileID: 100100000, guid: e59b195cc61f4da4e8f48bca839570d9, type: 3}
 --- !u!1001 &3457217213512515936
 PrefabInstance:
