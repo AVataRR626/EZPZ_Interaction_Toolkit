@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8759481680867571788}
   - component: {fileID: 3471280261201419130}
   - component: {fileID: 163311864108555802}
+  - component: {fileID: 3802454731285523770}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -88,7 +89,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3802454731285523770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143167837078527712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ac201df11e52040a5ba82c59e97830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMaterial: {fileID: 0}
+  currentMaterialColour: {r: 0.9411765, g: 1, b: 0.49803922, a: 0}
+  alternativeColours:
+  - {r: 0.9411765, g: 1, b: 0.49803922, a: 0}
+  - {r: 0.49727574, g: 0.9496855, b: 0.21800943, a: 0}
 --- !u!1 &6480118751683919911
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,19 +187,15 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
-  onSecondaryInteract:
+  onPrimaryInteractLift:
     m_PersistentCalls:
       m_Calls: []
-  onPrimaryInteractLift:
+  onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onSecondaryInteractLift:
     m_PersistentCalls:
       m_Calls: []
-  customTouchDistance: -1
-  customHoldDistance: -1
-  restrictSecondaryToHeldOnly: 0
-  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -188,10 +203,29 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   hoverText: 
-  onFirstInteract:
+  customTouchDistance: -1
+  heldText: 
+  restrictSecondaryToHeldOnly: 0
+  customHoldDistance: -1
+  eventRelay: {fileID: 66417939332589506}
+  onPrimaryInteractBackground:
     m_PersistentCalls:
       m_Calls: []
-  eventRelay: {fileID: 66417939332589506}
+  onPrimaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnterBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExitBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3416247268987379601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +449,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -459,6 +494,7 @@ GameObject:
   - component: {fileID: 8157043946459995011}
   - component: {fileID: 66417939332589506}
   - component: {fileID: 4699591377751636726}
+  - component: {fileID: 7018725758167213841}
   m_Layer: 0
   m_Name: EZPZ Button Interactable
   m_TagString: Untagged
@@ -499,19 +535,15 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
-  onSecondaryInteract:
+  onPrimaryInteractLift:
     m_PersistentCalls:
       m_Calls: []
-  onPrimaryInteractLift:
+  onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onSecondaryInteractLift:
     m_PersistentCalls:
       m_Calls: []
-  customTouchDistance: -1
-  customHoldDistance: -1
-  restrictSecondaryToHeldOnly: 0
-  heldText: 
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -519,10 +551,89 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   hoverText: 
-  onFirstInteract:
+  customTouchDistance: -1
+  heldText: 
+  restrictSecondaryToHeldOnly: 0
+  customHoldDistance: -1
+  eventRelay: {fileID: 0}
+  onPrimaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7018725758167213841}
+        m_TargetAssemblyTypeName: PushButtonPulse, Assembly-CSharp
+        m_MethodName: PulseUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPrimaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7018725758167213841}
+        m_TargetAssemblyTypeName: PushButtonPulse, Assembly-CSharp
+        m_MethodName: PulseDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onSecondaryInteractBackground:
     m_PersistentCalls:
       m_Calls: []
-  eventRelay: {fileID: 0}
+  onSecondaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnterBackground:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3802454731285523770}
+        m_TargetAssemblyTypeName: MaterialColourModifier, Assembly-CSharp
+        m_MethodName: SetAlternativeColour
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHoverExitBackground:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3802454731285523770}
+        m_TargetAssemblyTypeName: MaterialColourModifier, Assembly-CSharp
+        m_MethodName: SetAlternativeColour
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7018725758167213841}
+        m_TargetAssemblyTypeName: PushButtonPulse, Assembly-CSharp
+        m_MethodName: ResetPulse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4699591377751636726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,3 +653,27 @@ MonoBehaviour:
   startDelay: 2
   pulseRepeat: 0
   pulseInterval: 3
+--- !u!114 &7018725758167213841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8157043946459995008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8056c291e6842b41bc84b005ede671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PositionOffsetPulse
+  pulseTime: 0.1
+  pushScale: 0.05
+  pulseOnStart: 0
+  startDelay: 2
+  pulseRepeat: 0
+  pulseInterval: 3
+  positionAdd: {x: 0, y: 0, z: 0}
+  originalPosition: {x: 0, y: 0, z: 0}
+  pulseClock: 0
+  pulseSwitch: 0
+  timeLimit: 0
+  resetSwitch: 0

@@ -10,15 +10,15 @@ using UnityEngine.EventSystems;
 
 public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler //, , , IPointerClickHandler
 {
-    [Header("Interaction Events - On Press")]
+    [Header("Primary Interaction Events (in desktop mode: Mouse)")]
     [Tooltip("In desktop mode: this is for when you press your mouse button (not release)")]
     public UnityEvent onPrimaryInteract;
+    [Tooltip("In desktop mode: this is for when you press release mouse button")]
+    public UnityEvent onPrimaryInteractLift;    
+
+    [Header("Secondary Interaction Events (in desktop mode: [F]")]
     [Tooltip("In desktop mode: this is for when you press [F] (not release)")]
     public UnityEvent onSecondaryInteract;
-
-    [Header("Interaction Events - On Lift (or release)")]
-    [Tooltip("In desktop mode: this is for when you press release mouse button")]
-    public UnityEvent onPrimaryInteractLift;
     [Tooltip("In desktop mode: this is for when you release [F]")]
     public UnityEvent onSecondaryInteractLift;
 
@@ -39,21 +39,32 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
     [Tooltip("Set to 0 or less to use default set on RaycastInteractor")]
     public float customHoldDistance = -1;
 
-    [Header("For Legacy Compatibility")]
-    [Tooltip("This event is the same as onPrimaryInteract. Use that instead. This is only here to keep old things from breaking.")]
-    public UnityEvent onFirstInteract;
+    //[Header("For Legacy Compatibility")]
+    //[Tooltip("This event is the same as onPrimaryInteract. Use that instead. This is only here to keep old things from breaking.")]
+    //public UnityEvent onFirstInteract;
 
-    [Header("Advanced Setting - Be Careful!")]
+    [Header("==== Advanced Setting - Be Careful!!! ====")]
+    [Tooltip("Be careful not to set up circular relays. This will cause infinite loops and crashes.")]
     public InteractableGeneral eventRelay;
+    public UnityEvent onPrimaryInteractBackground;
+    public UnityEvent onPrimaryInteractLiftBackground;
+    public UnityEvent onSecondaryInteractBackground;    
+    public UnityEvent onSecondaryInteractLiftBackground;
+    public UnityEvent onHoverEnterBackground;
+    public UnityEvent onHoverExitBackground;
     
 
     private void Start()
     {
-        //onPrimaryInteract.AddListener(ParentPulse);
-        //onHoverEnter.AddListener(ParentPulseUp);
-        //onHoverExit.AddListener(ParentPulseDown);
-        //onFirstInteract.AddListener(ParentPulse);
+        //attach background events
+        onPrimaryInteract.AddListener(OnPrimaryInteractBackground);
+        onPrimaryInteractLift.AddListener(OnPrimaryInteractLiftBackground);
+        onSecondaryInteract.AddListener(OnSecondaryInteractBackground);
+        onSecondaryInteractLift.AddListener(OnSecondaryInteractLiftBackground);
+        onHoverEnter.AddListener(OnHoverEnterBackground);
+        onHoverExit.AddListener(OnHoverExitBackground);
 
+        //link events to event relay object
         if (eventRelay != null)
         {
             onPrimaryInteract.AddListener(RelayOnPrimaryInteract);
@@ -65,8 +76,7 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
             onHoverEnter.AddListener(RelayOnHoverEnter);
             onHoverExit.AddListener(RelayOnHoverExit);
 
-
-            onFirstInteract.AddListener(RelayOnFirstInteract);
+            //onFirstInteract.AddListener(RelayOnFirstInteract);
 
             customTouchDistance = eventRelay.customTouchDistance;
             customHoldDistance = eventRelay.customHoldDistance;
@@ -153,11 +163,11 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
             eventRelay.onSecondaryInteractLift.Invoke();
     }
 
-    public void RelayOnFirstInteract()
-    {
-        if (eventRelay != null)
-            eventRelay.onFirstInteract.Invoke();
-    }
+    //public void RelayOnFirstInteract()
+    //{
+        //if (eventRelay != null)
+            //eventRelay.onFirstInteract.Invoke();
+    //}
 
     public void RelayOnHoverEnter()
     {
@@ -169,6 +179,37 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
     {
         if (eventRelay != null)
             eventRelay.onHoverExit.Invoke();
+    }
+
+    public void OnPrimaryInteractBackground()
+    {
+        if(eventRelay != null)
+            eventRelay.onPrimaryInteractBackground.Invoke();
+    }
+
+    public void OnPrimaryInteractLiftBackground()
+    {   
+        onPrimaryInteractLiftBackground.Invoke();
+    }
+
+    public void OnSecondaryInteractBackground()
+    {   
+        onSecondaryInteractBackground.Invoke();
+    }
+
+    public void OnSecondaryInteractLiftBackground()
+    {   
+        onSecondaryInteractLiftBackground.Invoke();
+    }
+
+    public void OnHoverEnterBackground()
+    {
+        onHoverEnterBackground.Invoke();
+    }
+
+    public void OnHoverExitBackground()
+    {
+        onHoverExitBackground.Invoke();
     }
 
     public void OnPointerDown(PointerEventData eventData)

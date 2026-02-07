@@ -8,27 +8,43 @@ using UnityEngine;
 
 public class TransformFollow : MonoBehaviour
 {
+    [Header("Position Settings")]
     public Transform subject;
+    public string defaultSubjectTag = "Player";
     public float positionSyncRate = 3;
     public Vector3 offset;
+    public bool autoSyncPosition = true;
 
-    public Quaternion startRotation;
+    [Header("Rotation Settings")]    
     public float yRotation;
     public bool autoSyncYRotation = false;
     public float rotationSyncRate = 0.1f;
+    public float rotationDeltaThreshold = 15f;
+    
 
     private void Start()
     {
-        startRotation = transform.rotation;
+        if (subject == null)
+        {
+            GameObject candidate = GameObject.FindGameObjectWithTag(defaultSubjectTag);
+            if (candidate != null)
+                subject = candidate.transform;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        SyncPosGradual();
+        if(autoSyncPosition)
+            SyncPosGradual();
 
         if (autoSyncYRotation)
-            SyncYRotationGradual();
+        {
+            if (Vector3.Angle(subject.forward, transform.forward) >= rotationDeltaThreshold)
+            {
+                SyncYRotationGradual();
+            }
+        }
     }
 
     public void SyncPosGradual()
@@ -51,6 +67,15 @@ public class TransformFollow : MonoBehaviour
         yRotation = goalRotation.eulerAngles.y;
 
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    public void ToggleAutoSyncPosition()
+    {
+        autoSyncPosition = !autoSyncPosition;
+    }
+    public void SetAutoSyncPosition(bool n)
+    {
+        autoSyncPosition = n;
     }
 
     public void ToggleAutoSyncYRotation()

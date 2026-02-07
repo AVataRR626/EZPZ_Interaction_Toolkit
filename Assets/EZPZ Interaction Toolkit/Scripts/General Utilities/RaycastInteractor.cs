@@ -376,7 +376,7 @@ public class RaycastInteractor : MonoBehaviour
                 subject.onPrimaryInteract.Invoke();
 
                 //legacy-----
-                subject.onFirstInteract.Invoke();
+                //subject.onFirstInteract.Invoke();
                 //legacy-----
 
                 HandleMovables(subject);

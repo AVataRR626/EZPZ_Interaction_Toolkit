@@ -43,6 +43,11 @@ public class ScalePulse : MonoBehaviour
             InvokeRepeating("Pulse", startDelay, pulseInterval);
     }
 
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
+
     void Reset()
     {
         pulseClock = 0;
