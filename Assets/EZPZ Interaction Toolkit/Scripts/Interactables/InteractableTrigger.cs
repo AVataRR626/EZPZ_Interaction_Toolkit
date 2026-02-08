@@ -12,10 +12,13 @@ public class InteractableTrigger : MonoBehaviour
     public bool visibleAtRuntime = false;
 
     [Header("Filter Settings")]
-    public string filterString = "";
+    [Tooltip("Use this in conjunction with the TriggerFilter component.")]
+    public string filterString = "";    
     public bool allowUnfiltered = true;
-    [Tooltip("")]
+    [Tooltip("If true: this will reject objects that meet the filter string criteria.")]
     public bool excludeMode = false;
+    [Tooltip("If you want to specifically exclude certain colliders, add them to this list.")]
+    public List<Collider> explicitExclusionList;
 
     [Header("Event Handling")]
     public UnityEvent onTriggerEnter;
@@ -47,6 +50,11 @@ public class InteractableTrigger : MonoBehaviour
         else
         {
             Debug.LogError("ERROR: Missing Collider on InteractableTrigger: " + name);
+        }
+
+        foreach(Collider x in explicitExclusionList)
+        {
+            Physics.IgnoreCollision(x, c);
         }
     }
 

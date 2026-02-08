@@ -1,8 +1,8 @@
 # Overview
 Quick prototyping interaction toolkit intended for non coders or Unity beginners.
 
-Quick, 23 minute video guide below: 
-* https://youtu.be/mIoewQ2zQBI
+Quick, 13 minute video guide below (12:44): 
+* https://youtu.be/dXHtWoNo1co
 
 Unity, quick reminder videos (most less than 2 mins):
 * https://www.youtube.com/playlist?list=PLZP8wzCUfgsIQBKy3F4EwIlDgjX4_JypG
