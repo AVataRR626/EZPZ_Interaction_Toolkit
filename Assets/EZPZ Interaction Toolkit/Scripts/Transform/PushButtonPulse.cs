@@ -75,6 +75,7 @@ public class PushButtonPulse : MonoBehaviour
                 positionAdd *= Mathf.Sin(Mathf.Deg2Rad * (pulseRatio * 180));
 
                 transform.localPosition = originalPosition + positionAdd;
+                
             }
             else
             {

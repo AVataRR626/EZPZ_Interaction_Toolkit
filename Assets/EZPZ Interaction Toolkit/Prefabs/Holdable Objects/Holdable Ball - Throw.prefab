@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.56, y: 0.65, z: -4.1}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,10 +51,10 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
-  onSecondaryInteract:
+  onPrimaryInteractLift:
     m_PersistentCalls:
       m_Calls: []
-  onPrimaryInteractLift:
+  onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onSecondaryInteractLift:
@@ -71,15 +71,30 @@ MonoBehaviour:
   heldText: 
   restrictSecondaryToHeldOnly: 0
   customHoldDistance: -1
-  onFirstInteract:
+  eventRelay: {fileID: 0}
+  onPrimaryInteractBackground:
     m_PersistentCalls:
       m_Calls: []
-  eventRelay: {fileID: 0}
+  onPrimaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnterBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExitBackground:
+    m_PersistentCalls:
+      m_Calls: []
   onDrop:
     m_PersistentCalls:
       m_Calls: []
   attachPoint: {fileID: 0}
-  throwForce: 2
+  throwForce: 4
   noCollideOnHold: 1
   groundPlace: 0
   dropOnKeyLift: 0
