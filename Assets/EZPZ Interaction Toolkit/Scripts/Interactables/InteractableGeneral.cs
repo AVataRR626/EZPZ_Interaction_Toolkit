@@ -13,10 +13,10 @@ public class InteractableGeneral : MonoBehaviour, IPointerDownHandler, IPointerE
     [Header("Primary Interaction Events (in desktop mode: Mouse)")]
     [Tooltip("In desktop mode: this is for when you press your mouse button (not release)")]
     public UnityEvent onPrimaryInteract;
-    [Tooltip("In desktop mode: this is for when you press release mouse button")]
+    [Tooltip("In desktop mode: this is for when you release the mouse button")]
     public UnityEvent onPrimaryInteractLift;    
 
-    [Header("Secondary Interaction Events (in desktop mode: [F]")]
+    [Header("Secondary Interaction Events (i.e. desktop mode: [F])")]
     [Tooltip("In desktop mode: this is for when you press [F] (not release)")]
     public UnityEvent onSecondaryInteract;
     [Tooltip("In desktop mode: this is for when you release [F]")]
