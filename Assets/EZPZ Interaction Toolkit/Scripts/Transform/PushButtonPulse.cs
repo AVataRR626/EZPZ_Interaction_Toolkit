@@ -94,7 +94,7 @@ public class PushButtonPulse : MonoBehaviour
 
     public void PulseUp()
     {
-        originalPosition = transform.localPosition;
+        //originalPosition = transform.localPosition;
         //Debug.Log("PulseUp");
         pulseClock = 0;
         timeLimit = pulseTime / 2;
@@ -114,7 +114,7 @@ public class PushButtonPulse : MonoBehaviour
     [ContextMenu("Pulse")]
     public void Pulse()
     {
-        originalPosition = transform.localPosition;
+        //originalPosition = transform.localPosition;
         pulseClock = 0;
         timeLimit = pulseTime;
         pulseSwitch = true;
@@ -123,7 +123,7 @@ public class PushButtonPulse : MonoBehaviour
 
     public void ResetPulse()
     {
-        transform.localPosition = originalPosition;
+        //transform.localPosition = originalPosition;
         pulseClock = 0;
         timeLimit = 0;
         pulseSwitch = false;
