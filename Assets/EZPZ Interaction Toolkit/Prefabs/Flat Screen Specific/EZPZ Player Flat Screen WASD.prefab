@@ -711,6 +711,7 @@ MonoBehaviour:
   rayLength: 100
   touchDistanceDefault: 5
   holdingDistanceDefault: 1
+  pickupAttachPoint: {fileID: 8758625330158988813}
   hoverTextRig: {fileID: 5944605577564912931}
   hoverTextDisplay: {fileID: 998904273805121170}
   useKeyTag: '%USE_KEY%'
@@ -725,7 +726,7 @@ MonoBehaviour:
   subject: {fileID: 0}
   prevHitSubject: {fileID: 0}
   hitSubject: {fileID: 0}
-  moveSubject: {fileID: 0}
+  holdableSubject: {fileID: 0}
   prevMoveSubject: {fileID: 0}
   typeSubject: {fileID: 0}
   interactState: 0
@@ -1881,6 +1882,37 @@ Transform:
   - {fileID: 8127922367183677637}
   m_Father: {fileID: 5839499766388119955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4714031401707705038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8758625330158988813}
+  m_Layer: 0
+  m_Name: PickupAttachPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8758625330158988813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4714031401707705038}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.227, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 625460372771822230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4744884651082206111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2925,6 +2957,7 @@ Transform:
   - {fileID: 5839499766388119955}
   - {fileID: 7110523511151488077}
   - {fileID: 4234378730332811342}
+  - {fileID: 8758625330158988813}
   m_Father: {fileID: 5477663902695651912}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &886374719924831829
@@ -2966,7 +2999,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1655
+    m_Bits: 631
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -4031,7 +4064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5949750088308786265, guid: 6b40b22ae5fcc444f8512a678772bc4d, type: 3}
       propertyPath: moveDeltaThreshold
-      value: 1.2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6446017642992636548, guid: 6b40b22ae5fcc444f8512a678772bc4d, type: 3}
       propertyPath: m_LocalPosition.x

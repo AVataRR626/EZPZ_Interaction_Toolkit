@@ -154,7 +154,7 @@ public class Holdable : InteractableGeneral
         if(myRayManipulator != null)
         {
             myRayManipulator.previousMoveParent = null;
-            myRayManipulator.moveSubject = null;
+            myRayManipulator.holdableSubject = null;
             myRayManipulator = null;
         }
 
