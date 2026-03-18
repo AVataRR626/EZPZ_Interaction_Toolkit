@@ -643,6 +643,8 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnNoClickable()
     {
+        subject = null;//make sure to de-register any previously selected subjects
+
         HandleHoverText(false);
 
         if (interactableIndicator != null)
