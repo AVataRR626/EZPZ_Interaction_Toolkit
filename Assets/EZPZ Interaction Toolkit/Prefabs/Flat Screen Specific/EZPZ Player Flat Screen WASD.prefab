@@ -2999,7 +2999,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 631
+    m_Bits: 1919
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -4062,9 +4062,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeltaBlockout Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 4685354941539918140, guid: 6b40b22ae5fcc444f8512a678772bc4d, type: 3}
+      propertyPath: startingTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949750088308786265, guid: 6b40b22ae5fcc444f8512a678772bc4d, type: 3}
+      propertyPath: subject
+      value: 
+      objectReference: {fileID: 4234378730332811342}
     - target: {fileID: 5949750088308786265, guid: 6b40b22ae5fcc444f8512a678772bc4d, type: 3}
       propertyPath: moveDeltaThreshold
-      value: 1.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6446017642992636548, guid: 6b40b22ae5fcc444f8512a678772bc4d, type: 3}
       propertyPath: m_LocalPosition.x

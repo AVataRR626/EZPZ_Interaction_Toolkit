@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 9142344015226850391}
   - component: {fileID: 8556138963668370003}
   - component: {fileID: 7332216168455625306}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teleport Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,6 +121,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8520755055008433707
 GameObject:
@@ -213,6 +214,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1570480004404111266
 BoxCollider:
@@ -251,17 +253,18 @@ MonoBehaviour:
   filterString: 
   allowUnfiltered: 1
   excludeMode: 0
+  explicitExclusionList: []
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls: []
+  deleteOnEnter: 0
+  disableOnEnter: 0
   onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
   onTriggerStay:
     m_PersistentCalls:
       m_Calls: []
-  deleteOnEnter: 0
-  disableOnEnter: 0
   subject: {fileID: 0}
   triggerActive: 1
   myRenderer: {fileID: 0}
