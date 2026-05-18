@@ -13,7 +13,7 @@ public class NumberHolder : MonoBehaviour
 {
     public float value;    
 
-    [Header("Display Parameters")]
+    [Header("HELLOOSDFS")]
     public string prefix = "$ ";
     public string suffix = " remaining";
     public string format = "N2";
