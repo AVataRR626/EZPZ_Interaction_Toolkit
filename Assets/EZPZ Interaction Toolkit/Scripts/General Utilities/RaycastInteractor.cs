@@ -25,6 +25,7 @@ public class RaycastInteractor : MonoBehaviour
     public float touchDistanceDefault = 5;
     public float holdingDistanceDefault = 1.5f;
     public Transform pickupAttachPoint;
+    public Transform dropoffPoint;
 
     [Header("Hover Text Settings")]
     public GameObject hoverTextRig;
@@ -567,6 +568,25 @@ public class RaycastInteractor : MonoBehaviour
                 Holdable.SetColliderIsTrigger(holdableSubject, false);
             }
 
+            if (!holdableSubject.groundPlace)
+            {
+                if (dropoffPoint != null)
+                {
+                    Vector3 attachPos = dropoffPoint.position;
+
+                    if (holdableSubject.customHoldDistance <= 0)
+                    {
+                        attachPos += dropoffPoint.forward * holdingDistanceDefault;
+                    }
+                    else
+                    {
+                        attachPos += dropoffPoint.forward * holdableSubject.customHoldDistance;
+                    }
+
+                    holdableSubject.transform.position = attachPos;
+                }
+            }
+
             if (subjectRbody != null)
             {
                 subjectRbody.useGravity = true;
@@ -585,6 +605,7 @@ public class RaycastInteractor : MonoBehaviour
             }
 
             //moveSubject.transform.parent = previousMoveParent;
+
             holdableSubject.transform.parent = null;
             previousMoveParent = null;
             holdableSubject = null;
