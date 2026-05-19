@@ -164,7 +164,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &4859962662348933498
 LineRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -210,6 +210,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0.91}
@@ -268,7 +269,6 @@ LineRenderer:
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
@@ -389,6 +389,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -456,6 +457,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &5473446108413297969
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -501,6 +503,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 3863253849783309283, guid: 1bef4402eb50e504f9fbc3b31af46235, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -510,7 +513,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &9147324656537439031
 GameObject:
@@ -565,12 +567,15 @@ MonoBehaviour:
     m_Bits: 64
   rayLength: 100
   touchDistanceDefault: 5
-  holdingDistanceDefault: 1.5
+  holdingDistanceDefault: 0.25
+  pickupAttachPoint: {fileID: 0}
+  dropoffPoint: {fileID: 0}
   hoverTextRig: {fileID: 0}
   hoverTextDisplay: {fileID: 0}
   useKeyTag: '%USE_KEY%'
   useKeyString: '[F]'
-  clickableIndicator: {fileID: 0}
+  interactableIndicator: {fileID: 0}
+  interactingIndicator: {fileID: 0}
   aimingCrosshair: {fileID: 0}
   keyboardFreezeIcon: {fileID: 0}
   tooFarIcon: {fileID: 9156337222755335246}
@@ -579,7 +584,7 @@ MonoBehaviour:
   subject: {fileID: 0}
   prevHitSubject: {fileID: 0}
   hitSubject: {fileID: 0}
-  moveSubject: {fileID: 0}
+  holdableSubject: {fileID: 0}
   prevMoveSubject: {fileID: 0}
   typeSubject: {fileID: 0}
   interactState: 0
@@ -592,6 +597,7 @@ MonoBehaviour:
   previousMoveParent: {fileID: 0}
   cameraCleanupOnStart: 1
   didHit: 0
+  primaryLiftFlag: 0
 --- !u!1 &9156337222755335246
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +625,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9156337222755335246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1895}
+  m_LocalPosition: {x: 0, y: 0, z: 0.035}
   m_LocalScale: {x: 0.0006025592, y: 0.0006025592, z: 0.0006025592}
   m_ConstrainProportionsScale: 0
   m_Children:
