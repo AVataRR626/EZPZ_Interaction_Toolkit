@@ -41,6 +41,7 @@ public class RaycastInteractor : MonoBehaviour
     public GameObject tooFarIcon;
     public Transform environmentHit;
     public Transform generalHit;
+    public Image throwForceBar;
 
     [Header("System Stuff (usually do not touch)")]
     public InteractableGeneral subject;
@@ -62,13 +63,23 @@ public class RaycastInteractor : MonoBehaviour
     public bool primaryLiftFlag = false;
     Rigidbody subjectRbody;
     RaycastHit hit;
+    public float primaryHoldTime = 0;
+    public bool throwFlag = false;//intended as the safety flag for throwing, true means you can throw;
     // Start is called before the first frame update
     void Start()
     {
+        primaryHoldTime = 0;
+        throwFlag = false;
+
+
         if (transform.localScale.x != 1 || transform.localScale.y != 1 || transform.localScale.z != 1)
         {
             Debug.LogError("!!!!! ALERT !!!!!" + name + " SCALE IS NOT (1,1,1). This will cause object pickup & drop problems. Reset scale to (1,1,1)");
         }
+
+        if (dropoffPoint == null)
+            dropoffPoint = transform;
+        
 
         if (rayPointer == null)
             rayPointer = transform;
@@ -102,19 +113,6 @@ public class RaycastInteractor : MonoBehaviour
         EventSystemCleanup();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //interactState = Key
-
-        HandleEnvironmentRaycast();
-        HandleRaycastInteractions();
-
-        prevHitSubject = hitSubject;
-        prevInteractState = interactState;
-        interactState = false;
-    }
-
     public void CameraCleanup()
     {
         Debug.Log("Camera Cleanup");
@@ -143,6 +141,49 @@ public class RaycastInteractor : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        //interactState = Key
+
+        HandleEnvironmentRaycast();
+        HandleRaycastInteractions();
+        TrackHoldTime();
+
+        prevHitSubject = hitSubject;
+        prevInteractState = interactState;
+        interactState = false;
+    }
+
+    public void TrackHoldTime()
+    {
+        if(!primaryLiftFlag)
+        {
+            primaryHoldTime += Time.deltaTime;
+
+            if(throwForceBar != null)
+            { 
+                if (holdableSubject != null)
+                {
+                    if (holdableSubject.maxThrowHoldTime > 0 && holdableSubject.throwForceFactor > 0 && throwFlag)
+                    {
+                        //throwForceBar.fillAmount = Mathf.Min(1, primaryHoldTime / holdableSubject.maxThrowHoldTime);
+                        throwForceBar.fillAmount = primaryHoldTime / holdableSubject.maxThrowHoldTime;
+                    }
+                }
+            }
+        }
+        else
+        {
+            primaryHoldTime = 0;
+
+            if(throwForceBar != null)
+            {
+                throwForceBar.fillAmount = 0;
+            }
+        }
+    }
+
     public void EventSystemCleanup()
     {
         if (myEventSystem != null)
@@ -164,7 +205,7 @@ public class RaycastInteractor : MonoBehaviour
 
     public void OnFire()
     {
-        //Debug.Log("OnFire");
+        Debug.Log("OnFire");
         ForceInteract();
 
         primaryLiftFlag = false;
@@ -185,7 +226,20 @@ public class RaycastInteractor : MonoBehaviour
         if (holdableSubject != null)
         {
             if (holdableSubject.dropOnKeyLift)
-                DropMovable();
+                DropHoldable();
+
+
+            if (holdableSubject.moving)
+            {
+                if (throwFlag)
+                {
+                    DropHoldable();
+                }
+                else
+                {
+                    throwFlag = true;
+                }
+            }  
         }
     }
 
@@ -387,8 +441,8 @@ public class RaycastInteractor : MonoBehaviour
                 //subject.onFirstInteract.Invoke();
                 //legacy-----
 
-                HandleMovables(subject);
-                HandleTypables(subject);
+                HandleHoldablesOnRaycastHit(subject);
+                HandleTypablesOnRaycastHit(subject);
             }
         }
         else
@@ -458,7 +512,7 @@ public class RaycastInteractor : MonoBehaviour
 
     }
 
-    void HandleMovables(InteractableGeneral hitSubject)
+    void HandleHoldablesOnRaycastHit(InteractableGeneral hitSubject)
     {
 
         if (holdableSubject == null)
@@ -468,34 +522,37 @@ public class RaycastInteractor : MonoBehaviour
         else
         {
             //Debug.Log("Pre-existing object!");
-            DropMovable();
+            //DropHoldable();
         }
 
         if (holdableSubject != null)
         {
             if (!holdableSubject.moving)
             {
-                GrabMovable();
+                GrabHoldable();
             }
             else
             {
+                
                 if (holdableSubject.myRayManipulator == this)
                 {
-                    DropMovable();
+                    //DropHoldable();
+                    //throwFlag = true;
                 }
                 else
                 {
                     Holdable newGrab = holdableSubject;
-                    holdableSubject.myRayManipulator.DropMovable();
+                    holdableSubject.myRayManipulator.DropHoldable();
 
                     holdableSubject = newGrab;
-                    GrabMovable();
+                    GrabHoldable();
                 }
+                
             }
         }
     }
 
-    public void GrabMovable()
+    public void GrabHoldable()
     {
         //Pick up objects
         holdableSubject.Grab(this);
@@ -556,10 +613,12 @@ public class RaycastInteractor : MonoBehaviour
         }
     }
 
-    public void DropMovable()
+    public void DropHoldable()
     {
         if (holdableSubject != null)
         {
+            throwFlag = false;
+
             holdableSubject.moving = false;
             holdableSubject.Drop();
 
@@ -592,10 +651,20 @@ public class RaycastInteractor : MonoBehaviour
                 subjectRbody.useGravity = true;
                 subjectRbody.isKinematic = false;
 
-                if (holdableSubject.throwForce > 0)
+                if (holdableSubject.throwForceFactor > 0)
                 {
-                    Vector3 direction = holdableSubject.transform.position - rayPointer.position;
-                    subjectRbody.AddForce(holdableSubject.throwForce * direction * 100);
+                    //Vector3 direction = holdableSubject.transform.position - rayPointer.position;
+                    Vector3 direction = dropoffPoint.forward;
+                    Vector3 finalForce = Vector3.zero;
+
+
+                    if (primaryHoldTime < holdableSubject.maxThrowHoldTime)
+                        finalForce = holdableSubject.throwForceFactor * direction * 100 * primaryHoldTime;
+                    else
+                        finalForce = holdableSubject.throwForceFactor * direction * 100 * holdableSubject.maxThrowHoldTime;
+
+                    Debug.Log("----- Final Throw Force: " + finalForce);
+                    subjectRbody.AddForce(finalForce);
                 }
             }
 
@@ -626,11 +695,11 @@ public class RaycastInteractor : MonoBehaviour
 
         if (interactState && !prevInteractState)
         {
-            DropMovable();
+            //DropHoldable();
         }
     }
 
-    public void HandleTypables(InteractableGeneral hitSubject)
+    public void HandleTypablesOnRaycastHit(InteractableGeneral hitSubject)
     {
         typeSubject = hitSubject.GetComponent<Typable>();
 

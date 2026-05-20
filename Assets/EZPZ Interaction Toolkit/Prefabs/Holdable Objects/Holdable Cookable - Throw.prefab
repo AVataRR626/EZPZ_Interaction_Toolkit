@@ -405,10 +405,10 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
-  onSecondaryInteract:
+  onPrimaryInteractLift:
     m_PersistentCalls:
       m_Calls: []
-  onPrimaryInteractLift:
+  onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onSecondaryInteractLift:
@@ -422,18 +422,34 @@ MonoBehaviour:
       m_Calls: []
   hoverText: 
   customTouchDistance: -1
+  heldText: 
   restrictSecondaryToHeldOnly: 0
   customHoldDistance: -1
-  heldText: 
-  onFirstInteract:
+  eventRelay: {fileID: 0}
+  onPrimaryInteractBackground:
     m_PersistentCalls:
       m_Calls: []
-  eventRelay: {fileID: 0}
+  onPrimaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnterBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExitBackground:
+    m_PersistentCalls:
+      m_Calls: []
   onDrop:
     m_PersistentCalls:
       m_Calls: []
   attachPoint: {fileID: 0}
-  throwForce: 1
+  throwForceFactor: 6
+  maxThrowHoldTime: 1
   noCollideOnHold: 1
   groundPlace: 0
   dropOnKeyLift: 0
@@ -545,6 +561,7 @@ MonoBehaviour:
   filterString: HEAT
   allowUnfiltered: 0
   excludeMode: 0
+  explicitExclusionList: []
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
@@ -584,6 +601,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  deleteOnEnter: 0
+  disableOnEnter: 0
   onTriggerExit:
     m_PersistentCalls:
       m_Calls:
@@ -614,8 +633,6 @@ MonoBehaviour:
   onTriggerStay:
     m_PersistentCalls:
       m_Calls: []
-  deleteOnEnter: 0
-  disableOnEnter: 0
   subject: {fileID: 0}
   triggerActive: 1
   myRenderer: {fileID: 0}

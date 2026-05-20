@@ -51,10 +51,10 @@ MonoBehaviour:
   onPrimaryInteract:
     m_PersistentCalls:
       m_Calls: []
-  onSecondaryInteract:
+  onPrimaryInteractLift:
     m_PersistentCalls:
       m_Calls: []
-  onPrimaryInteractLift:
+  onSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
   onSecondaryInteractLift:
@@ -71,15 +71,31 @@ MonoBehaviour:
   heldText: 
   restrictSecondaryToHeldOnly: 0
   customHoldDistance: -1
-  onFirstInteract:
+  eventRelay: {fileID: 0}
+  onPrimaryInteractBackground:
     m_PersistentCalls:
       m_Calls: []
-  eventRelay: {fileID: 0}
+  onPrimaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnterBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExitBackground:
+    m_PersistentCalls:
+      m_Calls: []
   onDrop:
     m_PersistentCalls:
       m_Calls: []
   attachPoint: {fileID: 0}
-  throwForce: 2
+  throwForceFactor: 3
+  maxThrowHoldTime: 2
   noCollideOnHold: 1
   groundPlace: 0
   dropOnKeyLift: 0
