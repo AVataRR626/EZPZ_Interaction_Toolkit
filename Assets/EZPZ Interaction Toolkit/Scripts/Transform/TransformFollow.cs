@@ -15,15 +15,20 @@ public class TransformFollow : MonoBehaviour
     public Vector3 offset;
     public bool autoSyncPosition = true;
 
-    [Header("Y Rotation Settings")]    
-    public float yRotation;
-    public bool autoSyncYRotation = false;
+    [Header("General Rotation Settings (prioritised)")]
+    [Tooltip("Full rotation settings are prioritised over Y rotation settings")]
+    public bool autoSyncRotation = false;
     public float rotationSyncRate = 0.1f;
     public float rotationDeltaThreshold = 15f;
 
-    [Header("Full Rotation Settings (prioritised)")]
-    public bool autoSyncRotation = false;
-    
+    [Header("Y Rotation Settings")]    
+    [Tooltip("If you want this active, make sure full rotation syncing is disabled")]
+    public bool autoSyncYRotation = false;
+    public float yRotation;
+
+
+
+
 
     private void Start()
     {
@@ -41,9 +46,9 @@ public class TransformFollow : MonoBehaviour
         if(autoSyncPosition)
             SyncPosGradual();
 
-        if(autoSyncYRotation)
+        if(autoSyncRotation)
         {
-            SyncRotation();
+            SyncRotationGradual();
         }
         else if (autoSyncYRotation)
         {
@@ -79,6 +84,15 @@ public class TransformFollow : MonoBehaviour
         yRotation = goalRotation.eulerAngles.y;
 
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    public void SyncRotationGradual()
+    {
+        Quaternion subjectRotation = subject.rotation;
+        Quaternion currentRotation = transform.rotation;
+        Quaternion goalRotation = Quaternion.Lerp(currentRotation, subjectRotation, rotationSyncRate * Time.deltaTime);
+
+        transform.rotation = goalRotation;
     }
 
     public void ToggleAutoSyncPosition()
