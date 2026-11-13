@@ -1,6 +1,4 @@
-﻿
-/*
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -8,8 +6,8 @@ using System;
 using System.IO;
 using System.Reflection;
 
-//[CustomEditor(typeof(Readme))]
-//[InitializeOnLoad]
+[CustomEditor(typeof(Readme))]
+[InitializeOnLoad]
 public class ReadmeEditor : Editor {
 	
 	static string kShowedReadmeSessionStateName = "ReadmeEditor.showedReadme";
@@ -126,7 +124,6 @@ public class ReadmeEditor : Editor {
 		m_BodyStyle = new GUIStyle(EditorStyles.label);
 		m_BodyStyle.wordWrap = true;
 		m_BodyStyle.fontSize = 14;
-		m_BodyStyle.richText = true;
 		
 		m_TitleStyle = new GUIStyle(m_BodyStyle);
 		m_TitleStyle.fontSize = 26;
@@ -158,5 +155,4 @@ public class ReadmeEditor : Editor {
 		return GUI.Button (position, label, LinkStyle);
 	}
 }
-*/
 
