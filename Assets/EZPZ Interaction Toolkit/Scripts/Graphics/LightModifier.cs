@@ -32,4 +32,46 @@ public class LightModifier : MonoBehaviour
     {
         SubtractColour();
     }
+
+    public void AddRed(float c)
+    {
+        Color newDelta = new Color(c,0,0);
+
+        lightSource.color += newDelta;
+    }
+
+    public void SubtractRed(float c)
+    {
+        Color newDelta = new Color(c, 0, 0);
+
+        lightSource.color -= newDelta;
+    }
+
+    public void AddGreen(float c)
+    {
+        Color newDelta = new Color(0, c, 0);
+
+        lightSource.color += newDelta;
+    }
+
+    public void SubtractGreen(float c)
+    {
+        Color newDelta = new Color(0, c, 0);
+
+        lightSource.color -= newDelta;
+    }
+
+    public void AddBlue(float c)
+    {
+        Color newDelta = new Color(0, 0, c);
+
+        lightSource.color += newDelta;
+    }
+
+    public void SubtractBlue(float c)
+    {
+        AddBlue(-c);
+    }
+
+
 }
