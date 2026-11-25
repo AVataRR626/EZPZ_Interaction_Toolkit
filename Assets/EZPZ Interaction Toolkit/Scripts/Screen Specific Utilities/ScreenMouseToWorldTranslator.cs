@@ -65,7 +65,7 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
 
         if (didHit)
         {
-            Debug.Log("HIT!")
+            Debug.Log("HIT!");
 
             if(subject != null)
                 subject.position = hit.point;
