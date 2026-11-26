@@ -59,7 +59,7 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
         if(clickMode == ClickMode.ONE_TOUCH)
             OneTouchPoll();
 
-        if(clickMode != ClickMode.TWO_TOUCH)
+        if(clickMode == ClickMode.TWO_TOUCH)
             TwoTouchPoll();
     }
 
