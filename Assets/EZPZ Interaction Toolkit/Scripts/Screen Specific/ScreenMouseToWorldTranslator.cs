@@ -4,14 +4,18 @@ using UnityEngine.InputSystem;
 public class ScreenMouseToWorldTranslator : MonoBehaviour
 {
 
+    public enum ClickMode{LEFT_CLICK, RIGHT_CLICK};
+
     [Header("Primary Settings")]
     public Mouse currentMouse;    
     public Transform subject;
+    public ClickMode clickMode;
+    
 
     [Header("Raycast Related")]
     public Camera referenceCamera;
     public Vector2 pointerScreenPos;
-    public float rayLength;
+    public float rayLength = 100;
     public LayerMask layerMask;
 
     public bool didHit = false;
@@ -33,7 +37,11 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
     {
         TrackMouse();
 
-        LeftClickPoll();
+        if(clickMode == ClickMode.LEFT_CLICK)
+            LeftClickPoll();
+
+        if(clickMode == ClickMode.RIGHT_CLICK)
+            RightClickPoll();
     }
 
     public void TrackMouse()
@@ -56,6 +64,19 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
         }
     }
 
+    public void RightClickPoll()
+    {
+        if (currentMouse != null)
+        {
+            if (currentMouse.rightButton.wasPressedThisFrame)
+            {
+
+                Debug.Log("-----PRESS----");
+                HandleRaycast();
+            }
+        }
+    }
+
     public void HandleRaycast()
     {
 
@@ -65,7 +86,9 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
 
         if (didHit)
         {
-            Debug.Log("HIT!");
+            Debug.Log("---HIT!");
+
+            Debug.Log("----POINT COORDINATES: ----- " + hit.point.ToString());
 
             if(subject != null)
                 subject.position = hit.point;
