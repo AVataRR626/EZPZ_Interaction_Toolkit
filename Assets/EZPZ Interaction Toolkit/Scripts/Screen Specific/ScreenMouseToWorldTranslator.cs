@@ -1,11 +1,17 @@
+//script for EZPZ Interaction Toolkit
+//by Matt Cabanag
+//created 25 Nov 2026
+
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 public class ScreenMouseToWorldTranslator : MonoBehaviour
 {
 
-    public enum ClickMode{LEFT_CLICK, RIGHT_CLICK};
+    public enum ClickMode{LEFT_CLICK, RIGHT_CLICK, ONE_TOUCH, TWO_TOUCH};
 
     [Header("Primary Settings")]
    
@@ -49,6 +55,12 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
 
         if(clickMode == ClickMode.RIGHT_CLICK)
             RightClickPoll();
+
+        if(clickMode == ClickMode.ONE_TOUCH)
+            OneTouchPoll();
+
+        if(clickMode != ClickMode.TWO_TOUCH)
+            TwoTouchPoll();
     }
 
     public void TrackMouse()
@@ -78,11 +90,35 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
         {
             if (currentMouse.rightButton.wasPressedThisFrame)
             {
-
-                Debug.Log("-----PRESS----");
                 HandleRaycast();
                 onClick.Invoke();
             }
+        }
+    }
+
+    public void OneTouchPoll()
+    {
+        if (Touch.activeTouches.Count == 1)
+        {
+            Debug.Log("-----scmt ONE TOUCH----");
+
+            pointerScreenPos = Touch.activeTouches[0].screenPosition;
+
+            HandleRaycast();
+            onClick.Invoke();
+        }
+    }
+
+    public void TwoTouchPoll()
+    {
+        if (Touch.activeTouches.Count == 2)
+        {
+            Debug.Log("-----scmt TWO TOUCH----");
+
+            pointerScreenPos = Touch.activeTouches[1].screenPosition;
+
+            HandleRaycast();
+            onClick.Invoke();
         }
     }
 

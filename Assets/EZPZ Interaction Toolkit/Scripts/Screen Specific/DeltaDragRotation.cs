@@ -1,10 +1,17 @@
+//script for EZPZ Interaction Toolkit
+//by Matt Cabanag
+//created 26 Nov 2026
+
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 public class DeltaDragRotation : MonoBehaviour
 {
-    public enum ClickMode { LEFT_CLICK, RIGHT_CLICK };
+    public enum ClickMode {LEFT_CLICK, RIGHT_CLICK, ONE_TOUCH, TWO_TOUCH};
 
     [Header("Core Settings")]
     public Transform yawReference;
@@ -25,6 +32,9 @@ public class DeltaDragRotation : MonoBehaviour
     {
         if (Mouse.current != null)
             currentMouse = Mouse.current;
+
+
+        EnhancedTouchSupport.Enable();
     }
 
     // Update is called once per frame
@@ -40,7 +50,11 @@ public class DeltaDragRotation : MonoBehaviour
             if(clickMode == ClickMode.RIGHT_CLICK)
                 RightPressPoll();
 
-            
+            if (clickMode == ClickMode.ONE_TOUCH)
+                OneTouchDragPoll();
+
+            if (clickMode == ClickMode.TWO_TOUCH)
+                TwoTouchDragPoll();
         }
 
         
@@ -63,6 +77,36 @@ public class DeltaDragRotation : MonoBehaviour
         {
             HandleDragYaw();
             HandleDragPitch();
+
+            onDrag.Invoke();
+        }
+    }
+
+    public void OneTouchDragPoll()
+    {
+        if (Touch.activeTouches.Count == 1)
+        {
+            Debug.Log("---- ddr: OneTouch");
+
+            delta = Touch.activeTouches[0].delta;
+
+            HandleDragPitch();
+            HandleDragYaw();
+
+            onDrag.Invoke();
+        }
+    }
+
+    public void TwoTouchDragPoll()
+    {
+        if(Touch.activeTouches.Count == 2)
+        {
+            Debug.Log("---- ddr: TwoTouch");
+
+            delta = Touch.activeTouches[1].delta;
+
+            HandleDragPitch();
+            HandleDragYaw();
 
             onDrag.Invoke();
         }

@@ -1,3 +1,7 @@
+//script for EZPZ Interaction Toolkit
+//by Matt Cabanag
+//created 26 Nov 2026
+
 using UnityEngine;
 
 public class RotationSync : MonoBehaviour
