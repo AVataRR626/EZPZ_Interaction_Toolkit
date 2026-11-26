@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6169699101211788951}
-  - component: {fileID: 867712017658908154}
   - component: {fileID: 4554099296254276193}
   - component: {fileID: 3503533722021059823}
   - component: {fileID: 3167347948386551176}
+  - component: {fileID: 8741228384318731777}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -35,21 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1200967429867271395}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &867712017658908154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441076803866885959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 193d919e0ab0c6e40baa25c3d85b783f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RotationSync
-  goalReference: {fileID: 6955276774646569533}
-  subject: {fileID: 6169699101211788951}
-  alignmentSpeed: 1
 --- !u!20 &4554099296254276193
 Camera:
   m_ObjectHideFlags: 0
@@ -153,6 +138,21 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &8741228384318731777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441076803866885959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193d919e0ab0c6e40baa25c3d85b783f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotationSync
+  goalReference: {fileID: 6955276774646569533}
+  subject: {fileID: 6169699101211788951}
+  alignmentSpeed: 1
 --- !u!1 &1535530933155428633
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +199,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScreenMouseToWorldTranslator
   subject: {fileID: 8489250823750596378}
   clickMode: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
   referenceCamera: {fileID: 4554099296254276193}
   pointerScreenPos: {x: 0, y: 0}
   rayLength: 1000
@@ -218,7 +221,7 @@ GameObject:
   - component: {fileID: 7463096937633714706}
   - component: {fileID: 4793204209385413960}
   m_Layer: 0
-  m_Name: GFX (1)
+  m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,6 +345,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScreenMouseToWorldTranslator
   subject: {fileID: 4403592624318077483}
   clickMode: 1
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
   referenceCamera: {fileID: 4554099296254276193}
   pointerScreenPos: {x: 0, y: 0}
   rayLength: 1000
@@ -657,7 +663,7 @@ GameObject:
   - component: {fileID: 1200967429867271395}
   - component: {fileID: 8520219184659705438}
   m_Layer: 0
-  m_Name: EZPZ Player Flat Screen CLICK
+  m_Name: EZPZ Player Flat Screen CLICK_MOVE_AND_LOOK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

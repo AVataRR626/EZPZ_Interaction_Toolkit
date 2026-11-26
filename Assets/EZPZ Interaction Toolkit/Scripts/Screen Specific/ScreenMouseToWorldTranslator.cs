@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class ScreenMouseToWorldTranslator : MonoBehaviour
 {
@@ -7,9 +8,10 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
     public enum ClickMode{LEFT_CLICK, RIGHT_CLICK};
 
     [Header("Primary Settings")]
-    public Mouse currentMouse;    
+   
     public Transform subject;
     public ClickMode clickMode;
+    public UnityEvent onClick;
     
 
     [Header("Raycast Related")]
@@ -18,6 +20,8 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
     public float rayLength = 100;
     public LayerMask layerMask;
 
+    [Header("System Stuff - Usually Don't Touch")]
+    public Mouse currentMouse;
     public bool didHit = false;
     RaycastHit hit;
     Ray screenRay;
@@ -60,6 +64,7 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
             {
                 Debug.Log("-----PRESS----");
                 HandleRaycast();
+                onClick.Invoke();
             }
         }
     }
@@ -73,6 +78,7 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
 
                 Debug.Log("-----PRESS----");
                 HandleRaycast();
+                onClick.Invoke();
             }
         }
     }
@@ -90,8 +96,12 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
 
             Debug.Log("----POINT COORDINATES: ----- " + hit.point.ToString());
 
-            if(subject != null)
+
+            if (subject != null)
+            {
                 subject.position = hit.point;
+                subject.rotation = Quaternion.FromToRotation(transform.up, hit.normal);
+            }
         }
     }
 }
