@@ -14,16 +14,19 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
     public UnityEvent onClick;
     
 
-    [Header("Raycast Related")]
+    [Header("Raycast Settings")]
     public Camera referenceCamera;
     public Vector2 pointerScreenPos;
     public float rayLength = 100;
-    public LayerMask layerMask;
+    public LayerMask includeLayers;
+    public LayerMask excludeLayers;
 
     [Header("System Stuff - Usually Don't Touch")]
     public Mouse currentMouse;
-    public bool didHit = false;
-    RaycastHit hit;
+    public bool didHitInclude = false;
+    public bool didHitExclude = false;
+    RaycastHit hitInclude;
+    RaycastHit hitExclude;
     Ray screenRay;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -88,19 +91,23 @@ public class ScreenMouseToWorldTranslator : MonoBehaviour
 
         screenRay = referenceCamera.ScreenPointToRay(pointerScreenPos);
 
-        didHit = Physics.Raycast(screenRay.origin, screenRay.direction, out hit, rayLength, layerMask);
+        didHitInclude = Physics.Raycast(screenRay.origin, screenRay.direction, out hitInclude, rayLength, includeLayers);
+        didHitExclude = Physics.Raycast(screenRay.origin, screenRay.direction, out hitExclude, rayLength, excludeLayers);
 
-        if (didHit)
+        if(!didHitExclude)
         {
-            Debug.Log("---HIT!");
-
-            Debug.Log("----POINT COORDINATES: ----- " + hit.point.ToString());
-
-
-            if (subject != null)
+            if (didHitInclude)
             {
-                subject.position = hit.point;
-                subject.rotation = Quaternion.FromToRotation(transform.up, hit.normal);
+                Debug.Log("---HIT!");
+
+                Debug.Log("----POINT COORDINATES: ----- " + hitInclude.point.ToString());
+
+
+                if (subject != null)
+                {
+                    subject.position = hitInclude.point;
+                    subject.rotation = Quaternion.FromToRotation(transform.up, hitInclude.normal);
+                }
             }
         }
     }
